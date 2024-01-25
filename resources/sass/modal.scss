@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1036px) {
+  .modal-90w {
+    max-width: 90% !important;
+  }
+}
+
+.notificationModal {
+  border-radius: 20px !important;
+}
+
+.headerNotification {
+  display: flex;
+  flex-direction: row-reverse;
+}
