@@ -5,3 +5,41 @@ $body-bg: #f8fafc;
 $font-family-sans-serif: "Gotham";
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+$primary: #232D3F;
+$primary-100: #15191B;
+$primary-200: #171C20;
+$primary-300: #151C27;
+$primary-400: #222e37;
+$primary-500: #223030;
+$secondary: #F99F21;
+
+$primary-text: #EFEFEF;
+$primary-text-100: #E7E7E7;
+$primary-text-200: #E2E2E2;
+
+$error: #D02E1A;
+$success: #1AD058;
+$green: #4BB543;
+$white: #FFFFFF;
+$black: #000000;
+$dark: #162323;
+$dark-100: #11151F;
+$gray: #2E383E;
+$gray-100: #272E32;
+$light-gray: #4C5B64;
+$light-gray-100: #52626B;
+$yellow-border: #E6B524;
+$yellow: #FFC929;
+$wheat: #FFECB2;
+$wheat-100: #DFCE9C;
+$aeroblue: #CAF2E6;
+$yellow-gradient: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+$peach-gradient: linear-gradient(261deg, #FFB52D 0%, #FF9960 50%, #FFCE83 100%);
+$dark-gradient: linear-gradient(258deg, #232D31 0%, #050E12 100%);
+
+$header-bg: $primary-300;
+$footer-bg: $primary-300;
+$nav-bg: $primary;
+$content-bg: $primary-300;
+$account-setting-bg: $primary;

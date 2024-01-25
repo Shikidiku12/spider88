@@ -5,11 +5,11 @@ import ToastContainer from 'react-bootstrap/ToastContainer';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-export const GamesList = ({ 
-  filter, 
-  user, 
-  isLogin, 
-  games, 
+export const GamesList = ({
+  filter,
+  user,
+  isLogin,
+  games,
   setGames,
   setIsShowLoginNotificationModal
 }) => {
@@ -22,7 +22,7 @@ export const GamesList = ({
   const objectToQueryString = (obj) => {
     const keys = Object.keys(obj);
     const keyValuePairs = keys.map(key => {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]); 
+      return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
     });
     return keyValuePairs.join('&');
   };
@@ -39,9 +39,9 @@ export const GamesList = ({
     }
 
     window.iapiLoginAndGetTempToken(
-      user.username, 
-      Cookies.get('password'), 
-      language, 
+      user.username,
+      Cookies.get('password'),
+      language,
       languageCode
     );
     const queryParams = {
@@ -55,7 +55,7 @@ export const GamesList = ({
       languageCode: 'LoginService',
     };
 
-    const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?' 
+    const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?'
       + objectToQueryString(queryParams);
 
     const formData = new FormData();
@@ -78,7 +78,7 @@ export const GamesList = ({
         clientPlatform: 'web',
         language: 'EN',
         playMode: 1,
-        depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html' 
+        depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html'
       };
       const gameLaunchUrl = 'https://login.flyingdragon88.com/GameLauncher?'
         + objectToQueryString(gameLaunchParams);
@@ -87,7 +87,7 @@ export const GamesList = ({
       console.log('err', err);
     } finally {
 
-    } 
+    }
   };
 
   const onMouseOver = (ev, game) => {
@@ -97,7 +97,7 @@ export const GamesList = ({
     updatedGames.game = updatedGame;
     setGames(updatedGames)
   };
-  
+
   const onMouseOut = (ev, game) => {
     const updatedGames = [...games];
     const updatedGame = updatedGames.find(updatedGame => updatedGame.id === game.id);
@@ -112,26 +112,26 @@ export const GamesList = ({
 
   return (
     <React.Fragment>
-      <div className="mx-5 py-4">
+      <div className="">
         <div className="row">
         {
           games.map((game, index) => {
             return (
-              <div 
-                key={game.id} 
-                className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-4" 
+              <div
+                key={game.id}
+                className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-4"
                 onMouseOver={(ev) => onMouseOver(ev, game)}
                 onMouseOut={(ev) => onMouseOut(ev, game)}
               >
                 <div className="image-wrapper d-flex justify-content-center">
-                  <img 
+                  <img
                     alt={game.name}
-                    src={`/images/games_icons_desktop/${fetchImageName(game)}.jpg`} 
-                    className="rounded img-fluid" 
+                    src={`/images/games_icons_desktop/${fetchImageName(game)}.jpg`}
+                    className="rounded img-fluid"
                   />
                   <div className={`overlay mb-3 ${game.isHover ? '' : 'd-none'}`}>
                     <div className="d-sm-flex d-lg-none flex-column px-5">
-                      <button 
+                      <button
                         type="button"
                         onClick={(ev) => launchActualGame(ev, game)}
                         className="btn-game w-auto flex-fill py-3 mb-3"
@@ -139,7 +139,7 @@ export const GamesList = ({
                         Play
                       </button>
                       { !game.is_live &&
-                        <button 
+                        <button
                           type="button"
                           onClick={(ev) => launchDemoGame(ev, game)}
                           className="btn-game w-auto flex-fill py-3 mb-3"
@@ -149,7 +149,7 @@ export const GamesList = ({
                       }
                     </div>
                     <div className="d-lg-flex justify-content-evenly d-none">
-                      <button 
+                      <button
                         type="button"
                         onClick={(ev) => launchActualGame(ev, game)}
                         className="btn-game"
@@ -157,7 +157,7 @@ export const GamesList = ({
                         Play
                       </button>
                       { !game.is_live &&
-                        <button 
+                        <button
                           type="button"
                           onClick={(ev) => launchDemoGame(ev, game)}
                           className="btn-game"
