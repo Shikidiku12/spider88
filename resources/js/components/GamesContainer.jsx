@@ -5,10 +5,11 @@ import { GameFilterMobile } from './GameFilterMobile';
 import { GamesList } from './GamesList';
 import { Filters } from '../enums/Filters';
 
-export const GamesContainer = ({ 
-  user, 
+export const GamesContainer = ({
+  user,
   isLogin,
-  setIsShowLoginNotificationModal
+  setIsShowLoginNotificationModal,
+  currentMenu
 }) => {
   // TODO: Use enums instead of strings
   //const [filter, setFilter] = useState<Filters>(Filters.ALL);
@@ -21,6 +22,7 @@ export const GamesContainer = ({
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => setIsLoading(false), 500);
+    setFilter(currentMenu);
 
     if (filter === 'slot') {
       setFilteredGames(games.filter(game => {
@@ -46,7 +48,7 @@ export const GamesContainer = ({
     setFilteredGames(games.filter(game => {
       return game.name.toLowerCase().includes(search.toLowerCase());
     }));
-  }, [filter, search]);
+  }, [filter, search, currentMenu]);
 
   useEffect(() => {
     const init = async () => {
@@ -68,53 +70,66 @@ export const GamesContainer = ({
   }, []);
 
   return (
-    <div className="container-games pt-4 pb-4 mb-5">
+    <div className="main-content">
 
-      <div className="mx-5 row d-lg-none">
-        <div className="col">
-          <h2>
-          {filter.charAt(0).toUpperCase() + filter.slice(1)} Games
-          </h2>
-        </div>
-        <div className="col">
-          <div className="input-group">
-            <input 
-              value={search}
-              onChange={(ev) => setSearch(ev.target.value)}
-              placeholder="Search Game ..."
-              type="text" 
-              className="text-dark form-control form-control-sm bg-light placeholder-dark border-0" 
-            />
-            <span className="input-group-text bg-light border-0">
-              <img src="/images/search_icon.svg" />
+      <div className="main-content__wrapper">
+        <div className=" row d-lg-none">
+          <div className="col">
+            <h2>
+              {filter.charAt(0).toUpperCase() + filter.slice(1)} Games
+            </h2>
+          </div>
+          <div className="col">
+            <div className="input-group">
+              <input
+                value={search}
+                onChange={(ev) => setSearch(ev.target.value)}
+                placeholder="Search Game ..."
+                type="text"
+                className="text-dark form-control form-control-sm bg-light placeholder-dark border-0"
+              />
+              <span className="input-group-text bg-light border-0">
+              <img src="/images/search_icon.svg"/>
             </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="d-lg-block d-none">
-        <GameFilter 
-          setSearch={setSearch} 
-          search={search} 
-          setFilter={setFilter} 
-          filter={filter} 
+        {!isLoading &&
+          <GamesList
+            setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+            games={filteredGames}
+            setGames={setFilteredGames}
+            user={user}
+            isLogin={isLogin}
+          />
+        }
+        <GameFilterMobile
+          setSearch={setSearch}
+          search={search}
+          setFilter={setFilter}
+          filter={filter}
         />
       </div>
-      { !isLoading &&
-        <GamesList 
-          setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
-          games={filteredGames} 
-          setGames={setFilteredGames} 
-          user={user} 
-          isLogin={isLogin} 
-        />
-      }
-      <GameFilterMobile 
-        setSearch={setSearch} 
-        search={search} 
-        setFilter={setFilter} 
-        filter={filter} 
-      />
     </div>
-  );
+
+    // <div className="main-content">
+    //   <div className="main-content__wrapper">
+    //     <div className="provider-section">
+    //       <div className="provider-section__title">
+    //         <nav className="breadcrumbs">
+    //           <ul className="breadcrumbs__list">
+    //             <li className="breadcrumbs__item breadcrumbs__item--current">
+    //               <span className={`breadcrumbs__icon breadcrumbs__icon`}></span>
+    //               <span className="breadcrumbs__current">{filter.charAt(0).toUpperCase() + filter.slice(1)} Games</span>
+    //             </li>
+    //           </ul>
+    //         </nav>
+    //       </div>
+    //     </div>
+    //   </div>
+    //
+    // </div>
+  )
+    ;
 };

@@ -6,15 +6,15 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
   const [ isLoading, setIsLoading ] = useState(false);
 
   const language = 'EN';
- 
+
   const onSubmit = async (ev) => {
     ev.preventDefault();
     setIsLoading(true);
     try {
       Cookies.set('password', user.password);
-      window.iapiSetClientType('casino'); 
+      window.iapiSetClientType('casino');
       window.iapiSetClientPlatform('web');
-      window.iapiLogin(user.username, user.password, 1, language);
+      window.iapiLogin('SPIDER88_' + user.username, user.password, 1, language);
     } catch (err) {
       console.log('err', err);
     } finally {
@@ -40,34 +40,34 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
             <span className="input-group-text bg-white border-white text-dark">
               <i className="bi bi-person-circle"></i>
             </span>
-            <input 
+            <input
               value={user.username}
               onChange={(ev) => setUser({ ...user, username: ev.target.value })}
-              type="text" 
-              className="login-form form-control bg-white border-white text-dark placeholder-dark" 
+              type="text"
+              className="login-form form-control bg-white border-white text-dark placeholder-dark"
               name="username"
-              placeholder="Username" 
+              placeholder="Username"
             />
           </div>
           <div className="input-group login-input-group">
             <span className="input-group-text bg-white border-white text-dark">
               <i className="bi bi-lock"></i>
             </span>
-            <input 
+            <input
               value={user.password}
-              onChange={(ev) => setUser({ ...user, password: ev.target.value })} 
-              type="password" 
+              onChange={(ev) => setUser({ ...user, password: ev.target.value })}
+              type="password"
               name="password"
-              className="login-form form-control bg-white border-white text-dark placeholder-dark" 
-              placeholder="Password" 
+              className="login-form form-control bg-white border-white text-dark placeholder-dark"
+              placeholder="Password"
             />
           </div>
           { isLoading &&
             <div className="input-group mb-3">
               <button className="btn btn-light form-control fw-bold" type="button" disabled>
-                <span 
-                  className="spinner-border spinner-border-sm" 
-                  role="status" 
+                <span
+                  className="spinner-border spinner-border-sm"
+                  role="status"
                   aria-hidden="true"
                 ></span>
                 Loading...
@@ -76,8 +76,8 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
           }
           { !isLoading &&
             <div className="input-group login-input-group">
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn btn-light form-control fw-bold login-button"
               >
                 Login

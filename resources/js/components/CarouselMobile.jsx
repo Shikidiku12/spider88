@@ -1,7 +1,7 @@
 export const CarouselMobile = () => {
   return (
-    <div 
-      className="carousel slide" 
+    <div
+      className="carousel slide"
       data-bs-ride="carousel"
       data-bs-interval="4000"
       data-bs-pause="false"
@@ -16,13 +16,7 @@ export const CarouselMobile = () => {
         <div className="carousel-item">
           <img src="/images/banner-mobile-03.jpg" className="d-block w-100" alt="..." />
         </div>
-        <div className="carousel-item">
-          <img src="/images/banner-mobile-04.jpg" className="d-block w-100" alt="..." />
-        </div>
-        <div className="carousel-item">
-          <img src="/images/banner-mobile-05.jpg" className="d-block w-100" alt="..." />
-        </div>
       </div>
-    </div>  
+    </div>
   );
 }
