@@ -1,4 +1,4 @@
-# Playtech Demo asdfsdfasdf
+# Playtech Demo
 
 ## Description
 
