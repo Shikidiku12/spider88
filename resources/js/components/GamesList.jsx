@@ -84,7 +84,8 @@ export const GamesList = ({
       };
       const gameLaunchUrl = 'https://login.flyingdragon88.com/GameLauncher?'
         + objectToQueryString(gameLaunchParams);
-      window.open(gameLaunchUrl);
+      popUp(gameLaunchUrl, '', 900, 800);
+      //window.open(gameLaunchUrl);
     } catch (err) {
       console.log('err', err);
     } finally {
@@ -115,6 +116,30 @@ export const GamesList = ({
   const loadMore = () => {
     const newNumberOfGame = numberOfGame + maxGame;
     setNumberOfGame(newNumberOfGame);
+  }
+
+  const popUp = (url, title, w, h) => {
+      const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : 0;
+      const dualScreenTop = window.screenTop !== undefined ? window.screenTop : 0;
+      let width = 0;
+      let height = 0;
+
+      width = window.innerWidth ? window.innerWidth :
+        document.documentElement.clientWidth ?
+          document.documentElement.clientWidth : screen.width;
+      height = window.innerHeight ? window.innerHeight :
+        document.documentElement.clientHeight ?
+          document.documentElement.clientHeight : screen.height;
+
+      const left = ((width / 2) - (w / 2)) + dualScreenLeft;
+      const top = ((height / 2) - (h / 2)) + dualScreenTop;
+      const newWindow = window.open(url, title,
+        'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+
+      newWindow.focus();
+
+
   }
 
   return (
