@@ -1,4 +1,4 @@
-# Playtech Demo 234
+# Playtech Demo
 
 ## Description
 
