@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import axios from "axios";
 
 export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu, setLocalSearch }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
   const [search, setSearch] = useState('');
   const [balance, setBalance] = useState(0);
   const [sidebarContent, setSidebarContent] = useState('categories');
@@ -35,11 +35,13 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   const openSidebar = (content) => {
     if (window.innerWidth < 768) {
       setIsOpen(!isOpen);
+      console.log(isOpen);
       setSidebarContent(content);
     }
   }
 
   useEffect(() => {
+
     window.addEventListener("resize", handleResize);
   });
 
@@ -112,8 +114,8 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
           <div className="nav__contents d-flex">
             {
               sidebarContent === 'categories' &&
-              <div className="nav__sidebar main-content">
-                <div className="nav__sidebar-list main-content__wrapper d-flex">
+              <div className="nav__sidebar">
+                <div className="nav__sidebar-list d-flex">
                   <div className="nav__sidebar-item grouped">
                     <div className="nav__sidebar-group" onClick={() => {
                       setCurrentMenu('all');
