@@ -39,7 +39,7 @@ export const GamesList = ({
     }
 
     window.iapiLoginAndGetTempToken(
-      user.username,
+      `SPIDER88_${user.username}`,
       Cookies.get('password'),
       language,
       languageCode
@@ -59,7 +59,7 @@ export const GamesList = ({
       + objectToQueryString(queryParams);
 
     const formData = new FormData();
-    formData.append('username', user.username);
+    formData.append('username', `SPIDER88_${user.username}`);
     formData.append('password', Cookies.get('password'));
     console.log('url', url);
     try {
@@ -72,7 +72,7 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: user.username,
+        username: `SPIDER88_${user.username}`,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: 'web',
