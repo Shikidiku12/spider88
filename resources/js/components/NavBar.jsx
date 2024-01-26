@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
+import axios from "axios";
 
 export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu, setLocalSearch }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('');
+  const [balance, setBalance] = useState(0);
 
   const submitSearch = (ev) => {
     ev.preventDefault();
@@ -30,7 +32,25 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   }
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize);
+
+    const playerName = Cookies.get('pas[flyingdragon88][real][username]') ?? 'SPIDER88_TEST01';
+
+    const init = async () => {
+      try {
+        const response = await axios.get('/api/get-balance/'+ playerName);
+        setBalance(response.data.balance);
+      } catch (err) {
+        console.log('err', err);
+      } finally {
+
+      }
+    };
+    init();
+
+    setInterval(() => {
+      init();
+    },15000)
   })
 
   return (
@@ -51,6 +71,11 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
               </div>
             </div>
             <div className="d-flex nav__actions-container">
+              {isLogin &&
+                <div className="d-flex nav__actions">
+                  <button className="nav__balance">RM {balance.toLocaleString()}</button>
+                </div>
+              }
               <div className="nav__divider"></div>
               <div className="d-flex nav__actions">
                 { !isLogin &&
