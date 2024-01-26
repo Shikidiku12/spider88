@@ -383,14 +383,13 @@
 
     &__sidebar {
         width: 60%;
-        padding: 22px;
+        padding: 22px 0;
         justify-content: space-between;
         align-items: center;
         display: flex;
         flex-direction: column;
         height: calc(100% - 173px);
         overflow-y: auto;
-        position: absolute;
         left: -60%;
         -webkit-animation: slide-right 0.5s forwards;
         animation: slide-right 0.5s forwards;
@@ -399,7 +398,7 @@
             width: 100%;
             flex-direction: row;
             height: 100%;
-            padding: 12px 5%;
+            padding: 12px 0;
             left: auto;
             animation: none;
             overflow-x: auto;
@@ -1545,64 +1544,59 @@
   &__card {
     position: relative;
     width: 100%;
-    max-width: 396px;
-    padding: 32px 17px 48px 17px;
+    // max-width: 396px;
+    padding: 32px 0 48px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: $primary;
 
-    .card {
-      &__header {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        &-action {
-          background: transparent;
-          cursor: pointer;
-          border: 0;
-          margin: 0;
-          padding: 0;
-          font-size: 38px;
-          line-height: 20px;
-        }
-
-        &-close-icon {
-          height: 24px;
-          display: inline-flex;
-          width: 24px;
-        }
+    &__header {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      &-action {
+        background: transparent;
+        cursor: pointer;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 38px;
+        line-height: 20px;
       }
 
-      &__form-login-btn {
-        color: rgba(0, 0, 0, 0.80);
-        font-family: 'Inter';
-        width: 100%;
-        font-size: 16px;
-        font-weight: 700;
-        word-wrap: break-word;
-        background: $yellow-gradient;
-        border-radius: 46px;
-        padding: 10px 32px;
-        border: none;
-        height: 48px;
-        letter-spacing: -1px;
+      &-close-icon {
+        height: 24px;
+        display: inline-flex;
+        width: 24px;
       }
     }
 
+    &__form-login-btn {
+      margin-top: 32px;
+      color: #DEFFF5;
+      font-family: Poppins;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 700;
+      word-wrap: break-word;
+      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+      border-radius: 46px;
+      padding: 10px 32px;
+      border: none;
+      height: 48px;
+      letter-spacing: -0.48px;
+    }
 
     &__logo {
-      width: 113.999px;
-      height: 37.055px;
-      margin-bottom: 32px;
+      width: 136px;
+      height: 41px;
+      margin-bottom: 72px;
     }
 
     &__form {
       width: 100% !important;
-      max-width: 24rem;
+      max-width: 28rem;
       margin-left: auto;
       margin-right: auto;
 
