@@ -374,6 +374,20 @@
         }
     }
 
+  &__balance {
+    background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 16px;
+    font-weight: 700;
+    word-wrap: break-word;
+    padding: 10px 32px;
+    border-radius: 46px;
+    border: 1.3px solid #ED1975;
+  }
+
     &__login {
         color: black;
 
