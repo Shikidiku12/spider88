@@ -322,7 +322,7 @@
             margin-left: 5px;
 
             @media (min-width: 375px) {
-                width: 51px;
+                width: 110px;
             }
 
             @media (min-width: 768px) {
@@ -331,13 +331,13 @@
         }
 
         &--text {
-            background: url("/public/images/spdr88-logo.svg");
+            background: url("/public/images/spdr88-text.svg");
             background-repeat: no-repeat;
             background-size: cover;
             position: absolute;
-            top: 9px;
-            width: 50px;
-            height: 15px;
+            top: 6px;
+            width: 75px;
+            height: 28px;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
@@ -791,6 +791,7 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      z-index: 1;
 
       &--currency {
         font-family: inherit;
