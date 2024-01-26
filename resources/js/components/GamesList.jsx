@@ -61,7 +61,7 @@ export const GamesList = ({
       + objectToQueryString(queryParams);
 
     const formData = new FormData();
-    formData.append("username", `SPIDER88_${user.username}`);
+    formData.append("username", user.username);
     formData.append('password', Cookies.get('password'));
     console.log('url', url);
     try {
