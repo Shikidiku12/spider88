@@ -53,9 +53,17 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
             <div className="d-flex nav__actions-container">
               <div className="nav__divider"></div>
               <div className="d-flex nav__actions">
-                <div className="nav__login" id="login">
-                  <button className="nav__login--btn" onClick={() =>setIsShowModal(true)}>Login</button>
-                </div>
+                { !isLogin &&
+                  <div className="nav__login" id="login">
+                    <button className="nav__login--btn" onClick={() =>setIsShowModal(true)}>Login</button>
+                  </div>
+                }
+
+                {isLogin &&
+                  <div className="nav__login" id="login">
+                    <button className="nav__login--btn" onClick={() => logout()}>Logout</button>
+                  </div>
+                }
               </div>
             </div>
           </div>
