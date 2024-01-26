@@ -6,6 +6,7 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('');
   const [balance, setBalance] = useState(0);
+  const [sidebarContent, setSidebarContent] = useState('categories');
 
   const submitSearch = (ev) => {
     ev.preventDefault();
@@ -28,6 +29,13 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
       setIsOpen(true)
     } else {
       setIsOpen(false)
+    }
+  }
+
+  const openSidebar = (content) => {
+    if (window.innerWidth < 768) {
+      setIsOpen(!isOpen);
+      setSidebarContent(content);
     }
   }
 
@@ -58,11 +66,13 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
 
   return (
     <React.Fragment>
-      <nav className="nav nav__open">
+      <nav className={`nav ${isOpen ? 'nav__open' : ''}`}>
         <div className="main-content nav__wrapper">
           <div className="nav__container main-content__wrapper d-flex">
             <div className="nav__icons d-flex">
-              <div className="nav__hamburger">
+              <div className={`nav__hamburger ${isOpen ? 'open' : ''}`} onClick={ () => {
+                openSidebar('categories');
+              }}>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -97,61 +107,61 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
           </div>
         </div>
 
-        <div className="nav__contents main-content d-flex">
-          <div className="nav__sidebar main-content__wrapper">
-            <div className="nav__sidebar-list  d-flex">
-              <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => {
-                  setCurrentMenu('all');
-                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-                }}>
-                  <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
-                  <span className="nav__sidebar-label">All Games</span>
+        {
+          isOpen &&
+          <div className="nav__contents d-flex">
+            {
+              sidebarContent === 'categories' &&
+              <div className="nav__sidebar main-content">
+                <div className="nav__sidebar-list main-content__wrapper d-flex">
+                  <div className="nav__sidebar-item grouped">
+                    <div className="nav__sidebar-group" onClick={() => {
+                      setCurrentMenu('all');
+                      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                    }}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
+                      <span className="nav__sidebar-label">All Games</span>
+                    </div>
+                    <div className="nav__sidebar-group" onClick={() => {
+                      setCurrentMenu('slot');
+                      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                    }}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
+                      <span className="nav__sidebar-label">Slot Games</span>
+                    </div>
+                    <div className="nav__sidebar-group" onClick={() => {
+                      setCurrentMenu('live');
+                      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                    }}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
+                      <span className="nav__sidebar-label">Live Casino</span>
+                    </div>
+                    <div className="nav__sidebar-group" onClick={() => {
+                      setCurrentMenu('progressive');
+                      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                    }}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/video-poker.png" alt=""/>
+                      <span className="nav__sidebar-label">Progressive Games</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => {
-                  setCurrentMenu('slot');
-                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-                }}>
-                  <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
-                  <span className="nav__sidebar-label">Slot Games</span>
-                </div>
-              </div>
-              <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => {
-                  setCurrentMenu('live');
-                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-                }}>
-                  <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
-                  <span className="nav__sidebar-label">Live Casino</span>
-                </div>
-              </div>
-              <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => {
-                  setCurrentMenu('progressive');
-                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-                }}>
-                  <img className="nav__sidebar-icon" src="/images/menu-icons/video-poker.png" alt=""/>
-                  <span className="nav__sidebar-label">Progressive Games</span>
-                </div>
-              </div>
-            </div>
-            <form onSubmit={(ev) => submitSearch(ev)}>
-              <div className="nav__sidebar__filter">
-                <div className="nav__sidebar__filter__search-wrapper">
-                  <input
-                    value={search}
-                    onChange={(ev) => setSearch(ev.target.value)}
-                    type="text" placeholder="Search Game...."/>
-                  <span className="nav__sidebar__filter__search-wrapper--icon">
+                <form onSubmit={(ev) => submitSearch(ev)}>
+                  <div className="nav__sidebar__filter">
+                    <div className="nav__sidebar__filter__search-wrapper">
+                      <input
+                        value={search}
+                        onChange={(ev) => setSearch(ev.target.value)}
+                        type="text" placeholder="Search Game...."/>
+                      <span className="nav__sidebar__filter__search-wrapper--icon">
                     <img src="/images/icons/search.png"/>
                 </span>
-                </div>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </form>
+            }
           </div>
-        </div>
+        }
 
       </nav>
     </React.Fragment>
