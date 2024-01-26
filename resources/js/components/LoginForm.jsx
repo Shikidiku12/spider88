@@ -23,75 +23,52 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
   };
 
   return (
-    <div className="login-heading logo-color text-center">
-      <img src="/images/horizon88-logo.svg" className="img-fluid" />
-      <h6 className="mt-2 mb-3">
-        We are glad to see you back with us
-      </h6>
-
-      <form onSubmit={(ev) => onSubmit(ev)} className="mt-5">
-        { errors.general &&
-          <div className="alert alert-danger">
-            {errors.general}
-          </div>
-        }
-        <div className="mb-3">
-          <div className="input-group login-input-group">
-            <span className="input-group-text bg-white border-white text-dark">
-              <i className="bi bi-person-circle"></i>
-            </span>
-            <input
-              value={user.username}
-              onChange={(ev) => setUser({ ...user, username: ev.target.value })}
-              type="text"
-              className="login-form form-control bg-white border-white text-dark placeholder-dark"
-              name="username"
-              placeholder="Username"
-            />
-          </div>
-          <div className="input-group login-input-group">
-            <span className="input-group-text bg-white border-white text-dark">
-              <i className="bi bi-lock"></i>
-            </span>
-            <input
-              value={user.password}
-              onChange={(ev) => setUser({ ...user, password: ev.target.value })}
-              type="password"
-              name="password"
-              className="login-form form-control bg-white border-white text-dark placeholder-dark"
-              placeholder="Password"
-            />
-          </div>
-          { isLoading &&
-            <div className="input-group mb-3">
-              <button className="btn btn-light form-control fw-bold" type="button" disabled>
-                <span
-                  className="spinner-border spinner-border-sm"
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-                Loading...
-              </button>
+    <div className="login">
+      <div className="login__card card">
+        <img src="/images/spdr88-logo.svg" className="img-fluid"/>
+        <form onSubmit={(ev) => onSubmit(ev)}
+              className="login__card__form">
+          {errors.general &&
+            <div className="alert alert-danger">
+              {errors.general}
             </div>
           }
-          { !isLoading &&
-            <div className="input-group login-input-group">
-              <button
-                type="submit"
-                className="btn btn-light form-control fw-bold login-button"
-              >
-                Login
-              </button>
+          <div className="mb-2">
+            <div className="position-relative">
+              <div className="login__card__form__input--icon">
+                <img src="/images/icons/user.svg"/>
+              </div>
+              <input
+                value={user.username}
+                onChange={(ev) => setUser({...user, username: ev.target.value})}
+                type="text"
+                className="login__card__form__input"
+                placeholder="Username"
+                name="username" required/>
             </div>
-          }
-        </div>
-      </form>
+            <div className="login__card__form__input-error">
+              Error
+            </div>
+          </div>
 
-      <div className="container">
-        <img src="/images/playtech-logo.png" className="img-fluid mt-4" />
-      </div>
-      <div className="container">
-        <img src="/images/softmetrix.png" className="img-fluid mt-4" />
+          <div className="mb-2">
+            <div className="position-relative">
+              <div className="login__card__form__input--icon">
+                <img src="/images/icons/lock.svg"/>
+              </div>
+              <input
+                value={user.password}
+                onChange={(ev) => setUser({ ...user, password: ev.target.value })}
+                type="password"
+                className="login__card__form__input"
+                placeholder="Passowrd"
+                name="password" required/>
+            </div>
+            <div className="login__card__form__input-error">
+              Error
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );

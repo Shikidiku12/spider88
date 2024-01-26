@@ -1,8 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 
-export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu }) => {
+export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu, setLocalSearch }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [search, setSearch] = useState('');
+
+  const submitSearch = (ev) => {
+    ev.preventDefault();
+    setLocalSearch(search);
+  };
 
   const logout = () => {
     setUser({
@@ -54,35 +60,49 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
             </div>
           </div>
         </div>
-        <div className="nav__contents d-flex">
-            <div className="nav__sidebar main-content">
-              <div className="nav__sidebar-list main-content__wrapper">
-                <div className="nav__sidebar-item">
-                  <div className="nav__sidebar-group" onClick={() => setCurrentMenu('all')}>
-                    <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
-                    <span className="nav__sidebar-label">All Games</span>
-                  </div>
+
+        <div className="nav__contents main-content d-flex">
+          <div className="nav__sidebar main-content__wrapper">
+            <div className="nav__sidebar-list  d-flex">
+              <div className="nav__sidebar-item">
+                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('all')}>
+                  <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
+                  <span className="nav__sidebar-label">All Games</span>
                 </div>
-                <div className="nav__sidebar-item">
-                  <div className="nav__sidebar-group"  onClick={() => setCurrentMenu('slot')}>
-                    <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
-                    <span className="nav__sidebar-label">Slot Games</span>
-                  </div>
+              </div>
+              <div className="nav__sidebar-item">
+                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('slot')}>
+                  <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
+                  <span className="nav__sidebar-label">Slot Games</span>
                 </div>
-                <div className="nav__sidebar-item">
-                  <div className="nav__sidebar-group"  onClick={() => setCurrentMenu('live')}>
-                    <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
-                    <span className="nav__sidebar-label">Live Casino</span>
-                  </div>
+              </div>
+              <div className="nav__sidebar-item">
+                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('live')}>
+                  <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
+                  <span className="nav__sidebar-label">Live Casino</span>
                 </div>
-                <div className="nav__sidebar-item">
-                  <div className="nav__sidebar-group"  onClick={() => setCurrentMenu('progressive')}>
-                    <img className="nav__sidebar-icon" src="/images/menu-icons/video-poker.png" alt=""/>
-                    <span className="nav__sidebar-label">Progressive Games</span>
-                  </div>
+              </div>
+              <div className="nav__sidebar-item">
+                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('progressive')}>
+                  <img className="nav__sidebar-icon" src="/images/menu-icons/video-poker.png" alt=""/>
+                  <span className="nav__sidebar-label">Progressive Games</span>
                 </div>
               </div>
             </div>
+            <form onSubmit={(ev) => submitSearch(ev)}>
+              <div className="nav__sidebar__filter">
+                <div className="nav__sidebar__filter__search-wrapper">
+                  <input
+                    value={search}
+                    onChange={(ev) => setSearch(ev.target.value)}
+                    type="text" placeholder="Search Game...."/>
+                  <span className="nav__sidebar__filter__search-wrapper--icon">
+                    <img src="/images/icons/search.png"/>
+                </span>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
 
       </nav>

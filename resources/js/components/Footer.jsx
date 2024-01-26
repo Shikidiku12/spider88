@@ -4,34 +4,23 @@ export const Footer = () => {
   ];
 
   return (
-    <div className="container-xxl pt-5 mt-5 mb-5 pb-5 px-5">
-      <div className="row">
-        <div className="col text-start">
-          <img className="img-fluid" src="/images/playtech_logo_footer.png" /> 
+    <div className="footer">
+      <div className="footer__container">
+        <div className="footer__accent-left"></div>
+        <div className="footer__accent-right"></div>
+        <div className="footer__logo">
+          <img src="/images/footer-logo.png"/>
         </div>
-        <div className="col text-end">
-          <img className="img-fluid" src="/images/softmetrix_logo_white.svg" />
+        <div className="footer__info info">
+          <div className="info__link link">
+            <a href="javascript:;" className="link-item">About Us</a>
+            <a href="javascript:;" className="link-item">Terms of Services</a>
+            <a href="javascript:;" className="link-item">Contact Us</a>
+          </div>
+          <div className="info__copyright">
+            &copy; {new Date().getFullYear()} www.spdr88.com All rights reserved.
+          </div>
         </div>
-      </div>
-      <div className="text-center pt-5 mt-5">
-        {
-          links.map(link => {
-            return (
-              <span className="fs-3">
-                <a className="text-white text-decoration-none" href="#">{link}</a> |&nbsp;
-              </span>
-            )
-          })
-        }
-      </div>
-      <div className="text-center white-text fs-3 mt-3">
-        Contact us: support@asiapro.io
-      </div>
-      <div className="text-center mt-5 mb-5 d-sm-block d-lg-none">
-        <img className="img-fluid" width="40%" src="/images/horizon_logo_footer.png" />
-      </div>
-      <div className="text-center white-text fs-3 mt-3">
-        &copy; {new Date().getFullYear()} All rights reserved. horizon88.com
       </div>
     </div>
   );

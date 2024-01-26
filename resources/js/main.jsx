@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { LoginModal } from './components/LoginModal';
 import { LoginNotificationModal } from './components/LoginNotificationModal';
 import {JackpotWidget} from "./components/JackpotWidget.jsx";
+import {Highlights} from "./components/Highlights.jsx";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -27,7 +28,8 @@ const App = () => {
     password: '',
     general: ''
   });
-  const [currentMenu, setCurrentMenu] = useState('');
+  const [currentMenu, setCurrentMenu] = useState('all');
+  const [localSearch, setLocalSearch] = useState('');
 
   const calloutLogin = (response) => {
     console.log('response', response);
@@ -85,6 +87,7 @@ const App = () => {
         setIsLogin={setIsLogin}
         isLogin={isLogin}
         setCurrentMenu={setCurrentMenu}
+        setLocalSearch={setLocalSearch}
       />
       <div className="main">
         <div className="d-lg-none">
@@ -93,15 +96,15 @@ const App = () => {
         <div className="d-none d-lg-block">
           <Carousel/>
         </div>
-        <div className="main-content">
-          <JackpotWidget/>
-        </div>
+        <JackpotWidget/>
         <GamesContainer
           user={user}
           currentMenu={currentMenu}
+          localSearch={localSearch}
           isLogin={isLogin}
           setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
         />
+        <Highlights />
         <Footer/>
         <LoginModal
           setUser={setUser}
