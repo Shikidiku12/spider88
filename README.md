@@ -1,4 +1,4 @@
-# Playtech Demo 
+# Playtech
 
 ## Description
 
