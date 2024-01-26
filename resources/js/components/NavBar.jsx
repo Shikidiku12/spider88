@@ -35,7 +35,6 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   const openSidebar = (content) => {
     if (window.innerWidth < 768) {
       setIsOpen(!isOpen);
-      console.log(isOpen);
       setSidebarContent(content);
     }
   }
