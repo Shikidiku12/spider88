@@ -5,7 +5,7 @@ import axios from "axios";
 export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu, setLocalSearch }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('');
-  const [balance, setBalance] = useState(105401);
+  const [balance, setBalance] = useState(0);
 
   const submitSearch = (ev) => {
     ev.preventDefault();
