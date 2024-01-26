@@ -1,9 +1,9 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 
 export const GamesList = ({
   filter,
@@ -39,7 +39,7 @@ export const GamesList = ({
     }
 
     window.iapiLoginAndGetTempToken(
-      `SPIDER88_${user.username}`,
+      user.username,
       Cookies.get('password'),
       language,
       languageCode
@@ -59,7 +59,7 @@ export const GamesList = ({
       + objectToQueryString(queryParams);
 
     const formData = new FormData();
-    formData.append('username', `SPIDER88_${user.username}`);
+    formData.append('username', user.username);
     formData.append('password', Cookies.get('password'));
     console.log('url', url);
     try {
