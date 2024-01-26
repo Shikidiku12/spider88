@@ -60,7 +60,7 @@
             gap: 15px;
 
             span {
-                font-family: 'Inter';
+                font-family: Poppins;
             }
         }
 
@@ -77,7 +77,7 @@
 
             &-btn {
                 font-size: 16px;
-                font-family: Inter;
+                font-family: Poppins;
                 font-weight: 700;
                 text-transform: capitalize;
                 background: $yellow-gradient;
@@ -302,7 +302,7 @@
     }
 
     &__logo {
-        background-image: url("/public/images/spdr88-logo.svg");
+        background-image: url("/public/images/spdr88-icon.svg");
         background-repeat: no-repeat;
         height: 30px;
         width: 30px;
@@ -498,14 +498,14 @@
         }
 
         &-label {
-            color: $primary-text;
-            text-align: center;
-            font-family: Inter;
-            font-size: 10px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            text-transform: capitalize;
+          color: #DEFFF5;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          text-transform: capitalize;
         }
 
         &-item {
@@ -1732,5 +1732,19 @@
     100% {
       transform: rotate(360deg);
     }
+  }
+}
+
+
+.game-list {
+  &__button {
+    font-size: 16px;
+    font-weight: 700;
+    word-wrap: break-word;
+    background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    border-radius: 46px;
+    padding: 10px 32px;
+    border: none;
+    margin-bottom: 32px;
   }
 }

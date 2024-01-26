@@ -73,25 +73,37 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
           <div className="nav__sidebar main-content__wrapper">
             <div className="nav__sidebar-list  d-flex">
               <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('all')}>
+                <div className="nav__sidebar-group" onClick={() => {
+                  setCurrentMenu('all');
+                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                }}>
                   <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
                   <span className="nav__sidebar-label">All Games</span>
                 </div>
               </div>
               <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('slot')}>
+                <div className="nav__sidebar-group" onClick={() => {
+                  setCurrentMenu('slot');
+                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                }}>
                   <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
                   <span className="nav__sidebar-label">Slot Games</span>
                 </div>
               </div>
               <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('live')}>
+                <div className="nav__sidebar-group" onClick={() => {
+                  setCurrentMenu('live');
+                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                }}>
                   <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
                   <span className="nav__sidebar-label">Live Casino</span>
                 </div>
               </div>
               <div className="nav__sidebar-item">
-                <div className="nav__sidebar-group" onClick={() => setCurrentMenu('progressive')}>
+                <div className="nav__sidebar-group" onClick={() => {
+                  setCurrentMenu('progressive');
+                  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                }}>
                   <img className="nav__sidebar-icon" src="/images/menu-icons/video-poker.png" alt=""/>
                   <span className="nav__sidebar-label">Progressive Games</span>
                 </div>
