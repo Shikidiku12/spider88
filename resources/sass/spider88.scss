@@ -415,17 +415,20 @@
         -webkit-animation: slide-right 0.5s forwards;
         animation: slide-right 0.5s forwards;
 
+
         @media (min-width: 768px) {
-            width: 100%;
-            flex-direction: row;
-            height: 100%;
-            padding: 12px 0;
-            left: auto;
-            animation: none;
-            overflow-x: auto;
-            overflow-y: hidden;
-            justify-content: center;
-            border-bottom: 1.30px rgba(255, 255, 255, 0.10) solid;
+          width: 100%;
+          flex-direction: row;
+          height: 100%;
+          padding: 12px 5%;
+          left: auto;
+          animation: none;
+          overflow-x: auto;
+          overflow-y: hidden;
+          justify-content: center;
+          border-bottom: 1.30px rgba(255, 255, 255, 0.10) solid;
+          max-width: 1280px;
+          margin: 0 auto;
         }
 
         @media (min-width: 1440px) {
@@ -552,7 +555,7 @@
                     flex-direction: row;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    gap: 6px;
+                    gap: 32px;
                     display: flex;
                 }
             }
