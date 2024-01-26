@@ -5,7 +5,7 @@ import axios from "axios";
 export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu, setLocalSearch }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('');
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(105401);
 
   const submitSearch = (ev) => {
     ev.preventDefault();
@@ -33,7 +33,9 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+  });
 
+  useEffect(() => {
     const playerName = Cookies.get('pas[flyingdragon88][real][username]') ?? 'SPIDER88_TEST01';
 
     const init = async () => {
@@ -46,12 +48,13 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
 
       }
     };
+
     init();
 
     setInterval(() => {
       init();
     },15000)
-  })
+  },[])
 
   return (
     <React.Fragment>
