@@ -15,9 +15,8 @@ class KioskController extends Controller
 
         $end_point = "$end_point_url/$end_point_path/$player_name";
 
-        $cert_path = storage_path('app/cert');
-        $my_cert_path = $cert_path . '/MYR-CERT.pem';
-        $my_cert_key_path = $cert_path . '/MYR-KEY.pem';
+        $my_cert_path = env('KIOSK_CERT_PATH', null);
+        $my_cert_key_path = env('KIOSK_CERT_KEY_PATH', null);
         $passphrase = env('KIOSK_PASSPHRASE', null);
 
         $headers = [
