@@ -1,4 +1,4 @@
-# Playtech Demo HELLOOOO THEREEEEEEE
+# Playtech Demo
 
 ## Description
 
