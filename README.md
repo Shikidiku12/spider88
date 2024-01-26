@@ -1,4 +1,4 @@
-# Playtech Demo 2025
+# Playtech Demo
 
 ## Description
 
