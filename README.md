@@ -10,7 +10,7 @@
 - [Horizon Github](https://github.com/devasiapro/horizon)
 - [Game List Document](https://drive.google.com/drive/u/0/folders/1cQY84wlm6V0pSZgSmzv3fGij18h9NURr)
 
-### Steps Test
+### Steps
 
 The steps are relative to the project folder "horizon/ptdemo" unless stated otherwise.
 
