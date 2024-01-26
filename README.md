@@ -1,4 +1,4 @@
-# Playtech Demo 20243
+# Playtech Demo
 
 ## Description
 
