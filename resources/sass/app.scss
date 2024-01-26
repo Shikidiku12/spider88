@@ -11,13 +11,24 @@
 @import 'button';
 @import 'modal';
 @import 'input';
+@import "spider88";
+
+div {
+  --all-games-icon: url('/public/images/icons/all.png');
+  --live-casino-icon: url('/public/images/icons/live.png');
+  --slots-icon: url('/public/images/icons/slot.png');
+  --video-poker-icon: url('/public/images/icons/progressive.png');
+
+  --bs-modal-border-color: rgba(255, 255, 255, 0.10);
+  --bs-modal-bg: #151C27;
+}
 
 body {
   font-family: "Montserrat", "Gotham";
 }
 
 .navbar {
-  font-family: "Gotham";	
+  font-family: "Gotham";
 }
 
 .hidden-overflow {
@@ -42,7 +53,7 @@ body {
 }
 
 .filter-games {
-  background-color: #141415;   
+  background-color: #141415;
   border-radius: 20px;
 }
 
@@ -77,7 +88,7 @@ body {
 
 .btn-filter {
   display: flex;
-  padding: 16px;  
+  padding: 16px;
   align-items: center;
   gap: 16px;
   font-size: 16px;
@@ -119,7 +130,7 @@ body {
 .mobile-filter-element {
   border-top: 5px solid #141415;
   display: flex;
-  padding: 10px 4px; 
+  padding: 10px 4px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -142,4 +153,40 @@ body {
 
 .login-border-round {
   border-radius: 100px !important;
+}
+
+// For setting the max-width of the page
+.main {
+  //margin-top: 60px;
+  background-color: $content-bg;
+
+  /* For Desktop */
+  @media (min-width: 992px) {
+    margin-top: 155px;
+  }
+
+  /* For Tablet */
+  @media (min-width: 768px) and (max-width: 991px) {
+    margin-top: 156px;
+  }
+
+  /* For Mobile */
+  @media (max-width: 767px) {
+    margin-top: 75px;
+  }
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        padding: 0 5%;
+    }
+
+    &__wrapper {
+        width: 100%;
+        max-width: 1280px;
+    }
 }

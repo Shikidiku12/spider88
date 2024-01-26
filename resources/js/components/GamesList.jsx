@@ -1,20 +1,22 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 
-export const GamesList = ({ 
-  filter, 
-  user, 
-  isLogin, 
-  games, 
+export const GamesList = ({
+  filter,
+  user,
+  isLogin,
+  games,
   setGames,
   setIsShowLoginNotificationModal
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [numberOfGame, setNumberOfGame] = useState(18);
+  const [maxGame, setMaxGame] = useState(18);
 
   const language = 'English';
   const languageCode = 'EN';
@@ -22,7 +24,7 @@ export const GamesList = ({
   const objectToQueryString = (obj) => {
     const keys = Object.keys(obj);
     const keyValuePairs = keys.map(key => {
-      return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]); 
+      return encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
     });
     return keyValuePairs.join('&');
   };
@@ -39,9 +41,9 @@ export const GamesList = ({
     }
 
     window.iapiLoginAndGetTempToken(
-      user.username, 
-      Cookies.get('password'), 
-      language, 
+      user.username,
+      Cookies.get('password'),
+      language,
       languageCode
     );
     const queryParams = {
@@ -55,7 +57,7 @@ export const GamesList = ({
       languageCode: 'LoginService',
     };
 
-    const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?' 
+    const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?'
       + objectToQueryString(queryParams);
 
     const formData = new FormData();
@@ -72,13 +74,13 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: user.username,
+        username: `SPIDER88_${user.username}`,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: 'web',
         language: 'EN',
         playMode: 1,
-        depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html' 
+        depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html'
       };
       const gameLaunchUrl = 'https://login.flyingdragon88.com/GameLauncher?'
         + objectToQueryString(gameLaunchParams);
@@ -87,7 +89,7 @@ export const GamesList = ({
       console.log('err', err);
     } finally {
 
-    } 
+    }
   };
 
   const onMouseOver = (ev, game) => {
@@ -97,7 +99,7 @@ export const GamesList = ({
     updatedGames.game = updatedGame;
     setGames(updatedGames)
   };
-  
+
   const onMouseOut = (ev, game) => {
     const updatedGames = [...games];
     const updatedGame = updatedGames.find(updatedGame => updatedGame.id === game.id);
@@ -110,28 +112,33 @@ export const GamesList = ({
     return game.is_live ? game.alias : game.code;
   };
 
+  const loadMore = () => {
+    const newNumberOfGame = numberOfGame + maxGame;
+    setNumberOfGame(newNumberOfGame);
+  }
+
   return (
     <React.Fragment>
-      <div className="mx-5 py-4">
+      <div className="game-list">
         <div className="row">
         {
-          games.map((game, index) => {
+          games.slice(0,numberOfGame).map((game, index) => {
             return (
-              <div 
-                key={game.id} 
-                className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-4" 
+              <div
+                key={game.id}
+                className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-4"
                 onMouseOver={(ev) => onMouseOver(ev, game)}
                 onMouseOut={(ev) => onMouseOut(ev, game)}
               >
                 <div className="image-wrapper d-flex justify-content-center">
-                  <img 
+                  <img
                     alt={game.name}
-                    src={`/images/games_icons_desktop/${fetchImageName(game)}.jpg`} 
-                    className="rounded img-fluid" 
+                    src={`/images/games_icons_desktop/${fetchImageName(game)}.jpg`}
+                    className="rounded img-fluid"
                   />
                   <div className={`overlay mb-3 ${game.isHover ? '' : 'd-none'}`}>
                     <div className="d-sm-flex d-lg-none flex-column px-5">
-                      <button 
+                      <button
                         type="button"
                         onClick={(ev) => launchActualGame(ev, game)}
                         className="btn-game w-auto flex-fill py-3 mb-3"
@@ -139,7 +146,7 @@ export const GamesList = ({
                         Play
                       </button>
                       { !game.is_live &&
-                        <button 
+                        <button
                           type="button"
                           onClick={(ev) => launchDemoGame(ev, game)}
                           className="btn-game w-auto flex-fill py-3 mb-3"
@@ -149,7 +156,7 @@ export const GamesList = ({
                       }
                     </div>
                     <div className="d-lg-flex justify-content-evenly d-none">
-                      <button 
+                      <button
                         type="button"
                         onClick={(ev) => launchActualGame(ev, game)}
                         className="btn-game"
@@ -157,7 +164,7 @@ export const GamesList = ({
                         Play
                       </button>
                       { !game.is_live &&
-                        <button 
+                        <button
                           type="button"
                           onClick={(ev) => launchDemoGame(ev, game)}
                           className="btn-game"
@@ -173,6 +180,12 @@ export const GamesList = ({
           })
         }
         </div>
+        {
+          games.length > numberOfGame &&
+          <div className="d-flex justify-content-center align-items-center">
+            <button type="button" className="game-list__button" onClick={() => loadMore()}>Load More</button>
+          </div>
+        }
       </div>
     </React.Fragment>
   );

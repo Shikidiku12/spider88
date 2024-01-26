@@ -11,6 +11,8 @@ import { GamesContainer } from './components/GamesContainer';
 import { Footer } from './components/Footer';
 import { LoginModal } from './components/LoginModal';
 import { LoginNotificationModal } from './components/LoginNotificationModal';
+import {JackpotWidget} from "./components/JackpotWidget.jsx";
+import {Highlights} from "./components/Highlights.jsx";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -26,6 +28,8 @@ const App = () => {
     password: '',
     general: ''
   });
+  const [currentMenu, setCurrentMenu] = useState('all');
+  const [localSearch, setLocalSearch] = useState('');
 
   const calloutLogin = (response) => {
     console.log('response', response);
@@ -82,52 +86,61 @@ const App = () => {
         setUser={setUser}
         setIsLogin={setIsLogin}
         isLogin={isLogin}
+        setCurrentMenu={setCurrentMenu}
+        setLocalSearch={setLocalSearch}
       />
-      <div className="d-lg-none">
-        <CarouselMobile />
+      <div className="main">
+        <div className="d-lg-none">
+          <CarouselMobile/>
+        </div>
+        <div className="d-none d-lg-block">
+          <Carousel/>
+        </div>
+        <JackpotWidget/>
+        <GamesContainer
+          user={user}
+          currentMenu={currentMenu}
+          localSearch={localSearch}
+          isLogin={isLogin}
+          setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+        />
+        <Highlights
+          setCurrentMenu={setCurrentMenu}
+        />
+        <Footer/>
+        <LoginModal
+          setUser={setUser}
+          user={user}
+          isShow={isShowModal}
+          setIsShow={setIsShowModal}
+          errors={loginErrors}
+        />
+        <LoginNotificationModal
+          setToastMessage={setToastMessage}
+          isShow={isShowLoginNotificationModal}
+          setIsShow={setIsShowLoginNotificationModal}
+          setLoginShow={setIsShowModal}
+        />
+        <ToastContainer style={{position: 'fixed'}} position={'middle-center'}>
+          <Toast
+            onClose={() => setToastMessage('')}
+            show={toastMessage}
+            bg={'dark'}
+            delay={5000}
+            autohide
+          >
+            <Toast.Header closeButton={true} bsPrefix={"headerNotification"}>
+            </Toast.Header>
+            <Toast.Body>
+                <h3>{toastMessage}</h3>
+            </Toast.Body>
+          </Toast>
+        </ToastContainer>
       </div>
-      <div className="d-none d-lg-block">
-        <Carousel />
-      </div>
-      <DemoMarquee />
-      <GamesContainer
-        user={user}
-        isLogin={isLogin}
-        setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
-      />
-      <Footer />
-      <LoginModal
-        setUser={setUser}
-        user={user}
-        isShow={isShowModal}
-        setIsShow={setIsShowModal}
-        errors={loginErrors}
-      />
-      <LoginNotificationModal
-        setToastMessage={setToastMessage}
-        isShow={isShowLoginNotificationModal}
-        setIsShow={setIsShowLoginNotificationModal}
-        setLoginShow={setIsShowModal}
-      />
-      <ToastContainer style={{ position: 'fixed' }} position={'middle-center'}>
-        <Toast
-          onClose={() => setToastMessage('')}
-          show={toastMessage}
-          bg={'dark'}
-          delay={5000}
-          autohide
-        >
-          <Toast.Header closeButton={true} bsPrefix={"headerNotification"}>
-          </Toast.Header>
-          <Toast.Body>
-            <h3>{toastMessage}</h3>
-          </Toast.Body>
-        </Toast>
-      </ToastContainer>
     </div>
   );
 };
 
 if (document.getElementById('root')) {
-  createRoot(document.getElementById('root')).render(<App />);
+    createRoot(document.getElementById('root')).render(<App/>);
 }
