@@ -104,7 +104,9 @@ const App = () => {
           isLogin={isLogin}
           setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
         />
-        <Highlights />
+        <Highlights
+          setCurrentMenu={setCurrentMenu}
+        />
         <Footer/>
         <LoginModal
           setUser={setUser}

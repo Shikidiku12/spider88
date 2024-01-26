@@ -8,13 +8,13 @@ export const CarouselMobile = () => {
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/images/banner-mobile-01.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/banner-mobile-01.png" className="d-block w-100" alt="..." />
         </div>
         <div className="carousel-item">
-          <img src="/images/banner-mobile-02.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/banner-mobile-02.png" className="d-block w-100" alt="..." />
         </div>
         <div className="carousel-item">
-          <img src="/images/banner-mobile-03.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/banner-mobile-03.png" className="d-block w-100" alt="..." />
         </div>
       </div>
     </div>

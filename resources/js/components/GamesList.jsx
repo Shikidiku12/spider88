@@ -15,6 +15,8 @@ export const GamesList = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [numberOfGame, setNumberOfGame] = useState(18);
+  const [maxGame, setMaxGame] = useState(18);
 
   const language = 'English';
   const languageCode = 'EN';
@@ -110,12 +112,17 @@ export const GamesList = ({
     return game.is_live ? game.alias : game.code;
   };
 
+  const loadMore = () => {
+    const newNumberOfGame = numberOfGame + maxGame;
+    setNumberOfGame(newNumberOfGame);
+  }
+
   return (
     <React.Fragment>
-      <div className="">
+      <div className="game-list">
         <div className="row">
         {
-          games.map((game, index) => {
+          games.slice(0,numberOfGame).map((game, index) => {
             return (
               <div
                 key={game.id}
@@ -173,6 +180,12 @@ export const GamesList = ({
           })
         }
         </div>
+        {
+          games.length > numberOfGame &&
+          <div className="d-flex justify-content-center align-items-center">
+            <button type="button" className="game-list__button" onClick={() => loadMore()}>Load More</button>
+          </div>
+        }
       </div>
     </React.Fragment>
   );
