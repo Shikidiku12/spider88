@@ -1,4 +1,4 @@
-# Playtech Demo Testsadfswdr
+# Playtech Demo
 
 ## Description
 
