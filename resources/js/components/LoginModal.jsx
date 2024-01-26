@@ -21,8 +21,8 @@ export const LoginModal = ({
       centered
     >
       <Modal.Body>
-        <div className="row py-3 login-container">
-          <div className="col p-4">
+        <div className="row login-container">
+          <div className="col">
             <LoginForm
               setToastMessage={setToastMessage}
               user={user}

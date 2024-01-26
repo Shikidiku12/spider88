@@ -4,7 +4,7 @@ export const Footer = () => {
   ];
 
   return (
-    <div className="footer">
+    <div className="footer main-content">
       <div className="footer__container">
         <div className="footer__accent-left"></div>
         <div className="footer__accent-right"></div>

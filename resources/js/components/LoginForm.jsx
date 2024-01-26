@@ -24,8 +24,8 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
 
   return (
     <div className="login">
-      <div className="login__card card">
-        <img src="/images/spdr88-logo.svg" className="img-fluid"/>
+      <div className="login__card">
+        <img src="/images/spdr88-logo.svg" className="login__card__logo"/>
         <form onSubmit={(ev) => onSubmit(ev)}
               className="login__card__form">
           {errors.general &&
@@ -46,9 +46,9 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
                 placeholder="Username"
                 name="username" required/>
             </div>
-            <div className="login__card__form__input-error">
-              Error
-            </div>
+            {/*<div className="login__card__form__input-error">*/}
+            {/*  Error*/}
+            {/*</div>*/}
           </div>
 
           <div className="mb-2">
@@ -64,10 +64,21 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
                 placeholder="Passowrd"
                 name="password" required/>
             </div>
-            <div className="login__card__form__input-error">
-              Error
-            </div>
+            {/*<div className="login__card__form__input-error">*/}
+            {/*  Error*/}
+            {/*</div>*/}
           </div>
+          { isLoading &&
+            <button type="button" className="form-group__button login__card__form-login-btn" disabled>
+              <span className="loader"></span>
+            </button>
+          }
+          {!isLoading &&
+            <button type="submit" className="form-group__button login__card__form-login-btn">
+              Login
+            </button>
+          }
+
         </form>
       </div>
     </div>
