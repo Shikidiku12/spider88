@@ -65,7 +65,10 @@ export const Highlights = ({ setCurrentMenu }) => {
               <div className="highlight__download-texts">
                 <span className="highlight__download-title">Win big jackpot!</span>
                 <span className="highlight__download-description">Don't miss out on your chance to win life-changing money!</span>
-                <button className="highlight__download-btn">Download App</button>
+                <div className="highlight__download-action">
+                  <a href="https://pt.launcher.horizon88.com/materials/apk/Spider88_v2.1.apk" className="highlight__download-btn">Download .apk</a>
+                  <a href="https://pt.launcher.horizon88.com/materials/dl/spider88_dl_v2.1.exe" className="highlight__download-btn-exe">Download .exe</a>
+                </div>
               </div>
             </div>
           </div>
