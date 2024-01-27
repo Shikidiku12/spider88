@@ -1,4 +1,4 @@
-# Playtech Demo 2024jkj
+# Playtech Demo
 
 ## Description
 
