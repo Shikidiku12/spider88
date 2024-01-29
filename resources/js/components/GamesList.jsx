@@ -61,6 +61,7 @@ export const GamesList = ({
       language,
       languageCode
     );
+
     const queryParams = {
       casinoname: 'flyingdragon88',
       realMode: 'EN',
@@ -71,8 +72,6 @@ export const GamesList = ({
       clientSkin: 'flyingdragon88',
       languageCode: 'LoginService',
     };
-
-
 
     const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?'
       + objectToQueryString(queryParams);
@@ -87,12 +86,14 @@ export const GamesList = ({
       formData.append("username", extractedValues?.username);
       formData.append('password', extractedValues?.password);
 
-
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
       });
       const body = await response.json();
+
+      console.log(body);
+
       const sessionToken = body.sessionToken.sessionToken;
 
       const gameLaunchParams = {
