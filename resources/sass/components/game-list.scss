@@ -1,0 +1,12 @@
+.game-list {
+  &__button {
+    font-size: 16px;
+    font-weight: 700;
+    word-wrap: break-word;
+    background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    border-radius: 46px;
+    padding: 10px 32px;
+    border: none;
+    margin-bottom: 32px;
+  }
+}

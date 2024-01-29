@@ -1,3 +1,5 @@
+import '../../sass/components/highlight.scss';
+
 export const Highlights = ({ setCurrentMenu }) => {
 
   return (

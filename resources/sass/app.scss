@@ -11,7 +11,6 @@
 @import 'button';
 @import 'modal';
 @import 'input';
-@import "spider88";
 
 div {
   --all-games-icon: url('/public/images/icons/all.png');
@@ -193,4 +192,23 @@ body {
         width: 100%;
         max-width: 1280px;
     }
+}
+
+.image-overlay {
+  background: linear-gradient(0deg, rgb(21, 28, 39) 42.43%, rgba(21, 28, 39, 0) 100%);
+  height: 104px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.no-games-found {
+  color: #4a5257;
+  font-size: 28px;
+  font-family: "Poppins";
+  font-weight: 700;
+  line-height: 28px;
+  display: flex;
+  margin-bottom: 32px;
+  justify-content: center;
 }

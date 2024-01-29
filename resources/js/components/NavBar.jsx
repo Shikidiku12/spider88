@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios";
+import '../../sass/components/navbar.scss';
 
 export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, currentMenu, setCurrentMenu, setLocalSearch }) => {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);

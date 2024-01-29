@@ -4,6 +4,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
+import '../../sass/components/game-list.scss';
 
 export const GamesList = ({
   filter,
