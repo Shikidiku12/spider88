@@ -66,8 +66,26 @@ export const Highlights = ({ setCurrentMenu }) => {
                 <span className="highlight__download-title">Win big jackpot!</span>
                 <span className="highlight__download-description">Don't miss out on your chance to win life-changing money!</span>
                 <div className="highlight__download-action">
-                  <a href="https://pt.launcher.horizon88.com/materials/apk/Spider88_v2.1.apk" className="highlight__download-btn">Download .apk</a>
-                  <a href="https://pt.launcher.horizon88.com/materials/dl/spider88_dl_v2.1.exe" className="highlight__download-btn-exe">Download .exe</a>
+                  <a href="https://pt.launcher.horizon88.com/materials/apk/Spider88_v2.1.apk"
+                     className="highlight__download-btn highlight__download-btn--solid">
+                    <div className="highlight__download-btn-wrapper">
+                      <span className="highlight__download-btn-subtext">Download .apk</span>
+                      <span className="highlight__download-btn-text">For Android</span>
+                      <span className="highlight__download-btn--solid-icon">
+                        <img src="/images/android.svg" />
+                      </span>
+                    </div>
+                  </a>
+                  <a href="https://pt.launcher.horizon88.com/materials/dl/spider88_dl_v2.1.exe"
+                     className="highlight__download-btn highlight__download-btn--outline">
+                    <div className="highlight__download-btn-wrapper">
+                      <span className="highlight__download-btn-subtext">Download .exe</span>
+                      <span className="highlight__download-btn-text">For Windows</span>
+                      <span className="highlight__download-btn--outline-icon">
+                        <img src="/images/windows.svg"/>
+                      </span>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
