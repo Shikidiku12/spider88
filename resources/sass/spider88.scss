@@ -6,6 +6,17 @@
   bottom: 0;
 }
 
+.no-games-found {
+  color: #4a5257;
+  font-size: 28px;
+  font-family: "Poppins";
+  font-weight: 700;
+  line-height: 28px;
+  display: flex;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
 .nav {
     align-items: center;
     font-family: Poppins;
@@ -15,7 +26,7 @@
     z-index: 3;
 
     &__open {
-        height: 100%;
+        height: 100vh;
 
         @media (min-width: 768px) {
             height: auto;
@@ -148,14 +159,15 @@
 
     &__contents {
       width: 100%;
-      background-color: #232D3F;
+      background-color: #232d3f;
       overflow: hidden;
-      height: 100%;
+      height: 81px;
       position: relative;
       border-bottom: 1.30px rgba(255, 255, 255, 0.10) solid;
 
-      @media (min-width: 768px) {
-        height: 81px;
+      @media (max-width: 768px) {
+        background-color: rgba(0,0,0,0.7);
+        height: 100%;
       }
     }
 
@@ -387,6 +399,9 @@
     padding: 10px 32px;
     border-radius: 46px;
     border: 1.3px solid #ED1975;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
     &__login {
@@ -404,32 +419,37 @@
     }
 
     &__sidebar {
-        width: 60%;
-        padding: 22px 0;
-        justify-content: flex-end;
-        align-items: center;
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 22px;
-        height: calc(100% - 100px);
-        overflow-y: auto;
-        left: -60%;
-        -webkit-animation: slide-right 0.5s forwards;
-        animation: slide-right 0.5s forwards;
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      height: 100%;
+      padding: 12px 5%;
+      left: auto;
+      animation: none;
+      overflow-x: auto;
+      overflow-y: hidden;
+      justify-content: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      align-items: center;
+      position: absolute;
 
-
-        @media (min-width: 768px) {
-          width: 100%;
-          flex-direction: row;
-          height: 100%;
-          padding: 12px 5%;
-          left: auto;
-          animation: none;
-          overflow-x: auto;
-          overflow-y: hidden;
-          justify-content: center;
-          max-width: 1280px;
-          margin: 0 auto;
+        @media (max-width: 768px) {
+          width: 60%;
+          background-color: #232D3F;
+          padding: 22px;
+          justify-content: flex-end;
+          align-items: flex-start;
+          display: flex;
+          flex-direction: column-reverse;
+          gap: 22px;
+          height: calc(100% - 73px);
+          overflow-x: hidden;
+          overflow-y: auto;
+          -webkit-animation: slide-right .5s forwards;
+          animation: slide-right .5s forwards;
+          position: absolute;
+          left: -60%;
         }
 
         @media (min-width: 1440px) {
@@ -470,6 +490,11 @@
               font-style: normal;
               font-weight: 400;
               line-height: 130%;
+              width: 100%;
+
+              @media (max-width: 768px) {
+                min-width: auto;
+              }
             }
 
             input:focus {
@@ -478,7 +503,6 @@
 
             input::placeholder {
               color: $white;
-
             }
 
             &--icon {
@@ -493,21 +517,28 @@
           }
         }
 
-        &-list {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            gap: 10px;
+      form {
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+      }
 
-            @media (min-width: 768px) {
-              width: 100%;
-              flex-direction: row;
-              height: auto;
-              gap: 32px;
-              margin-bottom: 0;
-              justify-content: flex-start;
-            }
+        &-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-bottom: 30px;
+          gap: 10px;
+          width: 100%;
+
+          @media (min-width: 768px) {
+            width: 100%;
+            flex-direction: row;
+            height: auto;
+            gap: 32px;
+            margin-bottom: 0;
+            justify-content: flex-start;
+          }
         }
 
         &-icon {
@@ -541,7 +572,7 @@
 
             &.grouped {
                 padding: 6px;
-                background: $gray-100;
+                background: #303A4D;
                 border-radius: 12px;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -623,6 +654,14 @@
     }
 }
 
+
+@-webkit-keyframes slide-right {
+  100% { left: 0; }
+}
+
+@keyframes slide-right {
+  100% { left: 0; }
+}
 
 .featured {
   width: 100%;
@@ -865,6 +904,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      z-index: 1;
     }
   }
 }

@@ -87,15 +87,14 @@ export const GamesContainer = ({
           </div>
         </div>
 
-        { !isLoading &&
-          <GamesList
-            setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
-            games={filteredGames}
-            setGames={setFilteredGames}
-            user={user}
-            isLogin={isLogin}
-          />
-        }
+        <GamesList
+          setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+          games={filteredGames}
+          setGames={setFilteredGames}
+          user={user}
+          isLogin={isLogin}
+        />
+
       </div>
 
     </div>
