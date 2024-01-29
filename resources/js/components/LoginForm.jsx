@@ -11,15 +11,16 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
     ev.preventDefault();
     setIsLoading(true);
     try {
-      window.iapiSetClientType('casino');
-      window.iapiSetClientPlatform('web');
-      window.iapiLogin('SPIDER88_' + user.username, user.password, 1, language);
+
       const { data } = await axios.post('/get-access-token', {
         username: user.username,
         password: user.password
       });
       const { access_token } = data;
       Cookies.set('access_token', access_token);
+      window.iapiSetClientType('casino');
+      window.iapiSetClientPlatform('web');
+      window.iapiLogin('SPIDER88_' + user.username, user.password, 1, language);
     } catch (error) {
       console.error('Error:', error);
     } finally {
