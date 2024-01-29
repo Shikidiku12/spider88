@@ -79,12 +79,13 @@ export const GamesList = ({
 
     try {
       const extractedValues = await extractValuesFromToken(Cookies.get('access_token'));
-      console.log('values', extractedValues)
       if (!extractedValues) throw new Error('Invalid token');
 
       const formData = new FormData();
       formData.append("username", user.username);
       formData.append('password', extractedValues?.password);
+
+      console.log(user.username);
 
       const response = await fetch(url, {
         method: 'POST',
@@ -92,13 +93,13 @@ export const GamesList = ({
       });
       const body = await response.json();
 
-      console.log(formData);
+      console.log('formdata', formData);
 
       const sessionToken = body.sessionToken.sessionToken;
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: `SPIDER88_${user.username}`,
+        username: user.username,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: 'web',
