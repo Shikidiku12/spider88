@@ -1,0 +1,97 @@
+.game {
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  gap: 6px;
+  align-content: flex-start;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  :hover .game__overlay {
+    visibility: visible;
+    height: 100%;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+    aspect-ratio: 3/3.5;
+
+    &-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      display: block;
+    }
+  }
+
+  &__overlay {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background: linear-gradient(0deg, rgba(0, 7, 9, 0.80) 0%, rgba(0, 7, 9, 0.80) 100%);
+    height: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    transition: .3s ease;
+
+    &-title {
+      overflow: hidden;
+      color: #DEFFF5;
+      text-align: center;
+      text-overflow: ellipsis;
+      font-family: "Poppins";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 102.264%; /* 22.498px */
+      letter-spacing: -0.66px;
+      text-transform: capitalize;
+    }
+
+    &-btn-play {
+      padding: 6px 32px;
+      border-radius: 46px;
+      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+      border: none;
+      color:  #DEFFF5;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.48px;
+      text-transform: capitalize;
+    }
+
+    &-btn-demo {
+      padding: 10px 20px;
+      background: none;
+      border: none;
+      overflow: hidden;
+      color: #ED1975;
+      text-align: center;
+      text-overflow: ellipsis;
+      font-family: "Poppins";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 102.264%; /* 16.362px */
+      letter-spacing: -0.48px;
+      text-transform: capitalize;
+    }
+  }
+}

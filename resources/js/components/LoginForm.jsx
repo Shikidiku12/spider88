@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
+export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const language = 'EN';
@@ -31,6 +31,11 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
   return (
     <div className="login">
       <div className="login__card">
+        <div className="login__card__header">
+          <button type="button" className="login__card__header-action" onClick={() => setIsShow(false)}>
+            <span className="login__card__header-close-icon"></span>
+          </button>
+        </div>
         <img src="/images/spdr88-logo.svg" className="login__card__logo" />
         <form onSubmit={(ev) => onSubmit(ev)}
           className="login__card__form">

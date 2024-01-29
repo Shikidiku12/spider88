@@ -18,7 +18,6 @@ export const LoginModal = ({
       backdrop={true}
       onHide={() => setIsShow(false)}
       show={isShow}
-      dialogClassName={"modal-90w modal-md"}
       centered
     >
       <Modal.Body>
@@ -29,6 +28,7 @@ export const LoginModal = ({
               user={user}
               setUser={setUser}
               errors={errors}
+              setIsShow={setIsShow}
             />
           </div>
 

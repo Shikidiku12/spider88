@@ -488,6 +488,7 @@
         border-radius: 9px;
         border: 6px solid #1C232E;
         background: rgba(25, 30, 39, 0.70);
+        padding: 0 7px;
 
         img {
           border-radius: 48px;
@@ -501,21 +502,6 @@
           -webkit-text-fill-color: transparent;
         }
 
-        &::after {
-
-
-          @media (min-width: 769px) and (max-width: 1024px) {
-            content: '';
-            border-radius: 5px;
-            background: #ED1A76;
-            width: 5px;
-            height: 5px;
-            position: absolute;
-            display: inline;
-            bottom: -2px;
-            left: 50%;
-          }
-        }
       }
     }
   }
