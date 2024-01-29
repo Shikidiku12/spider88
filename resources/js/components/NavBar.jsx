@@ -13,6 +13,12 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
     setLocalSearch(search);
   };
 
+  const handleInputChange = (e) => {
+    const searchTerm = e.target.value;
+    setSearch(searchTerm);
+    setLocalSearch(search);
+  }
+
   const logout = () => {
     setUser({
       username: '',
@@ -42,6 +48,11 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   useEffect(() => {
 
     window.addEventListener("resize", handleResize);
+    window.addEventListener("click", (e) => {
+      if(e.target.className.includes('nav__contents')) {
+       setIsOpen(false);
+      }
+    });
   });
 
   useEffect(() => {
@@ -154,11 +165,11 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
                     <div className="nav__sidebar__filter__search-wrapper">
                       <input
                         value={search}
-                        onChange={(ev) => setSearch(ev.target.value)}
+                        onChange={handleInputChange}
                         type="text" placeholder="Search Game...."/>
                       <span className="nav__sidebar__filter__search-wrapper--icon">
-                    <img src="/images/icons/search.png"/>
-                </span>
+                        <img src="/images/icons/search.png"/>
+                      </span>
                     </div>
                   </div>
                 </form>
