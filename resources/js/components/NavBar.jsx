@@ -58,12 +58,15 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
       }
     };
 
-    init();
+   if(isLogin) {
+     init();
 
-    setInterval(() => {
-      init();
-    },15000)
-  },[])
+     setInterval(() => {
+       init();
+     },15000);
+   }
+
+  },[isLogin])
 
   return (
     <React.Fragment>

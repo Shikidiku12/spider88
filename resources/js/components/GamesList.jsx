@@ -151,7 +151,7 @@ export const GamesList = ({
             return (
               <div
                 key={game.id}
-                className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-xs-6 mb-4"
+                className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4"
                 onMouseOver={(ev) => onMouseOver(ev, game)}
                 onMouseOut={(ev) => onMouseOut(ev, game)}
               >
