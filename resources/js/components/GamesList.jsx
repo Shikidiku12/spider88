@@ -84,7 +84,7 @@ export const GamesList = ({
       formData.append("username", user.username);
       formData.append('password', extractedValues?.password);
 
-      dd(user.username);
+      console.log(user.username);
 
       const response = await fetch(url, {
         method: 'POST',
@@ -98,7 +98,7 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: `SPIDER88_${user.username}`,
+        username: user.username,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: 'web',
