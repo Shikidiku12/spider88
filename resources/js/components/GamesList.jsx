@@ -37,7 +37,6 @@ export const GamesList = ({
   // Function to extract values from the access token
   const extractValuesFromToken = async (token) => {
     try {
-      console.log(`extracting values from token : ${token}`)
       // Send the token to the backend for extraction (optional)
       // Alternatively, you can extract values directly on the frontend if needed
       const { data } = await axios.post('/extract-values-from-token', { token });
@@ -83,9 +82,6 @@ export const GamesList = ({
       const formData = new FormData();
       formData.append("username", user.username);
       formData.append('password', extractedValues?.password);
-
-      console.log(user.username);
-      console.log('formdata', formData);
 
       const response = await fetch(url, {
         method: 'POST',
