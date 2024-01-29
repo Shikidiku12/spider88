@@ -22,7 +22,7 @@ export const LoginModal = ({
       centered
     >
       <Modal.Body>
-        <div className="row login-container">
+        <div className="row">
           <div className="col">
             <LoginForm
               setToastMessage={setToastMessage}
