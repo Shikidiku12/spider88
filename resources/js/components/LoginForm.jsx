@@ -12,7 +12,7 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage }) => {
     setIsLoading(true);
     try {
 
-      const { data } = await axios.post('/get-access-token', {
+      const { data } = await axios.post('/api/get-access-token', {
         username: user.username,
         password: user.password
       });
