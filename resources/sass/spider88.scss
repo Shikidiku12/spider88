@@ -321,6 +321,7 @@
         width: 30px;
         background-position: center;
         background-size: contain;
+        cursor: pointer;
 
         @media (min-width: 768px) {
             background-image: url("/public/images/spdr88-logo.svg");
@@ -411,11 +412,26 @@
             font-size: 16px;
             font-weight: 700;
             word-wrap: break-word;
-            background: $yellow-gradient;
+            background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
             border-radius: 46px;
             padding: 10px 32px;
             border: none;
         }
+    }
+
+    &__logout {
+      color: black;
+
+      &--btn {
+        font-size: 16px;
+        font-weight: 700;
+        word-wrap: break-word;
+        width: 44px;
+        height: 44px;
+        border-radius: 26px;
+        border: 1px solid #ED1975;
+        background: none;
+      }
     }
 
     &__sidebar {
@@ -554,12 +570,13 @@
           font-weight: 500;
           line-height: normal;
           text-transform: capitalize;
+          white-space: nowrap;
         }
 
         &-item {
             display: flex;
             align-items: center;
-            color: $primary-text;
+            color: #EFEFEF;
             gap: 5px;
 
             @media (min-width: 768px) {
@@ -570,34 +587,77 @@
             }
 
             &.grouped {
-                padding: 6px;
-                background: #303A4D;
-                border-radius: 12px;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                gap: 6px;
-                display: inline-flex;
+              padding: 0;
+              background: inherit;
+              border-radius: 0;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 32px;
+              display: flex;
 
-                @media (min-width: 768px) {
-                    padding: 0;
-                    background: inherit;
-                    border-radius: 0;
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    gap: 32px;
-                    display: flex;
+
+
+                @media (max-width: 768px) {
+                  padding: 6px;
+                  background: #303A4D;
+                  border-radius: 12px;
+                  flex-direction: column;
+                  justify-content: flex-start;
+                  align-items: flex-start;
+                  gap: 6px;
+                  display: inline-flex;
                 }
             }
         }
 
         &-group {
-            display: flex;
-            align-items: center;
-            color: $primary-text;
-            gap: 5px;
-            cursor: pointer;
+          display: flex;
+          align-items: center;
+          color: #EFEFEF;
+          gap: 5px;
+          cursor: pointer;
+          position: relative;
+          width: 100%;
+
+          @media (min-width: 769px) and (max-width: 1024px) {
+            flex-direction: column;
+            gap: 0;
+          }
+
+          &--active {
+            border-radius: 9px;
+            border: 6px solid #1C232E;
+            background: rgba(25, 30, 39, 0.70);
+
+            img {
+              border-radius: 48px;
+              border: 2px solid var(--primary, #ED1975);
+            }
+
+            span {
+              background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            &::after {
+
+
+              @media (min-width: 769px) and (max-width: 1024px) {
+                content: '';
+                border-radius: 5px;
+                background: #ED1A76;
+                width: 5px;
+                height: 5px;
+                position: absolute;
+                display: inline;
+                bottom: -2px;
+                left: 50%;
+              }
+            }
+          }
         }
 
         &-bottom {

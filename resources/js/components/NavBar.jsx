@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios";
 
-export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, setCurrentMenu, setLocalSearch }) => {
+export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, currentMenu, setCurrentMenu, setLocalSearch }) => {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
   const [search, setSearch] = useState('');
   const [balance, setBalance] = useState(0);
@@ -93,15 +93,20 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
                 <span></span>
                 <span></span>
               </div>
-              <div className="nav__logo"></div>
+              <div className="nav__logo"
+                   onClick={() => {
+                     setCurrentMenu('all');
+                     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                   }}
+              ></div>
               <div className="nav__logo-text-container">
                 <div className="nav__logo--text"></div>
               </div>
             </div>
             <div className="d-flex nav__actions-container">
-              {isLogin &&
+              { isLogin &&
                 <div className="d-flex nav__actions">
-                  <button className="nav__balance">RM {balance.toLocaleString()}</button>
+                  <button className="nav__balance">RM {balance.toLocaleString('en', {minimumFractionDigits:2})}</button>
                 </div>
               }
               <div className="nav__divider"></div>
@@ -112,9 +117,11 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
                   </div>
                 }
 
-                {isLogin &&
-                  <div className="nav__login" id="login">
-                    <button className="nav__login--btn" onClick={() => logout()}>Logout</button>
+                { isLogin &&
+                  <div className="nav__logout" id="login">
+                    <button className="nav__logout--btn" onClick={() => logout()}>
+                      <img src="/images/logout.svg" />
+                    </button>
                   </div>
                 }
               </div>
@@ -130,28 +137,28 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
               <div className="nav__sidebar">
                 <div className="nav__sidebar-list d-flex">
                   <div className="nav__sidebar-item grouped">
-                    <div className="nav__sidebar-group" onClick={() => {
+                    <div className={`nav__sidebar-group ${currentMenu === 'all' ? 'nav__sidebar-group--active' : ''}`} onClick={() => {
                       setCurrentMenu('all');
                       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
                     }}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
                       <span className="nav__sidebar-label">All Games</span>
                     </div>
-                    <div className="nav__sidebar-group" onClick={() => {
+                    <div className={`nav__sidebar-group ${currentMenu === 'slot' ? 'nav__sidebar-group--active' : ''}`}  onClick={() => {
                       setCurrentMenu('slot');
                       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
                     }}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
                       <span className="nav__sidebar-label">Slot Games</span>
                     </div>
-                    <div className="nav__sidebar-group" onClick={() => {
+                    <div className={`nav__sidebar-group ${currentMenu === 'live' ? 'nav__sidebar-group--active' : ''}`} onClick={() => {
                       setCurrentMenu('live');
                       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
                     }}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
                       <span className="nav__sidebar-label">Live Casino</span>
                     </div>
-                    <div className="nav__sidebar-group" onClick={() => {
+                    <div className={`nav__sidebar-group ${currentMenu === 'progressive' ? 'nav__sidebar-group--active' : ''}`} onClick={() => {
                       setCurrentMenu('progressive');
                       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
                     }}>

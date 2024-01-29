@@ -86,6 +86,7 @@ const App = () => {
         setUser={setUser}
         setIsLogin={setIsLogin}
         isLogin={isLogin}
+        currentMenu={currentMenu}
         setCurrentMenu={setCurrentMenu}
         setLocalSearch={setLocalSearch}
       />
