@@ -973,6 +973,7 @@
   @media (max-width: 767px) {
     flex-direction: column-reverse;
     align-items: flex-start;
+    padding: 0 15px;
   }
 
   &__title {
@@ -1153,33 +1154,37 @@
     }
 
     &-accent {
-      display: none;
+      background-image: url('/public/images/download-accent.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: block;
+      position: absolute;
+      height: 400px;
+      right: 2%;
+      top: -103px;
+      width: 427px;
 
-      @media (min-width: 768px) {
-        background-image: url('/public/images/download-accent.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: block;
-        position: absolute;
-        height: 400px;
-        right: -12%;
-        top: -74px;
-        width: 427px;
+      @media (max-width: 480px) {
+        background-image: url('/public/images/M-download-accent.png');
+        right: -36%;
+        height: 320px;
+        top: -80px;
       }
 
-      @media (min-width: 933px) {
-        right: -5%;
+      @media (min-width:481px) and (max-width: 768px) {
+        background-image: url('/public/images/M-download-accent.png');
+        height: 320px;
+        right: -30%;
+        top: -80px;
       }
 
-      @media (min-width: 1024px) {
-        height: 503px;
+      @media (min-width: 992px) {
         right: 2%;
-        top: -109px;
-        width: 427px;
+
       }
 
       @media (min-width: 1440px) {
-        left: 54%;
+        right: 15%;
       }
     }
 
@@ -1212,6 +1217,12 @@
       font-weight: 700;
       line-height: 50px; /* 38px */
       letter-spacing: 0.38px;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: normal;
+      }
     }
 
     &-description {
@@ -1223,20 +1234,15 @@
       line-height: 100%;
       opacity: 0.7;
 
-      @media (min-width: 768px) {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 100%;
+      @media (max-width: 768px) {
+        font-size: 14px;
+        line-height: 130%;
       }
     }
 
     &-action {
       display: flex;
       gap: 12px;
-
-      @media (max-width: 768px) {
-        flex-direction: column;
-      }
     }
 
     &-btn {
@@ -1254,10 +1260,15 @@
       border: none;
       text-decoration: none;
       margin-top: 16px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      z-index: 1;
 
-      @media (min-width: 768px) {
-        font-size: 18px;
+      @media (max-width: 768px) {
+        font-size: 14px;
         padding: 14px 32px;
+        white-space: nowrap;
       }
 
     }
@@ -1278,9 +1289,13 @@
       justify-content: center;
       text-decoration: none;
       margin-top: 16px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      z-index: 1;
 
-      @media (min-width: 768px) {
-        font-size: 18px;
+      @media (max-width: 768px) {
+        font-size: 14px;
         padding: 14px 32px;
       }
 
@@ -1288,19 +1303,19 @@
 
     &-container {
       width: 100%;
-      height: auto;
+      height: 200px;
       border-radius: 22px;
       padding: 22px 17px;
       display: flex;
       align-items: center;
 
-      background-image: url('/public/images/M-DownloadBg.png');
+      background-image: url('/public/images/M-DowloadBg.png');
       background-size: 100% 100%;
       background-repeat: no-repeat;
 
       @media (min-width: 768px) {
         background-image: url('/public/images/D-DownloadBG.png');
-        height: 246px;
+        height: 251px;
         padding: 42px;
       }
 
@@ -1523,6 +1538,10 @@
     gap: 32px;
     padding: 42px 0;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__accent {
