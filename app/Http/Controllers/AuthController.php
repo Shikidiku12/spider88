@@ -13,8 +13,9 @@ class AuthController extends Controller
         return Crypt::encrypt(json_encode($data));
     }
 
-    public function extractValuesFromToken($token)
+    public function extractValuesFromToken(Request $request)
     {
+       $token = $request -> input('token');
         try {
             // Decrypt and unserialize the token to extract values
             $data = json_decode(Crypt::decrypt($token), true);
