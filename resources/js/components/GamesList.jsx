@@ -85,14 +85,13 @@ export const GamesList = ({
       formData.append('password', extractedValues?.password);
 
       console.log(user.username);
+      console.log('formdata', formData);
 
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
       });
       const body = await response.json();
-
-      console.log('formdata', formData);
 
       const sessionToken = body.sessionToken.sessionToken;
 
