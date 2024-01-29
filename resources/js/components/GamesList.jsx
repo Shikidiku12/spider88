@@ -96,7 +96,7 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: `${user.username}`,
+        username: `SPIDER88_${user.username}`,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: 'web',
