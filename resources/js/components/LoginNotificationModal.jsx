@@ -4,7 +4,7 @@ export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
 
   const gotoLogin = () => {
     setIsShow(false);
-    setLoginShow(true); 
+    setLoginShow(true);
   };
 
   return (
@@ -15,16 +15,17 @@ export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
       backdrop={true}
       onHide={() => setIsShow(false)}
       show={isShow}
-      size={"lg"}
       centered
     >
       <Modal.Body>
         <div style={{ padding: "10px 12px" }}>
-          <div className={"d-flex flex-row justify-content-end mb-5"}>
-            <img src="/images/x.svg" /> 
+          <div className={"d-flex flex-row justify-content-end mb-5"} >
+            <button className="border-0 bg-transparent" onClick={() => setIsShow(false)}>
+              <img src="/images/x.svg" />
+            </button>
           </div>
           <div className={"mb-5"}>
-            <h3 className={"fw-bold text-center"}>
+          <h3 className={"fw-bold text-center"}>
               You are not logged in
             </h3>
           </div>
@@ -32,9 +33,9 @@ export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
             To access this feature you need to login first
           </div>
           <div className={"text-center mb-3"}>
-            <button 
+            <button
               className={"btn btn-light btn-lg"}
-              type="button" 
+              type="button"
               onClick={gotoLogin}
             >
               Login

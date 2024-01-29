@@ -18,17 +18,17 @@ export const LoginModal = ({
       backdrop={true}
       onHide={() => setIsShow(false)}
       show={isShow}
-      dialogClassName={"modal-90w modal-md"}
       centered
     >
       <Modal.Body>
-        <div className="row login-container">
+        <div className="row">
           <div className="col">
             <LoginForm
               setToastMessage={setToastMessage}
               user={user}
               setUser={setUser}
               errors={errors}
+              setIsShow={setIsShow}
             />
           </div>
 
