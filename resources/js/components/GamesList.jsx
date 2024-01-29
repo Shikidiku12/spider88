@@ -78,12 +78,13 @@ export const GamesList = ({
 
     try {
       const extractedValues = await extractValuesFromToken(Cookies.get('access_token'));
-      console.log('values', extractedValues)
       if (!extractedValues) throw new Error('Invalid token');
 
       const formData = new FormData();
       formData.append("username", user.username);
       formData.append('password', extractedValues?.password);
+
+      dd(user.username);
 
       const response = await fetch(url, {
         method: 'POST',
@@ -91,7 +92,7 @@ export const GamesList = ({
       });
       const body = await response.json();
 
-      console.log(formData);
+      console.log('formdata', formData);
 
       const sessionToken = body.sessionToken.sessionToken;
 
