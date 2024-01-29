@@ -34,6 +34,19 @@ export const GamesList = ({
     window.iapiLaunchClient('ngm_desktop', game.code, 'offline', '_blank');
   };
 
+  // Function to extract values from the access token
+  const extractValuesFromToken = async (token) => {
+    try {
+      // Send the token to the backend for extraction (optional)
+      // Alternatively, you can extract values directly on the frontend if needed
+      const { data } = await axios.post('/extract-values-from-token', { token });
+      return data;
+    } catch (error) {
+      console.error('Error extracting values from token:', error);
+      return null;
+    }
+  };
+
   const launchActualGame = async (ev, game) => {
     if (!isLogin) {
       setIsShowLoginNotificationModal(true);
@@ -57,14 +70,21 @@ export const GamesList = ({
       languageCode: 'LoginService',
     };
 
+
+
     const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?'
       + objectToQueryString(queryParams);
 
-    const formData = new FormData();
-    formData.append("username", user.username);
-    formData.append('password', Cookies.get('password'));
-    console.log('url', url);
+
     try {
+      const extractedValues = await extractValuesFromToken(Cookies.get('access_token'));
+      if (!extractedValues) throw new Error('Invalid token');
+
+      const formData = new FormData();
+      formData.append("username", extractedValues?.username);
+      formData.append('password', extractedValues?.password);
+
+
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
@@ -119,107 +139,99 @@ export const GamesList = ({
   }
 
   const popUp = (url, title, w, h) => {
-      const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : 0;
-      const dualScreenTop = window.screenTop !== undefined ? window.screenTop : 0;
-      let width = 0;
-      let height = 0;
+    const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : 0;
+    const dualScreenTop = window.screenTop !== undefined ? window.screenTop : 0;
+    let width = 0;
+    let height = 0;
 
-      width = window.innerWidth ? window.innerWidth :
-        document.documentElement.clientWidth ?
-          document.documentElement.clientWidth : screen.width;
-      height = window.innerHeight ? window.innerHeight :
-        document.documentElement.clientHeight ?
-          document.documentElement.clientHeight : screen.height;
+    width = window.innerWidth ? window.innerWidth :
+      document.documentElement.clientWidth ?
+        document.documentElement.clientWidth : screen.width;
+    height = window.innerHeight ? window.innerHeight :
+      document.documentElement.clientHeight ?
+        document.documentElement.clientHeight : screen.height;
 
-      const left = ((width / 2) - (w / 2)) + dualScreenLeft;
-      const top = ((height / 2) - (h / 2)) + dualScreenTop;
-      const newWindow = window.open(url, title,
-        'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    const left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    const top = ((height / 2) - (h / 2)) + dualScreenTop;
+    const newWindow = window.open(url, title,
+      'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 
 
-      newWindow.focus();
+    newWindow.focus();
 
 
   }
 
   return (
     <React.Fragment>
-      {
-        games.length > 0 &&
-        <div className="game-list">
-          <div className="row">
-            {
-              games.slice(0, numberOfGame).map((game, index) => {
-                return (
-                  <div
-                    key={game.id}
-                    className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4"
-                    onMouseOver={(ev) => onMouseOver(ev, game)}
-                    onMouseOut={(ev) => onMouseOut(ev, game)}
-                  >
-                    <div className="image-wrapper d-flex justify-content-center">
-                      <img
-                        alt={game.name}
-                        src={`/images/games_icons_desktop/${fetchImageName(game)}.jpg`}
-                        className="rounded img-fluid"
-                      />
-                      <div className={`overlay mb-3 ${game.isHover ? '' : 'd-none'}`}>
-                        <div className="d-sm-flex d-lg-none flex-column px-5">
+      <div className="game-list">
+        <div className="row">
+          {
+            games.slice(0, numberOfGame).map((game, index) => {
+              return (
+                <div
+                  key={game.id}
+                  className="px-4 col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4"
+                  onMouseOver={(ev) => onMouseOver(ev, game)}
+                  onMouseOut={(ev) => onMouseOut(ev, game)}
+                >
+                  <div className="image-wrapper d-flex justify-content-center">
+                    <img
+                      alt={game.name}
+                      src={`/images/games_icons_desktop/${fetchImageName(game)}.jpg`}
+                      className="rounded img-fluid"
+                    />
+                    <div className={`overlay mb-3 ${game.isHover ? '' : 'd-none'}`}>
+                      <div className="d-sm-flex d-lg-none flex-column px-5">
+                        <button
+                          type="button"
+                          onClick={(ev) => launchActualGame(ev, game)}
+                          className="btn-game w-auto flex-fill py-3 mb-3"
+                        >
+                          Play
+                        </button>
+                        {!game.is_live &&
                           <button
                             type="button"
-                            onClick={(ev) => launchActualGame(ev, game)}
+                            onClick={(ev) => launchDemoGame(ev, game)}
                             className="btn-game w-auto flex-fill py-3 mb-3"
                           >
-                            Play
+                            Demo
                           </button>
-                          {!game.is_live &&
-                            <button
-                              type="button"
-                              onClick={(ev) => launchDemoGame(ev, game)}
-                              className="btn-game w-auto flex-fill py-3 mb-3"
-                            >
-                              Demo
-                            </button>
-                          }
-                        </div>
-                        <div className="d-lg-flex justify-content-evenly d-none">
+                        }
+                      </div>
+                      <div className="d-lg-flex justify-content-evenly d-none">
+                        <button
+                          type="button"
+                          onClick={(ev) => launchActualGame(ev, game)}
+                          className="btn-game"
+                        >
+                          Play
+                        </button>
+                        {!game.is_live &&
                           <button
                             type="button"
-                            onClick={(ev) => launchActualGame(ev, game)}
+                            onClick={(ev) => launchDemoGame(ev, game)}
                             className="btn-game"
                           >
-                            Play
+                            Demo
                           </button>
-                          {!game.is_live &&
-                            <button
-                              type="button"
-                              onClick={(ev) => launchDemoGame(ev, game)}
-                              className="btn-game"
-                            >
-                              Demo
-                            </button>
-                          }
-                        </div>
+                        }
                       </div>
                     </div>
                   </div>
-                );
-              })
-            }
-          </div>
-          {
-            games.length > numberOfGame &&
-            <div className="d-flex justify-content-center align-items-center">
-              <button type="button" className="game-list__button" onClick={() => loadMore()}>Load More</button>
-            </div>
+                </div>
+              );
+            })
           }
         </div>
-      }
-
-      {
-        games.length === 0 &&
-        <span className="no-games-found">No games found :(</span>
-      }
+        {
+          games.length > numberOfGame &&
+          <div className="d-flex justify-content-center align-items-center">
+            <button type="button" className="game-list__button" onClick={() => loadMore()}>Load More</button>
+          </div>
+        }
+      </div>
     </React.Fragment>
   );
 };
