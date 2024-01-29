@@ -82,7 +82,7 @@ export const GamesList = ({
       if (!extractedValues) throw new Error('Invalid token');
 
       const formData = new FormData();
-      formData.append("username", `SPIDER88_${user.username}`);
+      formData.append("username", user.username);
       formData.append('password', extractedValues?.password);
 
       const response = await fetch(url, {
@@ -91,7 +91,7 @@ export const GamesList = ({
       });
       const body = await response.json();
 
-      console.log(body);
+      console.log(formData);
 
       const sessionToken = body.sessionToken.sessionToken;
 
