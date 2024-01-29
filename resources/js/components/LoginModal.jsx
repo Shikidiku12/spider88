@@ -1,6 +1,7 @@
 import { LoginForm } from './LoginForm';
 import { LoginBanner } from './LoginBanner';
 import Modal from 'react-bootstrap/Modal';
+import '../../sass/components/login.scss';
 
 export const LoginModal = ({
   setToastMessage,

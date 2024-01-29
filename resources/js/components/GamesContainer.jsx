@@ -4,6 +4,7 @@ import { GameFilter } from './GameFilter';
 import { GameFilterMobile } from './GameFilterMobile';
 import { GamesList } from './GamesList';
 import { Filters } from '../enums/Filters';
+import '../../sass/components/game-container.scss';
 
 export const GamesContainer = ({
   user,

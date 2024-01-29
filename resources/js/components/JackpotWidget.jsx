@@ -1,4 +1,5 @@
 import AnimatedCountUp from "./AnimatedCountUp.jsx";
+import '../../sass/components/jackpot.scss';
 
 export const JackpotWidget = () => {
 

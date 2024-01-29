@@ -1,3 +1,5 @@
+import '../../sass/components/footer.scss';
+
 export const Footer = () => {
   const links = [
     'Games', 'Promotions', 'Banking', 'Support', 'Terms and Conditions', 'Privacy Policy'
