@@ -24,4 +24,4 @@ Route::get('game', GameListController::class);
 
 Route::get('/get-balance/{player_name?}', [KioskController::class, 'getPlayerBalance']);
 Route::post('/get-access-token', [AuthController::class, 'getAccessToken']);
-Route::post('/extract-values-from-token', [AuthController::class, 'extractValuesFromToken']);
+Route::get('/extract-values-from-token/{token?}', [AuthController::class, 'extractValuesFromToken']);
