@@ -109,7 +109,7 @@ export const GamesContainer = ({
   }, []);
 
   return (
-    <div className="main-content">
+    <div className="main-content" >
       <div className="main-content__wrapper">
         <div className="provider-section">
           <div className="provider-section__title">
