@@ -29,7 +29,7 @@ export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
               You are not logged in
             </h3>
           </div>
-          <div style={{ fontSize: "16px" }} className={"px-5 mb-5"}>
+          <div style={{ fontSize: "16px" }} className={"text-center mb-5"}>
             To access this feature you need to login first
           </div>
           <div className={"text-center mb-3"}>
