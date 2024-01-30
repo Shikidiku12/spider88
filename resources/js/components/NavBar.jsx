@@ -130,7 +130,7 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
 
                 { isLogin &&
                   <div className="nav__logout" id="login">
-                    <button className="nav__logout--btn" onClick={() => logout()}>
+                    <button className="nav__logout--btn" onClick={() => logout()} title="Logout">
                       <img src="/images/logout.svg" />
                     </button>
                   </div>
@@ -148,37 +148,47 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
               <div className="nav__sidebar">
                 <div className="nav__sidebar-list d-flex">
                   <div className="nav__sidebar-item grouped">
-                    <div className={`nav__sidebar-group ${currentMenu === 'all' ? 'nav__sidebar-group--active' : ''}`} onClick={() => changeCategory('all')}>
+                    <div className={`nav__sidebar-group ${currentMenu === 'top' ? 'nav__sidebar-group--active' : ''}`}
+                         onClick={() => changeCategory('top')}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/top-games.png" alt=""/>
+                      <span className="nav__sidebar-label">Top Games</span>
+                    </div>
+                    <div className={`nav__sidebar-group ${currentMenu === 'all' ? 'nav__sidebar-group--active' : ''}`}
+                         onClick={() => changeCategory('all')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
                       <span className="nav__sidebar-label">All Games</span>
                     </div>
-                    <div className={`nav__sidebar-group ${currentMenu === 'slot' ? 'nav__sidebar-group--active' : ''}`}  onClick={() => changeCategory('slot')}>
-                      <img className="nav__sidebar-icon" src="/images/menu-icons/slots.png" alt=""/>
+                    <div className={`nav__sidebar-group ${currentMenu === 'slot' ? 'nav__sidebar-group--active' : ''}`}
+                         onClick={() => changeCategory('slot')}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/slot-games.png" alt=""/>
                       <span className="nav__sidebar-label">Slot Games</span>
                     </div>
-                    <div className={`nav__sidebar-group ${currentMenu === 'live' ? 'nav__sidebar-group--active' : ''}`} onClick={() => changeCategory('live')}>
+                    <div className={`nav__sidebar-group ${currentMenu === 'live' ? 'nav__sidebar-group--active' : ''}`}
+                         onClick={() => changeCategory('live')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
                       <span className="nav__sidebar-label">Live Casino</span>
                     </div>
-                    <div className={`nav__sidebar-group ${currentMenu === 'progressive' ? 'nav__sidebar-group--active' : ''}`} onClick={() => changeCategory('progressive')}>
-                      <img className="nav__sidebar-icon" src="/images/menu-icons/video-poker.png" alt=""/>
+                    <div
+                      className={`nav__sidebar-group ${currentMenu === 'progressive' ? 'nav__sidebar-group--active' : ''}`}
+                      onClick={() => changeCategory('progressive')}>
+                      <img className="nav__sidebar-icon" src="/images/menu-icons/progressive-games.png" alt=""/>
                       <span className="nav__sidebar-label">Progressive Games</span>
                     </div>
                   </div>
                 </div>
-                <form onSubmit={(ev) => submitSearch(ev)}>
-                  <div className="nav__sidebar__filter">
-                    <div className="nav__sidebar__filter__search-wrapper">
-                      <input
-                        value={search}
-                        onChange={handleInputChange}
-                        type="text" placeholder="Search Game"/>
-                      <span className="nav__sidebar__filter__search-wrapper--icon">
-                        <img src="/images/icons/search.png"/>
-                      </span>
-                    </div>
-                  </div>
-                </form>
+                {/*<form onSubmit={(ev) => submitSearch(ev)}>*/}
+                {/*  <div className="nav__sidebar__filter">*/}
+                {/*    <div className="nav__sidebar__filter__search-wrapper">*/}
+                {/*      <input*/}
+                {/*        value={search}*/}
+                {/*        onChange={handleInputChange}*/}
+                {/*        type="text" placeholder="Search Games"/>*/}
+                {/*      <span className="nav__sidebar__filter__search-wrapper--icon">*/}
+                {/*        <img src="/images/icons/search.png"/>*/}
+                {/*      </span>*/}
+                {/*    </div>*/}
+                {/*  </div>*/}
+                {/*</form>*/}
               </div>
             }
           </div>

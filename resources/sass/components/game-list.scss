@@ -1,32 +1,35 @@
 .game-list {
-  padding: 25px 15px;
+  padding: 15px 0;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 20px 10px;
+  gap: 10px;
 
   @media (min-width: 1134px) and (max-width: 1292px) {
     grid-template-columns: repeat(6, 1fr);
-    gap: 30px 15px;
+    gap: 15px;
   }
 
   @media (min-width: 974px) and (max-width: 1133px) {
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px 15px;
+    gap: 15px;
   }
 
   @media (min-width: 745px) and (max-width: 973px) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px 15px;
+    gap: 15px;
+    padding: 15px;
   }
 
   @media (min-width: 532px) and (max-width: 744px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px 5px;
+    gap: 15px;
+    padding: 15px;
   }
 
   @media (max-width: 531px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px 5px;
+    gap: 15px;
+    padding: 15px;
   }
 
   &__button {

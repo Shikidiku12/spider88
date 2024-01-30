@@ -28,7 +28,7 @@ const App = () => {
     password: '',
     general: ''
   });
-  const [currentMenu, setCurrentMenu] = useState('all');
+  const [currentMenu, setCurrentMenu] = useState('top');
   const [localSearch, setLocalSearch] = useState('');
 
   const calloutLogin = (response) => {
@@ -78,7 +78,8 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div >
+
       <NavBar
         setToastMessage={setToastMessage}
         setIsShowModal={setIsShowModal}
@@ -89,6 +90,7 @@ const App = () => {
         setCurrentMenu={setCurrentMenu}
         setLocalSearch={setLocalSearch}
       />
+
       <div className="main">
         <div className="d-lg-none">
           <CarouselMobile/>
@@ -97,17 +99,23 @@ const App = () => {
           <Carousel/>
         </div>
         <JackpotWidget/>
-        <GamesContainer
-          user={user}
-          currentMenu={currentMenu}
-          localSearch={localSearch}
-          isLogin={isLogin}
-          setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
-        />
-        <Highlights
-          setCurrentMenu={setCurrentMenu}
-        />
-        <Footer/>
+        <div>
+          <div className="bg-gradient-left"></div>
+          <div className="bg-gradient-right"></div>
+
+          <GamesContainer
+            user={user}
+            currentMenu={currentMenu}
+            localSearch={localSearch}
+            setLocalSearch={setLocalSearch}
+            isLogin={isLogin}
+            setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+          />
+          <Highlights
+            setCurrentMenu={setCurrentMenu}
+          />
+          <Footer/>
+        </div>
         <LoginModal
           setUser={setUser}
           user={user}
@@ -121,16 +129,17 @@ const App = () => {
           setIsShow={setIsShowLoginNotificationModal}
           setLoginShow={setIsShowModal}
         />
-        <ToastContainer style={{position: 'fixed'}} position="top-center" className="p-3">
+        <ToastContainer style={{position: 'fixed'}} position={window.innerWidth < 768 ? 'middle-center' : 'top-center'}
+                        className="p-3">
           <Toast
             onClose={() => setToastMessage('')}
             show={toastMessage}
-            bg={'dark'}
+            bg={'success'}
             delay={3000}
             autohide
           >
             <Toast.Body>
-                {toastMessage}
+              {toastMessage}
             </Toast.Body>
           </Toast>
         </ToastContainer>
@@ -140,5 +149,5 @@ const App = () => {
 };
 
 if (document.getElementById('root')) {
-    createRoot(document.getElementById('root')).render(<App/>);
+  createRoot(document.getElementById('root')).render(<App/>);
 }
