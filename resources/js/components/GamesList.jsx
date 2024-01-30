@@ -99,7 +99,7 @@ export const GamesList = ({
         username: user.username,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
-        clientPlatform: 'web',
+        clientPlatform: window.innerWidth < 768 ? 'mobile' : 'web',
         language: 'EN',
         playMode: 1,
         depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html'
@@ -109,8 +109,6 @@ export const GamesList = ({
 
       setGameURL(gameLaunchUrl);
       setIsShowGameModal(true);
-      //popUp(gameLaunchUrl, '', 900, 800);
-      //window.open(gameLaunchUrl);
     } catch (err) {
       console.log('err', err);
     } finally {
