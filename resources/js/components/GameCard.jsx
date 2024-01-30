@@ -9,7 +9,7 @@ export const GameCard = ({ game, launchActualGame, launchDemoGame }) => {
   return (
     <div className="game">
       <div className="game__wrapper">
-        <div className="game__image-wrapper">
+        <div className="game__image-wrapper ">
           <img
             className="game__image"
             alt={game.name}
