@@ -33,9 +33,12 @@ export const Highlights = ({ setCurrentMenu }) => {
               <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-2.png')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
-                    <span className="highlight__card--title">Table Games & card</span>
+                    <span className="highlight__card--title">Progressive Games</span>
                     <span className="highlight__card--description">Discover our premium games</span>
-                    <button className="highlight__card--btn">Play Now</button>
+                    <button className="highlight__card--btn" onClick={() => {
+                      setCurrentMenu('progressive');
+                      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                    }}>Play Now</button>
                   </div>
                 </div>
               </div>

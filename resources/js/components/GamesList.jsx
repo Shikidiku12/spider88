@@ -17,8 +17,8 @@ export const GamesList = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-  const [numberOfGame, setNumberOfGame] = useState(18);
-  const [maxGame, setMaxGame] = useState(18);
+  const [numberOfGame, setNumberOfGame] = useState(14);
+  const [maxGame, setMaxGame] = useState(14);
 
   const language = 'English';
   const languageCode = 'EN';

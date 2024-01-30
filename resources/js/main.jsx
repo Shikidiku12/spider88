@@ -32,7 +32,6 @@ const App = () => {
   const [localSearch, setLocalSearch] = useState('');
 
   const calloutLogin = (response) => {
-    console.log('response', response);
     if (response.errorCode && response.errorCode === 48) {
       setLoginErrors({
         username: '',
@@ -122,18 +121,16 @@ const App = () => {
           setIsShow={setIsShowLoginNotificationModal}
           setLoginShow={setIsShowModal}
         />
-        <ToastContainer style={{position: 'fixed'}} position={'middle-center'}>
+        <ToastContainer style={{position: 'fixed'}} position="top-center" className="p-3">
           <Toast
             onClose={() => setToastMessage('')}
             show={toastMessage}
             bg={'dark'}
-            delay={5000}
+            delay={3000}
             autohide
           >
-            <Toast.Header closeButton={true} bsPrefix={"headerNotification"}>
-            </Toast.Header>
             <Toast.Body>
-                <h3>{toastMessage}</h3>
+                {toastMessage}
             </Toast.Body>
           </Toast>
         </ToastContainer>
