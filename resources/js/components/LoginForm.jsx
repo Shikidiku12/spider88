@@ -68,7 +68,7 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
                 onChange={(ev) => setUser({ ...user, password: ev.target.value })}
                 type="password"
                 className="login__card__form__input"
-                placeholder="Passowrd"
+                placeholder="Password"
                 name="password" required />
             </div>
           </div>
