@@ -49,6 +49,9 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   const changeCategory = (category) => {
     setCurrentMenu(category);
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    if (window.innerWidth < 768) {
+      setIsOpen(false);
+    }
   }
 
   useEffect(() => {
