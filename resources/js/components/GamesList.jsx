@@ -13,7 +13,9 @@ export const GamesList = ({
   isLogin,
   games,
   setGames,
-  setIsShowLoginNotificationModal
+  setIsShowLoginNotificationModal,
+  setIsShowGameModal,
+  setGameURL
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -104,7 +106,10 @@ export const GamesList = ({
       };
       const gameLaunchUrl = 'https://login.flyingdragon88.com/GameLauncher?'
         + objectToQueryString(gameLaunchParams);
-      popUp(gameLaunchUrl, '', 900, 800);
+
+      setGameURL(gameLaunchUrl);
+      setIsShowGameModal(true);
+      //popUp(gameLaunchUrl, '', 900, 800);
       //window.open(gameLaunchUrl);
     } catch (err) {
       console.log('err', err);
