@@ -57,11 +57,7 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
                 placeholder="Username"
                 name="username" required />
             </div>
-            {/*<div className="login__card__form__input-error">*/}
-            {/*  Error*/}
-            {/*</div>*/}
           </div>
-
           <div className="mb-2">
             <div className="position-relative">
               <div className="login__card__form__input--icon">
@@ -75,9 +71,6 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
                 placeholder="Passowrd"
                 name="password" required />
             </div>
-            {/*<div className="login__card__form__input-error">*/}
-            {/*  Error*/}
-            {/*</div>*/}
           </div>
           {isLoading &&
             <button type="button" className="form-group__button login__card__form-login-btn" disabled>

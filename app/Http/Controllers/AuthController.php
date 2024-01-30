@@ -19,9 +19,9 @@ class AuthController extends Controller
         try {
             // Decrypt and unserialize the token to extract values
             $data = json_decode(Crypt::decrypt($token), true);
-            
             return response()->json($data);
-        } catch (\Exception $e) {
+        } 
+        catch (\Exception $e) {
             // Handle decryption errors, such as an invalid token
             return null;
         }
@@ -36,9 +36,7 @@ class AuthController extends Controller
             'username' => $username,
             'password' => $password
         ];
-
         $token = $this->generateToken($userData);
-
         return response()->json(['access_token' => $token]);
     }
 }
