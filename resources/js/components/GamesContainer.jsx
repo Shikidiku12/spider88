@@ -5,6 +5,7 @@ import { GameFilterMobile } from './GameFilterMobile';
 import { GamesList } from './GamesList';
 import { Filters } from '../enums/Filters';
 import '../../sass/components/game-container.scss';
+import {GameDialog} from "../components/GameDialog.jsx";
 
 export const GamesContainer = ({
   user,
@@ -12,7 +13,7 @@ export const GamesContainer = ({
   setIsShowLoginNotificationModal,
   currentMenu,
   localSearch,
-  setLocalSearch
+  setLocalSearch,
 }) => {
   // TODO: Use enums instead of strings
   //const [filter, setFilter] = useState<Filters>(Filters.ALL);
@@ -21,6 +22,8 @@ export const GamesContainer = ({
   const [games, setGames] = useState([]);
   const [filteredGames, setFilteredGames] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isShowGameModal, setIsShowGameModal] = useState(false);
+  const [gameURL, setGameURL] = useState('');
 
   const submitSearch = (ev) => {
     ev.preventDefault();
@@ -59,7 +62,7 @@ export const GamesContainer = ({
       const codesToFilter = [
         'arc', 'gpas_bwizard_pop',
         'bib', 'hk', 'dnr',
-        'slion', 'gos', 'bfb',
+        'gos', 'bfb',
         'ct', 'gpas_elady_pop',
         'gpas_mgbwizard_pop', 'sfh',
         'longlong', 'gpas_rempress_pop',
@@ -147,8 +150,16 @@ export const GamesContainer = ({
             setGames={setFilteredGames}
             user={user}
             isLogin={isLogin}
+            setIsShowGameModal={setIsShowGameModal}
+            setGameURL={setGameURL}
           />
         }
+
+        <GameDialog
+          isShow={isShowGameModal}
+          gameURL={gameURL}
+          setIsShow={setIsShowGameModal}
+        ></GameDialog>
       </div>
 
     </div>
