@@ -106,16 +106,25 @@
           border: 0.7px solid #EA3838 ;
         }
 
-        &--icon {
+        &__icon {
           display: flex;
-          inset-inline-start: 0;
-          -webkit-padding-start: 22px;
-          padding-inline-start: 22px;
           position: absolute;
-          top: 0;
-          bottom: 0;
           align-items: center;
-          pointer-events: none;
+
+
+          &--prepend {
+            top: 0;
+            bottom: 0;
+            padding-inline-start: 22px;
+          }
+
+          &--append {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            padding-inline-end: 22px;
+            cursor: pointer;
+          }
         }
       }
 
@@ -135,12 +144,15 @@
         line-height: 130%; /* 18.2px */
 
         label {
-          font-family: Inter;
+          font-family: Poppins;
           letter-spacing: 0.5px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
         }
 
         a {
-          font-family: Inter;
+          font-family: Poppins;
           text-decoration: none;
           letter-spacing: 0.5px;
           color: #FFECB2;
@@ -151,7 +163,7 @@
           width: 24px;
           height: 24px;
           border-radius: 5px;
-          border: 1.5px solid #F99F21;
+          border: 1.5px solid #ED1975;
           background-color: #15191B;
           display: grid;
           place-content: center;

@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow }) => {
   const [isLoading, setIsLoading] = useState(false);
-
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const language = 'EN';
 
   const onSubmit = async (ev) => {
@@ -46,7 +46,7 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
           }
           <div className="mb-2">
             <div className="position-relative">
-              <div className="login__card__form__input--icon">
+              <div className="login__card__form__input__icon login__card__form__input__icon--prepend">
                 <img src="/images/icons/user.svg" />
               </div>
               <input
@@ -60,16 +60,19 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
           </div>
           <div className="mb-2">
             <div className="position-relative">
-              <div className="login__card__form__input--icon">
-                <img src="/images/icons/lock.svg" />
+              <div className="login__card__form__input__icon login__card__form__input__icon--prepend">
+                <img src="/images/icons/lock.svg"/>
+              </div>
+              <div className="login__card__form__input__icon login__card__form__input__icon--append" onClick={() => setIsShowPassword(!isShowPassword)}>
+                <img src="/images/icons/eye-open.svg"/>
               </div>
               <input
                 value={user.password}
-                onChange={(ev) => setUser({ ...user, password: ev.target.value })}
-                type="password"
+                onChange={(ev) => setUser({...user, password: ev.target.value})}
+                type={ isShowPassword ? 'text' : 'password' }
                 className="login__card__form__input"
                 placeholder="Password"
-                name="password" required />
+                name="password" required/>
             </div>
           </div>
           {isLoading &&
@@ -82,6 +85,13 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
               Login
             </button>
           }
+
+          <div className="login__card__form__footer">
+            <label>
+              <input type="checkbox" className="login__card__form__footer__checkbox" />
+              Remember Me
+            </label>
+          </div>
 
         </form>
       </div>

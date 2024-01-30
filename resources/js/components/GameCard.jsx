@@ -3,11 +3,7 @@ import '../../sass/components/game-card.scss';
 export const GameCard = ({ game, launchActualGame, launchDemoGame }) => {
 
   const fetchImageName = (game) => {
-
-    if(game.code === 'gpas_pbreak_pop') {
-      return 'gpas_pbreak_pop';
-    }
-
+    console.log(`Game : ` + game);
     return game.is_live ? game.alias : game.code;
   };
 
