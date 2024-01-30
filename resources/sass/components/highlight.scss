@@ -30,18 +30,12 @@
       top: -103px;
       width: 427px;
 
-      @media (max-width: 480px) {
-        background-image: url('/public/images/M-download-accent.png');
-        right: -50%;
-        height: 250px;
-        top: 32px;
-      }
-
-      @media (min-width:481px) and (max-width: 768px) {
+      @media (max-width: 768px) {
         background-image: url('/public/images/M-download-accent.png');
         height: 250px;
-        right: -26%;
+        right: 4%;
         top: 32px;
+        width: 200px;
       }
 
       @media (min-width: 992px) {
