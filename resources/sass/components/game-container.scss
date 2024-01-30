@@ -185,6 +185,10 @@
         outline: none;
       }
 
+      input:focus::placeholder {
+        color: transparent;
+      }
+
       input::placeholder {
         color: #ffffff;
       }
