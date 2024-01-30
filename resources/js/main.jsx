@@ -99,7 +99,7 @@ const App = () => {
           <Carousel/>
         </div>
         <JackpotWidget/>
-        <div>
+        <div className="position-relative overflow-hidden">
           <div className="bg-gradient-left"></div>
           <div className="bg-gradient-right"></div>
 
@@ -114,8 +114,9 @@ const App = () => {
           <Highlights
             setCurrentMenu={setCurrentMenu}
           />
-          <Footer/>
         </div>
+
+        <Footer/>
         <LoginModal
           setUser={setUser}
           user={user}
