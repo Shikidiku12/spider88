@@ -23,7 +23,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                     <span className="highlight__card--description">Choose the champion!</span>
                     <button className="highlight__card--btn" onClick={() => {
                       setCurrentMenu('live');
-                      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+                      window.scrollTo({top: 380, left: 0, behavior: 'smooth'});
                     }}>Play Now
                     </button>
                   </div>
@@ -37,7 +37,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                     <span className="highlight__card--description">Discover our premium games</span>
                     <button className="highlight__card--btn" onClick={() => {
                       setCurrentMenu('progressive');
-                      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      window.scrollTo({ top: 380, left: 0, behavior: 'smooth' });
                     }}>Play Now</button>
                   </div>
                 </div>
@@ -50,7 +50,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                     <span className="highlight__card--description">Spin your way to riches</span>
                     <button className="highlight__card--btn" onClick={() => {
                       setCurrentMenu('slot');
-                      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      window.scrollTo({ top: 380, left: 0, behavior: 'smooth' });
                     }}>Play Now</button>
                   </div>
                 </div>
