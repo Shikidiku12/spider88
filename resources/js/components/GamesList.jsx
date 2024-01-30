@@ -76,7 +76,6 @@ export const GamesList = ({
     const url = 'https://login.flyingdragon88.com/LoginAndGetTempToken.php?'
       + objectToQueryString(queryParams);
 
-
     try {
       const extractedValues = await extractValuesFromToken(Cookies.get('access_token'));
       if (!extractedValues) throw new Error('Invalid token');
@@ -95,7 +94,7 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: user.username,
+        username: Cookies.get('pas[flyingdragon88][real][username]'),
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: 'web',
