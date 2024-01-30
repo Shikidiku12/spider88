@@ -13,10 +13,11 @@
 @import 'input';
 
 div {
-  --all-games-icon: url('/public/images/icons/all.png');
-  --live-casino-icon: url('/public/images/icons/live.png');
-  --slots-icon: url('/public/images/icons/slot.png');
-  --video-poker-icon: url('/public/images/icons/progressive.png');
+  --all-games-icon: url('/public/images/menu-icons/all-games.png');
+  --live-casino-icon: url('/public/images/menu-icons/live-casino.png');
+  --slots-icon: url('/public/images/menu-icons/slot-games.png');
+  --video-poker-icon: url('/public/images/menu-icons/progressive-games.png');
+  --top-icon: url('/public/images/menu-icons/top-games.png');
 
   --bs-modal-border-color: rgba(255, 255, 255, 0.10);
   --bs-modal-bg: #151C27;
@@ -211,4 +212,27 @@ body {
   display: flex;
   margin-bottom: 32px;
   justify-content: center;
+}
+
+.bg-gradient-left {
+  width: 370px;
+  height: 370px;
+  position: absolute;
+  left: -185px;
+  top: 798px;
+  border-radius: 370px;
+  background: linear-gradient(152deg, #78155D 17.44%, rgba(99, 44, 84, 0.00) 86.17%);
+  filter: blur(120px);
+}
+
+.bg-gradient-right {
+  width: 370px;
+  height: 370px;
+  transform: rotate(90deg);
+  position: absolute;
+  right: -175px;
+  bottom:  -750px;
+  border-radius: 370px;
+  background: linear-gradient(152deg, #157848 17.44%, rgba(77, 195, 211, 0.00) 86.17%);
+  filter: blur(120px);
 }

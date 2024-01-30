@@ -291,6 +291,9 @@
       border-radius: 26px;
       border: 1px solid #ED1975;
       background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -354,7 +357,7 @@
           color: #ffffff;
           border-radius: 10px;
           border: 1px solid #2A4146;
-          background: rgba(255, 255, 255, 0.33);
+          background: #303A4D;
           min-width: 256px;
           height: 42px;
           padding: 20px;

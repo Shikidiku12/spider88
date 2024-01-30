@@ -17,8 +17,8 @@ export const GamesList = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-  const [numberOfGame, setNumberOfGame] = useState(14);
-  const [maxGame, setMaxGame] = useState(14);
+  const [numberOfGame, setNumberOfGame] = useState(21);
+  const [maxGame, setMaxGame] = useState(21);
 
   const language = 'English';
   const languageCode = 'EN';
@@ -170,6 +170,7 @@ export const GamesList = ({
             games.slice(0, numberOfGame).map((game, index) => {
               return (
                 <GameCard
+                  key={game.id}
                   game={game}
                   launchDemoGame={launchDemoGame}
                   launchActualGame={launchActualGame}
@@ -183,6 +184,11 @@ export const GamesList = ({
         <div className="d-flex justify-content-center align-items-center">
           <button type="button" className="game-list__button" onClick={() => loadMore()}>Load More</button>
         </div>
+      }
+
+      {
+        games.length === 0 &&
+        <div className="no-games-found">No games found.</div>
       }
     </React.Fragment>
   );
