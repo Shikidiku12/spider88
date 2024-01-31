@@ -130,17 +130,21 @@ const App = () => {
           setIsShow={setIsShowLoginNotificationModal}
           setLoginShow={setIsShowModal}
         />
-        <ToastContainer style={{position: 'fixed'}} position={window.innerWidth < 768 ? 'middle-center' : 'top-center'}
+        <ToastContainer style={{position: 'fixed'}} position={'middle-center'}
                         className="p-3">
           <Toast
             onClose={() => setToastMessage('')}
             show={toastMessage}
-            bg={'success'}
-            delay={3000}
+            bg={'light'}
+            delay={2000}
             autohide
+            className="notification"
           >
-            <Toast.Body>
-              {toastMessage}
+            <Toast.Body className="notification__body">
+              <div className="notification__info info">
+                <img src="/images/login_success.svg" />
+                <span className="info__label">{toastMessage}</span>
+              </div>
             </Toast.Body>
           </Toast>
         </ToastContainer>

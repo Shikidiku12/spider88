@@ -195,6 +195,35 @@ body {
     }
 }
 
+.notification {
+  border-radius: 14px;
+  border: 1px solid rgba(222, 255, 245, 0.12);
+  background-color: rgba(35, 45, 63, 0.80) !important;
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(10px);
+  width: 222px;
+  height: 200px;
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+
+    .info {
+      &__label {
+        color: #DEFFF5;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+}
+
 .image-overlay {
   background: linear-gradient(0deg, rgb(21, 28, 39) 42.43%, rgba(21, 28, 39, 0) 100%);
   height: 104px;
