@@ -64,7 +64,14 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
                 <img src="/images/icons/lock.svg"/>
               </div>
               <div className="login__card__form__input__icon login__card__form__input__icon--append" onClick={() => setIsShowPassword(!isShowPassword)}>
-                <img src="/images/icons/eye-open.svg"/>
+                {
+                  isShowPassword &&
+                  <img src="/images/icons/eye-slash.svg"/>
+                }
+                {
+                  !isShowPassword &&
+                  <img src="/images/icons/eye-open.svg"/>
+                }
               </div>
               <input
                 value={user.password}
