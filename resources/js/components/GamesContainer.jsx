@@ -109,60 +109,56 @@ export const GamesContainer = ({
   }, []);
 
   return (
-    <div className="main-content" >
-      <div className="main-content__wrapper">
-        <div className="provider-section">
-          <div className="provider-section__title">
-            <nav className="breadcrumbs">
-              <ul className="breadcrumbs__list">
-                <li className="breadcrumbs__item breadcrumbs__item--current">
-                  <span className={`breadcrumbs__icon breadcrumbs__icon--${filter}`}></span>
-                  <span className="breadcrumbs__label">{filter.charAt(0).toUpperCase() + filter.slice(1)} Games</span>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div className="provider-section__filter">
-            <form
-              className="w-100"
-              onSubmit={(ev) => submitSearch(ev)}
-            >
-              <div className="provider-section__filter">
-                <div className="provider-section__filter__search-wrapper">
-                  <input
-                    value={search}
-                    onChange={handleInputChange}
-                    type="text" placeholder="Search Games"/>
-                  <span className="provider-section__filter__search-wrapper--icon">
-                        <img src="/images/icons/search.png"/>
-                      </span>
-                </div>
-              </div>
-            </form>
-          </div>
+    <>
+      <div className="provider-section">
+        <div className="provider-section__title">
+          <nav className="breadcrumbs">
+            <ul className="breadcrumbs__list">
+              <li className="breadcrumbs__item breadcrumbs__item--current">
+                <span className={`breadcrumbs__icon breadcrumbs__icon--${filter}`}></span>
+                <span className="breadcrumbs__label">{filter.charAt(0).toUpperCase() + filter.slice(1)} Games</span>
+              </li>
+            </ul>
+          </nav>
         </div>
 
-        {!isLoading &&
-          <GamesList
-            setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
-            games={filteredGames}
-            setGames={setFilteredGames}
-            user={user}
-            isLogin={isLogin}
-            setIsShowGameModal={setIsShowGameModal}
-            setGameURL={setGameURL}
-          />
-        }
-
-        <GameDialog
-          isShow={isShowGameModal}
-          gameURL={gameURL}
-          setIsShow={setIsShowGameModal}
-        ></GameDialog>
+        <div className="provider-section__filter">
+          <form
+            className="w-100"
+            onSubmit={(ev) => submitSearch(ev)}
+          >
+            <div className="provider-section__filter">
+              <div className="provider-section__filter__search-wrapper">
+                <input
+                  value={search}
+                  onChange={handleInputChange}
+                  type="text" placeholder="Search Games"/>
+                <span className="provider-section__filter__search-wrapper--icon">
+                      <img src="/images/icons/search.png"/>
+                    </span>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
+      {!isLoading &&
+        <GamesList
+          setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+          games={filteredGames}
+          setGames={setFilteredGames}
+          user={user}
+          isLogin={isLogin}
+          setIsShowGameModal={setIsShowGameModal}
+          setGameURL={setGameURL}
+        />
+      }
 
-    </div>
+      <GameDialog
+        isShow={isShowGameModal}
+        gameURL={gameURL}
+        setIsShow={setIsShowGameModal}
+      ></GameDialog>
+    </>
   )
     ;
 };
