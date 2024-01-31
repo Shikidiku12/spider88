@@ -2,6 +2,11 @@ import '../../sass/components/highlight.scss';
 
 export const Highlights = ({ setCurrentMenu }) => {
 
+  const goTo = (category) => {
+    setCurrentMenu(category);
+    window.scrollTo({ top: 480, left: 0, behavior: 'smooth' });
+  }
+
   return (
     <div className="main-content">
       <div className="main-content__wrapper">
@@ -21,10 +26,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">Live Games</span>
                     <span className="highlight__card--description">Choose the champion!</span>
-                    <button className="highlight__card--btn" onClick={() => {
-                      setCurrentMenu('live');
-                      window.scrollTo({ top: 480, left: 0, behavior: 'smooth' });
-                    }}>Play Now
+                    <button className="highlight__card--btn" onClick={() => goTo('live')}>Play Now
                     </button>
                   </div>
                 </div>
@@ -35,10 +37,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">Progressive Games</span>
                     <span className="highlight__card--description">Discover our premium games</span>
-                    <button className="highlight__card--btn" onClick={() => {
-                      setCurrentMenu('progressive');
-                      window.scrollTo({ top: 480, left: 0, behavior: 'smooth' });
-                    }}>Play Now</button>
+                    <button className="highlight__card--btn" onClick={() => goTo('progressive')}>Play Now</button>
                   </div>
                 </div>
               </div>
@@ -48,10 +47,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">Slot Club</span>
                     <span className="highlight__card--description">Spin your way to riches</span>
-                    <button className="highlight__card--btn" onClick={() => {
-                      setCurrentMenu('slot');
-                      window.scrollTo({ top: 480, left: 0, behavior: 'smooth' });
-                    }}>Play Now</button>
+                    <button className="highlight__card--btn" onClick={() => goTo('slot')}>Play Now</button>
                   </div>
                 </div>
               </div>
