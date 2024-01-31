@@ -52,9 +52,6 @@ export const GamesList = ({
   };
 
   const launchActualGame = async (ev, game) => {
-    setGameURL('https://google.com');
-    setIsShowGameModal(true);
-    return;
     if (!isLogin) {
       setIsShowLoginNotificationModal(true);
       return;
