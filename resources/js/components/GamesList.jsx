@@ -57,8 +57,10 @@ export const GamesList = ({
       return;
     }
 
+    const username = Cookies.get('pas[flyingdragon88][real][username]');
+
     window.iapiLoginAndGetTempToken(
-      user.username,
+      username,
       Cookies.get('password'),
       language,
       languageCode
@@ -83,7 +85,7 @@ export const GamesList = ({
       if (!extractedValues) throw new Error('Invalid token');
 
       const formData = new FormData();
-      formData.append("username", user.username);
+      formData.append("username", username);
       formData.append('password', extractedValues?.password);
 
       const response = await fetch(url, {
@@ -96,7 +98,7 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: user.username,
+        username: username,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: window.innerWidth < 768 ? 'mobile' : 'web',
