@@ -102,7 +102,7 @@ export const LoginForm = ({ errors, user, setUser, setToastMessage, setIsShow })
 
           <div className="login__card__form__footer">
             <label>
-              <input type="checkbox" className="login__card__form__footer__checkbox" />
+              <input type="checkbox" className="login__card__form__footer__checkbox" checked/>
               Remember Me
             </label>
           </div>

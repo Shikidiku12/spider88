@@ -3,7 +3,6 @@ import '../../sass/components/game-card.scss';
 export const GameCard = ({ game, launchActualGame, launchDemoGame }) => {
 
   const fetchImageName = (game) => {
-    console.log(`Game : ` + game);
     return game.is_live ? game.alias : game.code;
   };
 

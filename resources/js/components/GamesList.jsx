@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import '../../sass/components/game-list.scss';
-import {GameCard} from "@/components/GameCard.jsx";
+import {GameCard} from "../components/GameCard.jsx";
 
 export const GamesList = ({
   filter,
@@ -52,6 +52,9 @@ export const GamesList = ({
   };
 
   const launchActualGame = async (ev, game) => {
+    setGameURL('https://google.com');
+    setIsShowGameModal(true);
+    return;
     if (!isLogin) {
       setIsShowLoginNotificationModal(true);
       return;
@@ -116,53 +119,9 @@ export const GamesList = ({
     }
   };
 
-  const onMouseOver = (ev, game) => {
-    const updatedGames = [...games];
-    const updatedGame = updatedGames.find(updatedGame => updatedGame.id === game.id);
-    updatedGame.isHover = true;
-    updatedGames.game = updatedGame;
-    setGames(updatedGames)
-  };
-
-  const onMouseOut = (ev, game) => {
-    const updatedGames = [...games];
-    const updatedGame = updatedGames.find(updatedGame => updatedGame.id === game.id);
-    updatedGame.isHover = false;
-    updatedGames.game = updatedGame;
-    setGames(updatedGames)
-  };
-
-  const fetchImageName = (game) => {
-    return game.is_live ? game.alias : game.code;
-  };
-
   const loadMore = () => {
     const newNumberOfGame = numberOfGame + maxGame;
     setNumberOfGame(newNumberOfGame);
-  }
-
-  const popUp = (url, title, w, h) => {
-    const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : 0;
-    const dualScreenTop = window.screenTop !== undefined ? window.screenTop : 0;
-    let width = 0;
-    let height = 0;
-
-    width = window.innerWidth ? window.innerWidth :
-      document.documentElement.clientWidth ?
-        document.documentElement.clientWidth : screen.width;
-    height = window.innerHeight ? window.innerHeight :
-      document.documentElement.clientHeight ?
-        document.documentElement.clientHeight : screen.height;
-
-    const left = ((width / 2) - (w / 2)) + dualScreenLeft;
-    const top = ((height / 2) - (h / 2)) + dualScreenTop;
-    const newWindow = window.open(url, title,
-      'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-
-    newWindow.focus();
-
-
   }
 
   return (
