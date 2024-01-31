@@ -50,6 +50,7 @@ const App = () => {
       });
       return;
     }
+    window.iapiSetCallout('GetLoggedInPlayer', calloutGetLoggedInPlayer);
     setIsLogin(true);
     setIsShowModal(false);
     setToastMessage("You have successfully logged in!");
