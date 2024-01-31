@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import axios from "axios";
 import '../../sass/components/navbar.scss';
 
-export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, currentMenu, setCurrentMenu, setLocalSearch }) => {
+export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, currentMenu, setCurrentMenu, setLocalSearch, user }) => {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
   const [search, setSearch] = useState('');
   const [balance, setBalance] = useState(0);
@@ -67,7 +67,7 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
   });
 
   useEffect(() => {
-    const playerName = Cookies.get('pas[flyingdragon88][real][username]') ?? 'SPIDER88_TEST01';
+    const playerName = user.username;
 
     const init = async () => {
       try {

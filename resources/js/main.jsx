@@ -50,6 +50,7 @@ const App = () => {
       });
       return;
     }
+    console.log('here');
     window.iapiSetCallout('GetLoggedInPlayer', calloutGetLoggedInPlayer);
     setIsLogin(true);
     setIsShowModal(false);
@@ -85,6 +86,7 @@ const App = () => {
         setToastMessage={setToastMessage}
         setIsShowModal={setIsShowModal}
         setUser={setUser}
+        user={user}
         setIsLogin={setIsLogin}
         isLogin={isLogin}
         currentMenu={currentMenu}
