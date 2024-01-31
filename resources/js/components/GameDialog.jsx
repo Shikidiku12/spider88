@@ -12,24 +12,26 @@ export const GameDialog = ({ isShow, setIsShow, gameURL}) => {
       fullscreen
       show={isShow}
       centered
+      className="game-window"
     >
-      <Modal.Body className="p-0">
-        <div className="game-dialog">
+      <Modal.Body className="p-0 overflow-hidden">
+        <div className="game-window__wrapper">
           <iframe src={gameURL}
-                  frameBorder='0'
                   id="gameWindow"
                   allowFullScreen
                   className="iframe"
           >
           </iframe>
-          <div className="game-dialog__action action">
+          <div className="game-window__action action">
             <button type="button" className="action__close" onClick={() => setIsShow(false)}>
-              <img src="/images/close.png" />
+              <img src="/images/close.png"/>
             </button>
           </div>
         </div>
-    </Modal.Body>
-</Modal>
-)
-  ;
+        <div className="game-window__bg-decoration game-window__bg-decoration-bottom-left"></div>
+        <div className="game-window__bg-decoration game-window__bg-decoration-top-right"></div>
+      </Modal.Body>
+    </Modal>
+  )
+    ;
 };
