@@ -81,8 +81,7 @@ const App = () => {
   }, []);
 
   return (
-    <div >
-
+    <>
       <NavBar
         setToastMessage={setToastMessage}
         setIsShowModal={setIsShowModal}
@@ -106,18 +105,21 @@ const App = () => {
         <div className="position-relative overflow-hidden">
           <div className="bg-gradient-left"></div>
           <div className="bg-gradient-right"></div>
-
-          <GamesContainer
-            user={user}
-            currentMenu={currentMenu}
-            localSearch={localSearch}
-            setLocalSearch={setLocalSearch}
-            isLogin={isLogin}
-            setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
-          />
-          <Highlights
-            setCurrentMenu={setCurrentMenu}
-          />
+          <div className="main-content">
+            <div className="main-content__wrapper">
+              <GamesContainer
+                user={user}
+                currentMenu={currentMenu}
+                localSearch={localSearch}
+                setLocalSearch={setLocalSearch}
+                isLogin={isLogin}
+                setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+              />
+              <Highlights
+                setCurrentMenu={setCurrentMenu}
+              />
+            </div>
+          </div>
         </div>
 
         <Footer/>
@@ -153,7 +155,7 @@ const App = () => {
           </Toast>
         </ToastContainer>
       </div>
-    </div>
+    </>
   );
 };
 

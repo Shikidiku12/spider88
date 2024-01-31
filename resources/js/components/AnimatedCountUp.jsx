@@ -7,7 +7,7 @@ const AnimatedCountUp = ({ endValue, duration }) => {
   const { number } = useSpring({
     from: { number: 105401 },
     to: { number: endValue },
-    reset: true,
+    reset: false,
     config: { duration: duration },
     onRest: () => setCount(endValue),
   });
