@@ -5,5 +5,39 @@
     "slot-games": "Permainan Slot",
     "live-casino": "Kasino Langsung",
     "progressive-games": "Permainan Progresif"
-  }
+  },
+  "top": "Atas",
+  "all": "Semua",
+  "slot": "Slot",
+  "live": "Langsung",
+  "progressive": "Progresif",
+  "games": "Permainan",
+  "login": "Log masuk",
+  "playtech-progressive-jackpot": "Jackpot Progresif Playtech",
+  "search-games": "Permainan Carian",
+  "load-more": "Tambah lagi",
+  "play": "Main",
+  "play-now": "Main sekarang",
+  "highlight": {
+    "highlights": "Sorotan",
+    "articleTitle1": "Permainan Langsung",
+    "articleDescription1": "Pilih juara!",
+    "articleTitle2": "Permainan Progresif",
+    "articleDescription2": "Temui permainan premium kami",
+    "articleTitle3": "Kelab Slot",
+    "articleDescription3": "Putar jalan anda kepada kekayaan"
+  },
+  "download": {
+    "download-the-app": "Muat turun Apl",
+    "title": "Menang jackpot besar!",
+    "description": "Jangan lepaskan peluang anda untuk memenangi wang yang mengubah hidup!",
+    "download-app": "Muat turun aplikasi",
+    "for-android": "Untuk Android",
+    "for-windows": "Untuk Windows"
+  },
+  "about-us": "Tentang kita",
+  "terms-services": "Syarat Perkhidmatan",
+  "contact-us": "Hubungi Kami",
+  "all-rights-reserved": "Hak cipta terpelihara",
+  "no-games-found": "Tiada permainan ditemui"
 }

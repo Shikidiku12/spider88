@@ -133,7 +133,7 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
               <div className="d-flex nav__actions">
                 {!isLogin &&
                   <div className="nav__login" id="login">
-                    <button className="nav__login--btn" onClick={() => setIsShowModal(true)}>Login</button>
+                    <button className="nav__login--btn" onClick={() => setIsShowModal(true)}>{t('login')}</button>
                   </div>
                 }
 

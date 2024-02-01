@@ -6,6 +6,7 @@ import { GamesList } from './GamesList';
 import { Filters } from '../enums/Filters';
 import '../../sass/components/game-container.scss';
 import {GameDialog} from "../components/GameDialog.jsx";
+import {useTranslation} from "react-i18next";
 
 export const GamesContainer = ({
   user,
@@ -24,6 +25,8 @@ export const GamesContainer = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isShowGameModal, setIsShowGameModal] = useState(false);
   const [gameURL, setGameURL] = useState('');
+
+  const { t } = useTranslation();
 
   const submitSearch = (ev) => {
     ev.preventDefault();
@@ -116,7 +119,7 @@ export const GamesContainer = ({
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item breadcrumbs__item--current">
                 <span className={`breadcrumbs__icon breadcrumbs__icon--${filter}`}></span>
-                <span className="breadcrumbs__label">{filter.charAt(0).toUpperCase() + filter.slice(1)} Games</span>
+                <span className="breadcrumbs__label">{t(filter)} {t('games')}</span>
               </li>
             </ul>
           </nav>
@@ -132,7 +135,7 @@ export const GamesContainer = ({
                 <input
                   value={search}
                   onChange={handleInputChange}
-                  type="text" placeholder="Search Games"/>
+                  type="text" placeholder={t('search-games')}/>
                 <span className="provider-section__filter__search-wrapper--icon">
                       <img src="/images/icons/search.png"/>
                     </span>

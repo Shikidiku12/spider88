@@ -5,5 +5,39 @@
     "slot-games": "老虎机游戏",
     "live-casino": "真人娱乐场",
     "progressive-games": "渐进式游戏"
-  }
+  },
+  "top": "顶部",
+  "all": "全部",
+  "slot": "投币口",
+  "live": "居住",
+  "progressive": "进步",
+  "games": "游戏",
+  "login": "登录",
+  "playtech-progressive-jackpot": "Playtech 累积奖金",
+  "search-games": "搜索游戏",
+  "load-more": "装载更多",
+  "play": "玩",
+  "play-now": "现在播放",
+  "highlight": {
+    "highlights": "强调",
+    "articleTitle1": "现场游戏",
+    "articleDescription1": "选出冠军！",
+    "articleTitle2": "渐进式游戏",
+    "articleDescription2": "探索我们的优质游戏",
+    "articleTitle3": "老虎机俱乐部",
+    "articleDescription3": "旋转致富之路"
+  },
+  "download": {
+    "download-the-app": "下载应用程序",
+    "title": "赢得大奖！",
+    "description": "不要错过赢得改变生活的金钱的机会！",
+    "download-app": "下载应用程序",
+    "for-android": "对于安卓",
+    "for-windows": "对于 Windows"
+  },
+  "about-us": "关于我们",
+  "terms-services": "服务条款",
+  "contact-us": "联系我们",
+  "all-rights-reserved": "版权所有",
+  "no-games-found": "没有找到游戏"
 }

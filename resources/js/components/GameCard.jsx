@@ -1,6 +1,9 @@
 import '../../sass/components/game-card.scss';
+import {useTranslation} from "react-i18next";
 
 export const GameCard = ({ game, launchActualGame, launchDemoGame }) => {
+
+  const { t } = useTranslation();
 
   const fetchImageName = (game) => {
     return game.is_live ? game.alias : game.code;
@@ -22,7 +25,9 @@ export const GameCard = ({ game, launchActualGame, launchDemoGame }) => {
             <button
               type="button" className="game__overlay-btn-play"
               onClick={(ev) => launchActualGame(ev, game)}
-            >Play</button>
+            >
+              {t('play')}
+            </button>
 
             {/*{!game.is_live &&*/}
             {/*  <button*/}
