@@ -119,26 +119,28 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
               </div>
             </div>
             <div className="d-flex nav__actions-container">
-              { isLogin &&
+              <div className=" d-none d-lg-block">
+                <LanguageSwitcher/>
+              </div>
+
+              {isLogin &&
                 <div className="d-flex nav__actions">
-                  <button className="nav__balance">RM {balance.toLocaleString('en', {minimumFractionDigits:2})}</button>
+                  <button
+                    className="nav__balance">RM {balance.toLocaleString('en', {minimumFractionDigits: 2})}</button>
                 </div>
               }
-              <div className=" d-none d-lg-block">
-                <LanguageSwitcher />
-              </div>
               <div className="nav__divider"></div>
               <div className="d-flex nav__actions">
-                { !isLogin &&
+                {!isLogin &&
                   <div className="nav__login" id="login">
-                    <button className="nav__login--btn" onClick={() =>setIsShowModal(true)}>Login</button>
+                    <button className="nav__login--btn" onClick={() => setIsShowModal(true)}>Login</button>
                   </div>
                 }
 
-                { isLogin &&
+                {isLogin &&
                   <div className="nav__logout" id="login">
                     <button className="nav__logout--btn" onClick={() => logout()} title="Logout">
-                      <img src="/images/logout.svg" />
+                      <img src="/images/logout.svg"/>
                     </button>
                   </div>
                 }
