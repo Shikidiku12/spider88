@@ -64,6 +64,16 @@ export const GamesList = ({
     return username;
   }
 
+  const convertLanguageCode = (langCode) => {
+    const language = {
+      'en': 'EN',
+      'zh': 'ZH-CN',
+      'ms': 'MS'
+    };
+
+    return language[langCode] ?? 'EN';
+  }
+
   const launchActualGame = async (ev, game) => {
     if (!isLogin) {
       setIsShowLoginNotificationModal(true);
@@ -71,17 +81,18 @@ export const GamesList = ({
     }
 
     const username = prependSpider88(user.username);
+    const langCode = convertLanguageCode(i18n.language);
 
     window.iapiLoginAndGetTempToken(
       username,
       Cookies.get('password'),
       language,
-      languageCode
+      langCode
     );
 
     const queryParams = {
       casinoname: 'flyingdragon88',
-      realMode: 'EN',
+      realMode: langCode,
       serviceType: 'GamePlay',
       systemId: 77,
       clientType: 'casino',
@@ -115,7 +126,7 @@ export const GamesList = ({
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: window.innerWidth < 768 ? 'mobile' : 'web',
-        language: 'EN',
+        language: langCode,
         playMode: 1,
         depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html'
       };
