@@ -1,7 +1,9 @@
 import AnimatedCountUp from "./AnimatedCountUp.jsx";
 import '../../sass/components/jackpot.scss';
+import {useTranslation} from "react-i18next";
 
 export const JackpotWidget = () => {
+  const { t } = useTranslation();
 
   return (
     <div className="main-content">
@@ -13,7 +15,7 @@ export const JackpotWidget = () => {
               <div className="featured__progressive-jackpot--accent-right"></div>
               <div className="featured__progressive-jackpot--accent-text">Progressive Jackpot</div>
 
-              <span className="featured__progressive-jackpot--text">Playtech Progressive Jackpot</span>
+              <span className="featured__progressive-jackpot--text">{t('playtech-progressive-jackpot')}</span>
               <div className="featured__progressive-jackpot-money">
                 <span className="featured__progressive-jackpot-money--currency">RM</span>
                 <span className="featured__progressive-jackpot-money--amount">
