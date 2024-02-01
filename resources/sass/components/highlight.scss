@@ -346,6 +346,23 @@
       justify-content: center;
       border: none;
       text-decoration: none;
+      position: relative;
+    }
+
+    &-button {
+      color: #000000;
+      font-size: 12px;
+      font-family: Inter;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 12.272px;
+      text-transform: capitalize;
+      padding: 10px 20px;
+      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+      border-radius: 46px;
+      justify-content: center;
+      border: none;
+      text-decoration: none;
     }
 
     &--tag {
@@ -409,10 +426,16 @@
       justify-content: center;
       align-items: center;
       border: none;
+      position: relative;
 
       &:disabled {
         pointer-events: none;
       }
+    }
+
+    &--btn-span {
+      position: absolute;
+      inset: 0;
     }
   }
 }
