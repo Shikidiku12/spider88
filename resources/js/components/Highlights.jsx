@@ -5,6 +5,7 @@ import '../../sass/components/highlight.scss';
 
 export const Highlights = ({ setCurrentMenu }) => {
   const [width] = useWindowSize();
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   
   function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
@@ -23,8 +24,20 @@ export const Highlights = ({ setCurrentMenu }) => {
       setCurrentMenu(category);
   }
 
+  const handleHighlightScroll = (event) => {
+    const scrollLeft = event.target.scrollLeft;
+    let cardWidth = 0;
+    if(width <= 480) cardWidth = 403
+    if(width <= 767) cardWidth = 303
+    if(width > 767) cardWidth = 103
+    let newIndex = Math.floor((scrollLeft + cardWidth / 2) / cardWidth)
+
+    if(newIndex > 2) newIndex = 2;
+    setActiveCardIndex(newIndex);
+  };
+
   return (
-    <div className="highlight d-flex">
+    <div className="highlight d-flex" >
       <div className="highlight__header d-flex">
         <div className="highlight__title d-flex">
           <div className="highlight__title--icon" style={{backgroundImage: "url('/images/star.png')"}}>
@@ -33,8 +46,8 @@ export const Highlights = ({ setCurrentMenu }) => {
         </div>
       </div>
 
-          <div className="highlight__cards">
-            <div className="highlight__cards--slider">
+          <div className="highlight__cards" onScroll={handleHighlightScroll}>
+            <div className="highlight__cards--slider" >
               <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-1.png')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
@@ -78,6 +91,12 @@ export const Highlights = ({ setCurrentMenu }) => {
               </div>
             </div>
           </div>
+
+      <div className='highlight__indicator d-xl-none'>
+        <span className={activeCardIndex === 0 ? 'highlight__indicator-active-dot' : 'highlight__indicator-third-dot'}></span>
+        <span className={activeCardIndex === 1 ? 'highlight__indicator-active-dot' : 'highlight__indicator-dot'}></span>
+        <span className={activeCardIndex === 2 ? 'highlight__indicator-active-dot' : 'highlight__indicator-third-dot'}></span>
+      </div>
 
       <div className="highlight__header d-flex">
         <div className="highlight__title d-flex">
