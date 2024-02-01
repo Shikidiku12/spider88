@@ -103,7 +103,7 @@ const App = () => {
         // pusherRef.current.signin();
         channelRef.current = pusherRef.current.subscribe("pusher-channel");
 
-        pusherRef.current.bind(extractedValues?.username, ({ access_token }) => {
+        pusherRef.current.bind(extractedValues.username, ({ access_token }) => {
           if (Cookies.get("access_token") !== access_token) {
             setIsShowModal(false);
             setIsShowLoginNotificationModal(false);
