@@ -55,7 +55,6 @@ const App = () => {
     setIsLogin(true);
     setIsShowModal(false);
     setToastMessage("You have successfully logged in!");
-    location.reload();
   };
 
   const calloutGetLoggedInPlayer = (response) => {
