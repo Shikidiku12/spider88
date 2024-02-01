@@ -39,5 +39,18 @@
   "terms-services": "Syarat Perkhidmatan",
   "contact-us": "Hubungi Kami",
   "all-rights-reserved": "Hak cipta terpelihara",
-  "no-games-found": "Tiada permainan ditemui"
+  "no-games-found": "Tiada permainan ditemui",
+  "login-form": {
+    "username": "Nama pengguna",
+    "password": "Kata laluan",
+    "login": "Log masuk",
+    "remember-me": "Ingat Saya"
+  },
+  "login-success-message": "Anda telah berjaya log masuk!",
+  "logout-success-message": "Anda telah berjaya log keluar!",
+  "unauthorized": {
+    "title": "Anda tidak log masuk",
+    "description": "Untuk mengakses ciri ini anda perlu log masuk dahulu",
+    "login": "Log masuk"
+  }
 }

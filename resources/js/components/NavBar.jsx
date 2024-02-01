@@ -42,7 +42,7 @@ export const NavBar = ({
     });
     setIsLogin(false);
     Cookies.remove("access_token");
-    setToastMessage("You have successfully logged out!");
+    setToastMessage(t('logout-success-message'));
     window.iapiLogout(1, 1);
   };
 

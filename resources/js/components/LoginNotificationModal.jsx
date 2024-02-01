@@ -1,6 +1,9 @@
 import Modal from 'react-bootstrap/Modal';
+import {useTranslation} from "react-i18next";
 
 export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
+
+  const { t } = useTranslation();
 
   const gotoLogin = () => {
     setIsShow(false);
@@ -26,11 +29,11 @@ export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
           </div>
           <div className={"mb-5"}>
           <h3 className={"fw-bold text-center"}>
-              You are not logged in
+            {t('unauthorized.title')}
             </h3>
           </div>
           <div style={{ fontSize: "16px" }} className={"text-center mb-5"}>
-            To access this feature you need to login first
+            {t('unauthorized.description')}
           </div>
           <div className={"text-center mb-3"}>
             <button
@@ -38,7 +41,7 @@ export const LoginNotificationModal = ({isShow, setIsShow, setLoginShow}) => {
               type="button"
               onClick={gotoLogin}
             >
-              Login
+              {t('unauthorized.login')}
             </button>
           </div>
         </div>

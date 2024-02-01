@@ -1,7 +1,8 @@
 import Cookies from "js-cookie";
 import { PusherEventsEnum } from "../enums/Pusher";
 import axios from "axios";
-import { useState } from "react";
+import {useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
 export const LoginForm = ({
   errors,
   user,
@@ -11,11 +12,26 @@ export const LoginForm = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState("EN");
   const language = "EN";
+
+  const { t, i18n } = useTranslation();
+
+  const convertLanguageCode = (langCode) => {
+    const language = {
+      en: "EN",
+      zh: "ZH-CN",
+      ms: "MS",
+    };
+
+    return language[langCode] ?? "EN";
+  };
 
   const onSubmit = async (ev) => {
     ev.preventDefault();
     setIsLoading(true);
+    setCurrentLanguage(convertLanguageCode(i18n.language.split('-')[0]));
+
     try {
       const { data } = await axios.post("/get-access-token", {
         channel_name: PusherEventsEnum.NEW_SESSION,
@@ -66,7 +82,7 @@ export const LoginForm = ({
                 }
                 type="text"
                 className="login__card__form__input"
-                placeholder="Username"
+                placeholder={t('login-form.username')}
                 name="username"
                 required
               />
@@ -91,7 +107,7 @@ export const LoginForm = ({
                 }
                 type={isShowPassword ? "text" : "password"}
                 className="login__card__form__input"
-                placeholder="Password"
+                placeholder={t('login-form.password')}
                 name="password"
                 required
               />
@@ -111,7 +127,7 @@ export const LoginForm = ({
               type="submit"
               className="form-group__button login__card__form-login-btn"
             >
-              Login
+              {t('login-form.login')}
             </button>
           )}
 
@@ -122,7 +138,7 @@ export const LoginForm = ({
                 className="login__card__form__footer__checkbox"
                 checked
               />
-              Remember Me
+              {t('login-form.remember-me')}
             </label>
           </div>
         </form>
