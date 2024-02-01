@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\PusherEvent;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Str;
-
 
 class AuthController extends Controller
 {
@@ -17,7 +13,6 @@ class AuthController extends Controller
         return Crypt::encrypt(json_encode($data));
     }
 
-
     public function extractValuesFromToken(Request $request)
     {
         $token = $request->input('token');
@@ -25,7 +20,7 @@ class AuthController extends Controller
             // Decrypt and unserialize the token to extract values
             $data = json_decode(Crypt::decrypt($token), true);
             return response()->json($data);
-        }
+        } 
         catch (\Exception $e) {
             // Handle decryption errors, such as an invalid token
             return null;
@@ -36,21 +31,12 @@ class AuthController extends Controller
     {
         $username = $request->input('username');
         $password = $request->input('password');
-        $user_agent =  $request->input('user_agent');
-        $login_id = Str::uuid();
 
         $userData = [
             'username' => $username,
-            'password' => $password,
-            'user_agent' =>$user_agent,
-            'login_id' => $login_id
+            'password' => $password
         ];
         $token = $this->generateToken($userData);
-
-        broadcast(new PusherEvent( $username,$token))->toOthers();
-
-        // event(new PusherEvent('test','test'));
-        // broadcast(new PusherNotification($data))->toOthers();
         return response()->json(['access_token' => $token]);
     }
 }
