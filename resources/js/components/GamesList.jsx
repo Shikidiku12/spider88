@@ -51,14 +51,26 @@ export const GamesList = ({
     }
   };
 
+  const prependSpider88 = (username) => {
+    // Check if the variable contains "SPIDER88_"
+    if (!username.includes("SPIDER88_")) {
+      // If not, prepend "SPIDER88_"
+      username = "SPIDER88_" + username;
+    }
+
+    return username;
+  }
+
   const launchActualGame = async (ev, game) => {
     if (!isLogin) {
       setIsShowLoginNotificationModal(true);
       return;
     }
 
+    const username = prependSpider88(user.username);
+
     window.iapiLoginAndGetTempToken(
-      user.username,
+      username,
       Cookies.get('password'),
       language,
       languageCode
@@ -83,7 +95,7 @@ export const GamesList = ({
       if (!extractedValues) throw new Error('Invalid token');
 
       const formData = new FormData();
-      formData.append("username", user.username);
+      formData.append("username", username);
       formData.append('password', extractedValues?.password);
 
       const response = await fetch(url, {
@@ -96,7 +108,7 @@ export const GamesList = ({
 
       const gameLaunchParams = {
         gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
-        username: user.username,
+        username: username,
         tempToken: sessionToken,
         casino: 'flyingdragon88',
         clientPlatform: window.innerWidth < 768 ? 'mobile' : 'web',
