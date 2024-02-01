@@ -24,12 +24,12 @@ export const GameCard = ({ game, launchActualGame, launchDemoGame }) => {
               onClick={(ev) => launchActualGame(ev, game)}
             >Play</button>
 
-            {!game.is_live &&
-              <button
-                type="button" className="game__overlay-btn-demo"
-                onClick={(ev) => launchDemoGame(ev, game)}
-              >Demo</button>
-            }
+            {/*{!game.is_live &&*/}
+            {/*  <button*/}
+            {/*    type="button" className="game__overlay-btn-demo"*/}
+            {/*    onClick={(ev) => launchDemoGame(ev, game)}*/}
+            {/*  >Demo</button>*/}
+            {/*}*/}
           </div>
         </div>
       </div>
