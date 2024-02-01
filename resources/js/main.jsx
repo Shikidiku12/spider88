@@ -1,85 +1,139 @@
-import React, { useEffect, useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import Toast from 'react-bootstrap/Toast';
-import ToastContainer from 'react-bootstrap/ToastContainer';
+import "./i18n";
 
-import { NavBar } from './components/NavBar';
-import { Carousel } from './components/Carousel';
-import { CarouselMobile } from './components/CarouselMobile';
-import { DemoMarquee } from './components/DemoMarquee';
-import { GamesContainer } from './components/GamesContainer';
-import { Footer } from './components/Footer';
-import { LoginModal } from './components/LoginModal';
-import { LoginNotificationModal } from './components/LoginNotificationModal';
-import {JackpotWidget} from "./components/JackpotWidget.jsx";
-import {Highlights} from "./components/Highlights.jsx";
+import React, { useEffect, useRef, useState } from "react";
 
-import './i18n';
+import { Carousel } from "./components/Carousel";
+import { CarouselMobile } from "./components/CarouselMobile";
+import Cookies from "js-cookie";
+import { DuplicateSessionModal } from "./components/DuplicateSessionModal.jsx";
+import { Footer } from "./components/Footer";
+import { GamesContainer } from "./components/GamesContainer";
+import { Highlights } from "./components/Highlights.jsx";
+import { JackpotWidget } from "./components/JackpotWidget.jsx";
+import { LoginModal } from "./components/LoginModal";
+import { LoginNotificationModal } from "./components/LoginNotificationModal";
+import { NavBar } from "./components/NavBar";
+import Pusher from "pusher-js";
+import { PusherEventsEnum } from "../js/enums/Pusher.ts";
+import Toast from "react-bootstrap/Toast";
+import ToastContainer from "react-bootstrap/ToastContainer";
+import { createRoot } from "react-dom/client";
+import { extractValuesFromToken } from "../js/utils";
 
 const App = () => {
   const [user, setUser] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
   const [isShowModal, setIsShowModal] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
-  const [isShowLoginNotificationModal, setIsShowLoginNotificationModal] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [isShowLoginNotificationModal, setIsShowLoginNotificationModal] =
+    useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [loginErrors, setLoginErrors] = useState({
-    username: '',
-    password: '',
-    general: ''
+    username: "",
+    password: "",
+    general: "",
   });
-  const [currentMenu, setCurrentMenu] = useState('top');
-  const [localSearch, setLocalSearch] = useState('');
+  const [currentMenu, setCurrentMenu] = useState("top");
+  const [localSearch, setLocalSearch] = useState("");
+  const [showDuplicateSession, setShowDuplicateSession] = useState(false);
+
+  const pusherRef = useRef("");
 
   const calloutLogin = (response) => {
     if (response.errorCode && response.errorCode === 48) {
       setLoginErrors({
-        username: '',
-        password: '',
-        general: 'Error code 48 encountered'
+        username: "",
+        password: "",
+        general: "Error code 48 encountered",
       });
       return;
     }
 
     if (response.errorCode && response.errorCode !== 48) {
-      console.log('response.playerMessage', response.playerMessage);
+      console.log("response.playerMessage", response.playerMessage);
       setLoginErrors({
-        username: '',
-        password: '',
-        general: response.playerMessage
+        username: "",
+        password: "",
+        general: response.playerMessage,
       });
       return;
     }
 
-    window.iapiSetCallout('GetLoggedInPlayer', calloutGetLoggedInPlayer);
+    window.iapiSetCallout("GetLoggedInPlayer", calloutGetLoggedInPlayer);
     setIsLogin(true);
     setIsShowModal(false);
     setToastMessage("You have successfully logged in!");
   };
 
   const calloutGetLoggedInPlayer = (response) => {
-    console.log('calloutGetLoggedInPlayer: response', response);
+    console.log("calloutGetLoggedInPlayer: response", response);
     if (response.username) {
       setIsLogin(true);
       setUser({
         username: response.username,
-        password: ''
+        password: "",
       });
     }
   };
 
   const calloutLogout = (response) => {
-    console.log('calloutLogout: response', response);
+    console.log("calloutLogout: response", response);
+  };
+
+  const handleLogout = () => {
+    setUser({
+      username: "",
+      password: "",
+    });
+    setIsLogin(false);
+    Cookies.remove("access_token");
+    window.iapiLogout(1, 1);
+    setIsShowLoginNotificationModal(false);
+    setShowDuplicateSession(true);
+    setIsLogin(false);
   };
 
   useEffect(() => {
-    window.iapiSetCallout('Login', calloutLogin);
-    window.iapiSetCallout('GetLoggedInPlayer', calloutGetLoggedInPlayer);
-    window.iapiSetCallout('Logout', calloutLogout);
+    window.iapiSetCallout("Login", calloutLogin);
+    window.iapiSetCallout("GetLoggedInPlayer", calloutGetLoggedInPlayer);
+    window.iapiSetCallout("Logout", calloutLogout);
     window.iapiGetLoggedInPlayer(1);
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      if (isLogin) {
+        console.log("isLogin");
+        pusherRef.current = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
+          cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+        });
+        const accessToken = Cookies.get("access_token");
+        const extractedValues = await extractValuesFromToken(accessToken);
+        if (!extractedValues) return;
+
+        pusherRef.current.subscribe(PusherEventsEnum.NEW_SESSION);
+
+        pusherRef.current.bind(
+          extractedValues?.username,
+          ({ access_token }) => {
+            if (
+              !!accessToken &&
+              !!access_token &&
+              accessToken !== access_token
+            ) {
+              handleLogout();
+            }
+          }
+        );
+      } else {
+        pusherRef.current.unbind();
+        pusherRef.current?.disconnect();
+        pusherRef.current = undefined;
+      }
+    })();
+  }, [isLogin]);
 
   return (
     <>
@@ -97,12 +151,12 @@ const App = () => {
 
       <div className="main">
         <div className="d-lg-none">
-          <CarouselMobile/>
+          <CarouselMobile />
         </div>
-          <div className="d-none d-lg-block">
-          <Carousel/>
+        <div className="d-none d-lg-block">
+          <Carousel />
         </div>
-        <JackpotWidget/>
+        <JackpotWidget />
         <div className="position-relative overflow-hidden">
           <div className="bg-gradient-left"></div>
           <div className="bg-gradient-right"></div>
@@ -114,16 +168,16 @@ const App = () => {
                 localSearch={localSearch}
                 setLocalSearch={setLocalSearch}
                 isLogin={isLogin}
-                setIsShowLoginNotificationModal={setIsShowLoginNotificationModal}
+                setIsShowLoginNotificationModal={
+                  setIsShowLoginNotificationModal
+                }
               />
-              <Highlights
-                setCurrentMenu={setCurrentMenu}
-              />
+              <Highlights setCurrentMenu={setCurrentMenu} />
             </div>
           </div>
         </div>
 
-        <Footer/>
+        <Footer />
         <LoginModal
           setUser={setUser}
           user={user}
@@ -131,18 +185,26 @@ const App = () => {
           setIsShow={setIsShowModal}
           errors={loginErrors}
         />
+        <DuplicateSessionModal
+          isShow={showDuplicateSession}
+          setIsShow={setShowDuplicateSession}
+          setLoginShow={setIsShowModal}
+        />
         <LoginNotificationModal
           setToastMessage={setToastMessage}
           isShow={isShowLoginNotificationModal}
           setIsShow={setIsShowLoginNotificationModal}
           setLoginShow={setIsShowModal}
         />
-        <ToastContainer style={{position: 'fixed'}} position={'middle-center'}
-                        className="p-3">
+        <ToastContainer
+          style={{ position: "fixed" }}
+          position={"middle-center"}
+          className="p-3"
+        >
           <Toast
-            onClose={() => setToastMessage('')}
+            onClose={() => setToastMessage("")}
             show={toastMessage}
-            bg={'light'}
+            bg={"light"}
             delay={2000}
             autohide
             className="notification"
@@ -160,6 +222,6 @@ const App = () => {
   );
 };
 
-if (document.getElementById('root')) {
-  createRoot(document.getElementById('root')).render(<App/>);
+if (document.getElementById("root")) {
+  createRoot(document.getElementById("root")).render(<App />);
 }
