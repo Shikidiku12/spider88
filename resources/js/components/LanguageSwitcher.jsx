@@ -17,7 +17,7 @@ export const LanguageSwitcher = () => {
   };
 
   useEffect(() => {
-    setCurrentLang(i18n.language);
+    setCurrentLang('en');
 
     const handleClickOutside = (event) => {
       if (!ref.current?.contains(event.target)) {
