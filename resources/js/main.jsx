@@ -14,6 +14,8 @@ import { LoginNotificationModal } from './components/LoginNotificationModal';
 import {JackpotWidget} from "./components/JackpotWidget.jsx";
 import {Highlights} from "./components/Highlights.jsx";
 
+import './i18n';
+
 const App = () => {
   const [user, setUser] = useState({
     username: '',
@@ -97,7 +99,7 @@ const App = () => {
         <div className="d-lg-none">
           <CarouselMobile/>
         </div>
-        <div className="d-none d-lg-block">
+          <div className="d-none d-lg-block">
           <Carousel/>
         </div>
         <JackpotWidget/>

@@ -6,6 +6,7 @@ import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import '../../sass/components/game-list.scss';
 import {GameCard} from "../components/GameCard.jsx";
+import {useTranslation} from "react-i18next";
 
 export const GamesList = ({
   filter,
@@ -21,6 +22,8 @@ export const GamesList = ({
   const [toastMessage, setToastMessage] = useState('');
   const [numberOfGame, setNumberOfGame] = useState(21);
   const [maxGame, setMaxGame] = useState(21);
+
+  const { t, i18n } = useTranslation();
 
   const language = 'English';
   const languageCode = 'EN';

@@ -2,12 +2,16 @@ import React, {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios";
 import '../../sass/components/navbar.scss';
+import {useTranslation} from "react-i18next";
+import {LanguageSwitcher} from "@/components/LanguageSwitcher.jsx";
 
 export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastMessage, currentMenu, setCurrentMenu, setLocalSearch, user }) => {
   const [isOpen, setIsOpen] = useState(window.innerWidth >= 768);
   const [search, setSearch] = useState('');
   const [balance, setBalance] = useState(0);
   const [sidebarContent, setSidebarContent] = useState('categories');
+
+  const { t, i18n } = useTranslation();
 
   const submitSearch = (ev) => {
     ev.preventDefault();
@@ -106,7 +110,7 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
               </div>
               <div className="nav__logo"
                    onClick={() => {
-                     setCurrentMenu('all');
+                     setCurrentMenu('top');
                      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
                    }}
               ></div>
@@ -120,6 +124,9 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
                   <button className="nav__balance">RM {balance.toLocaleString('en', {minimumFractionDigits:2})}</button>
                 </div>
               }
+              <div className=" d-none d-lg-block">
+                <LanguageSwitcher />
+              </div>
               <div className="nav__divider"></div>
               <div className="d-flex nav__actions">
                 { !isLogin &&
@@ -151,30 +158,33 @@ export const NavBar = ({ setIsShowModal, setIsLogin, setUser, isLogin, setToastM
                     <div className={`nav__sidebar-group ${currentMenu === 'top' ? 'nav__sidebar-group--active' : ''}`}
                          onClick={() => changeCategory('top')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/top-games.png" alt=""/>
-                      <span className="nav__sidebar-label">Top Games</span>
+                      <span className="nav__sidebar-label">{t('menu.top-games')}</span>
                     </div>
                     <div className={`nav__sidebar-group ${currentMenu === 'all' ? 'nav__sidebar-group--active' : ''}`}
                          onClick={() => changeCategory('all')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/all-games.png" alt=""/>
-                      <span className="nav__sidebar-label">All Games</span>
+                      <span className="nav__sidebar-label">{t('menu.all-games')}</span>
                     </div>
                     <div className={`nav__sidebar-group ${currentMenu === 'slot' ? 'nav__sidebar-group--active' : ''}`}
                          onClick={() => changeCategory('slot')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/slot-games.png" alt=""/>
-                      <span className="nav__sidebar-label">Slot Games</span>
+                      <span className="nav__sidebar-label">{t('menu.slot-games')}</span>
                     </div>
                     <div className={`nav__sidebar-group ${currentMenu === 'live' ? 'nav__sidebar-group--active' : ''}`}
                          onClick={() => changeCategory('live')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/live-casino.png" alt=""/>
-                      <span className="nav__sidebar-label">Live Casino</span>
+                      <span className="nav__sidebar-label">{t('menu.live-casino')}</span>
                     </div>
                     <div
                       className={`nav__sidebar-group ${currentMenu === 'progressive' ? 'nav__sidebar-group--active' : ''}`}
                       onClick={() => changeCategory('progressive')}>
                       <img className="nav__sidebar-icon" src="/images/menu-icons/progressive-games.png" alt=""/>
-                      <span className="nav__sidebar-label">Progressive Games</span>
+                      <span className="nav__sidebar-label">{t('menu.progressive-games')}</span>
                     </div>
                   </div>
+                </div>
+                <div className="d-lg-none w-100">
+                  <LanguageSwitcher/>
                 </div>
                 {/*<form onSubmit={(ev) => submitSearch(ev)}>*/}
                 {/*  <div className="nav__sidebar__filter">*/}
