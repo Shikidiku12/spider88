@@ -110,7 +110,7 @@ export const GamesContainer = ({
 
   return (
     <>
-      <div className="provider-section">
+      <div id="game-list-section" className="provider-section">
         <div className="provider-section__title">
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">

@@ -22,6 +22,7 @@
         "react": "^18.2.0",
         "react-bootstrap": "^2.9.1",
         "react-dom": "^18.2.0",
-        "react-fast-marquee": "^1.6.2"
+        "react-fast-marquee": "^1.6.2",
+        "react-scroll-to-element": "^0.2.0"
     }
 }

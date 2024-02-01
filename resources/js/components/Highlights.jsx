@@ -1,10 +1,26 @@
+import React, {useLayoutEffect, useState} from 'react';
+import Scroll from 'react-scroll-to-element';
+
 import '../../sass/components/highlight.scss';
 
 export const Highlights = ({ setCurrentMenu }) => {
+  const [width] = useWindowSize();
+  
+  function useWindowSize() {
+    const [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+      function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+      }
+      window.addEventListener('resize', updateSize);
+      updateSize();
+      return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return size;
+  }
 
   const goTo = (category) => {
-    setCurrentMenu(category);
-    window.scrollTo({ top: 480, left: 0, behavior: 'smooth' });
+      setCurrentMenu(category);
   }
 
   return (
@@ -17,40 +33,51 @@ export const Highlights = ({ setCurrentMenu }) => {
         </div>
       </div>
 
-      <div className="highlight__cards">
-        <div className="highlight__cards--slider">
-          <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-1.png')"}}>
-            <div className="highlight__card-container">
-              <div className="highlight__card-text">
-                <span className="highlight__card--title">Live Games</span>
-                <span className="highlight__card--description">Choose the champion!</span>
-                <button className="highlight__card--btn" onClick={() => goTo('live')}>Play Now
-                </button>
+          <div className="highlight__cards">
+            <div className="highlight__cards--slider">
+              <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-1.png')"}}>
+                <div className="highlight__card-container">
+                  <div className="highlight__card-text">
+                    <span className="highlight__card--title">Live Games</span>
+                    <span className="highlight__card--description">Choose the champion!</span>
+                    <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
+                      <button className="highlight__card--btn">Play Now
+                        <span className="highlight__card--btn-span" onClick={() => goTo('live')}></span>
+                      </button>
+                    </Scroll >
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-2.png')"}}>
-            <div className="highlight__card-container">
-              <div className="highlight__card-text">
-                <span className="highlight__card--title">Progressive Games</span>
-                <span className="highlight__card--description">Discover our premium games</span>
-                <button className="highlight__card--btn" onClick={() => goTo('progressive')}>Play Now</button>
+              <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-2.png')"}}>
+                <div className="highlight__card-container">
+                  <div className="highlight__card-text">
+                    <span className="highlight__card--title">Progressive Games</span>
+                    <span className="highlight__card--description">Discover our premium games</span>
+                    <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
+                      <button className="highlight__card--btn">Play Now
+                        <span className="highlight__card--btn-span" onClick={() => goTo('progressive')}></span>
+                      </button>
+                    </Scroll >
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-3.png')"}}>
-            <div className="highlight__card-container">
-              <div className="highlight__card-text">
-                <span className="highlight__card--title">Slot Club</span>
-                <span className="highlight__card--description">Spin your way to riches</span>
-                <button className="highlight__card--btn" onClick={() => goTo('slot')}>Play Now</button>
+              <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-3.png')"}}>
+                <div className="highlight__card-container">
+                  <div className="highlight__card-text">
+                    <span className="highlight__card--title">Slot Club</span>
+                    <span className="highlight__card--description">Spin your way to riches</span>
+                    <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
+                      <button className="highlight__card--btn">Play Now
+                        <span className="highlight__card--btn-span" onClick={() => goTo('slot')}></span>
+                      </button>
+                    </Scroll >
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
       <div className="highlight__header d-flex">
         <div className="highlight__title d-flex">
