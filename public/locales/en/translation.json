@@ -39,5 +39,18 @@
   "terms-services": "Terms of Services",
   "contact-us": "Contact Us",
   "all-rights-reserved": "All rights reserved",
-  "no-games-found": "No games found"
+  "no-games-found": "No games found",
+  "login-form": {
+    "username": "Username",
+    "password": "Password",
+    "login": "Login",
+    "remember-me": "Remember Me"
+  },
+  "login-success-message": "You have successfully logged in!",
+  "logout-success-message": "You have successfully logged out!",
+  "unauthorized": {
+    "title": "You are not logged in",
+    "description": "To access this feature you need to login first",
+    "login": "Login"
+  }
 }

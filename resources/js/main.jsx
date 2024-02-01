@@ -19,6 +19,7 @@ import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import { createRoot } from "react-dom/client";
 import { extractValuesFromToken } from "../js/utils";
+import {useTranslation} from "react-i18next";
 
 const App = () => {
   const [user, setUser] = useState({
@@ -39,6 +40,7 @@ const App = () => {
   const [localSearch, setLocalSearch] = useState("");
   const [showDuplicateSession, setShowDuplicateSession] = useState(false);
 
+  const { t } = useTranslation();
   const pusherRef = useRef("");
 
   const calloutLogin = (response) => {
@@ -64,7 +66,7 @@ const App = () => {
     window.iapiSetCallout("GetLoggedInPlayer", calloutGetLoggedInPlayer);
     setIsLogin(true);
     setIsShowModal(false);
-    setToastMessage("You have successfully logged in!");
+    setToastMessage(t('login-success-message'));
   };
 
   const calloutGetLoggedInPlayer = (response) => {

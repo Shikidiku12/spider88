@@ -69,7 +69,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">{t('highlight.articleTitle2')}</span>
-                    <span className="highlight__card--description">{t('highlight.articleDescriptio2')}</span>
+                    <span className="highlight__card--description">{t('highlight.articleDescription2')}</span>
                     <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
                       <button className="highlight__card--btn">{t('play-now')}
                         <span className="highlight__card--btn-span" onClick={() => goTo('progressive')}></span>
@@ -83,7 +83,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">{t('highlight.articleTitle3')}</span>
-                    <span className="highlight__card--description">{t('highlight.articleTitle3')}</span>
+                    <span className="highlight__card--description">{t('highlight.articleDescription3')}</span>
                     <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
                       <button className="highlight__card--btn">{t('play-now')}
                         <span className="highlight__card--btn-span" onClick={() => goTo('slot')}></span>
