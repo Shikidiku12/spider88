@@ -316,10 +316,9 @@
       width: 65%;
       background-color: #232D3F;
       padding: 22px;
-      justify-content: flex-end;
-      align-items: flex-start;
+      justify-content: space-between;
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: 22px;
       height: calc(100% - 73px);
       overflow-x: hidden;
@@ -434,6 +433,8 @@
       line-height: normal;
       text-transform: capitalize;
       white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     &-item {
