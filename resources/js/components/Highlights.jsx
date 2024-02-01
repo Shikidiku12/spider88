@@ -2,11 +2,14 @@ import React, {useLayoutEffect, useState} from 'react';
 import Scroll from 'react-scroll-to-element';
 
 import '../../sass/components/highlight.scss';
+import {useTranslation} from "react-i18next";
 
 export const Highlights = ({ setCurrentMenu }) => {
   const [width] = useWindowSize();
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-  
+
+  const { t } = useTranslation();
+
   function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
     useLayoutEffect(() => {
@@ -42,7 +45,7 @@ export const Highlights = ({ setCurrentMenu }) => {
         <div className="highlight__title d-flex">
           <div className="highlight__title--icon" style={{backgroundImage: "url('/images/star.png')"}}>
           </div>
-          <span className="highlight__title--text"> Highlights </span>
+          <span className="highlight__title--text">{t('highlight.highlights')}</span>
         </div>
       </div>
 
@@ -51,10 +54,10 @@ export const Highlights = ({ setCurrentMenu }) => {
               <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-1.png')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
-                    <span className="highlight__card--title">Live Games</span>
-                    <span className="highlight__card--description">Choose the champion!</span>
+                    <span className="highlight__card--title">{t('highlight.articleTitle1')}</span>
+                    <span className="highlight__card--description">{t('highlight.articleDescription1')}</span>
                     <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
-                      <button className="highlight__card--btn">Play Now
+                      <button className="highlight__card--btn">{t('play-now')}
                         <span className="highlight__card--btn-span" onClick={() => goTo('live')}></span>
                       </button>
                     </Scroll >
@@ -65,10 +68,10 @@ export const Highlights = ({ setCurrentMenu }) => {
               <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-2.png')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
-                    <span className="highlight__card--title">Progressive Games</span>
-                    <span className="highlight__card--description">Discover our premium games</span>
+                    <span className="highlight__card--title">{t('highlight.articleTitle2')}</span>
+                    <span className="highlight__card--description">{t('highlight.articleDescriptio2')}</span>
                     <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
-                      <button className="highlight__card--btn">Play Now
+                      <button className="highlight__card--btn">{t('play-now')}
                         <span className="highlight__card--btn-span" onClick={() => goTo('progressive')}></span>
                       </button>
                     </Scroll >
@@ -79,10 +82,10 @@ export const Highlights = ({ setCurrentMenu }) => {
               <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-3.png')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
-                    <span className="highlight__card--title">Slot Club</span>
-                    <span className="highlight__card--description">Spin your way to riches</span>
+                    <span className="highlight__card--title">{t('highlight.articleTitle3')}</span>
+                    <span className="highlight__card--description">{t('highlight.articleTitle3')}</span>
                     <Scroll type="id" element="game-list-section" offset={width >= 768 ? -160 : -80}>
-                      <button className="highlight__card--btn">Play Now
+                      <button className="highlight__card--btn">{t('play-now')}
                         <span className="highlight__card--btn-span" onClick={() => goTo('slot')}></span>
                       </button>
                     </Scroll >
@@ -100,7 +103,7 @@ export const Highlights = ({ setCurrentMenu }) => {
 
       <div className="highlight__header d-flex">
         <div className="highlight__title d-flex">
-          <span className="highlight__title--text">Download The App</span>
+          <span className="highlight__title--text">{t('download.download-the-app')}</span>
         </div>
       </div>
 
@@ -108,15 +111,15 @@ export const Highlights = ({ setCurrentMenu }) => {
         <div className="highlight__download-container">
           <div className="highlight__download-accent"></div>
           <div className="highlight__download-texts">
-            <span className="highlight__download-title">Win big jackpot!</span>
+            <span className="highlight__download-title">{t('download.title')}</span>
             <span
-              className="highlight__download-description">Don't miss out on your chance to win life-changing money!</span>
+              className="highlight__download-description">{t('download.description')}</span>
             <div className="highlight__download-action">
               <a href="https://pt.launcher.horizon88.com/materials/apk/Spider88_v2.1.apk"
                  className="highlight__download-btn highlight__download-btn--solid">
                 <div className="highlight__download-btn-wrapper">
-                  <span className="highlight__download-btn-subtext">Download app</span>
-                  <span className="highlight__download-btn-text">For Android</span>
+                  <span className="highlight__download-btn-subtext">{t('download.download-app')}</span>
+                  <span className="highlight__download-btn-text">{t('download.for-android')}</span>
                   <span className="highlight__download-btn--solid-icon">
                         <img src="/images/android.svg"/>
                       </span>
@@ -125,8 +128,8 @@ export const Highlights = ({ setCurrentMenu }) => {
               <a href="https://pt.launcher.horizon88.com/materials/dl/spider88_dl_v2.1.exe"
                  className="highlight__download-btn highlight__download-btn--outline">
                 <div className="highlight__download-btn-wrapper">
-                  <span className="highlight__download-btn-subtext">Download app</span>
-                  <span className="highlight__download-btn-text">For Windows</span>
+                  <span className="highlight__download-btn-subtext">{t('download.download-app')}</span>
+                  <span className="highlight__download-btn-text">{t('download.for-windows')}</span>
                   <span className="highlight__download-btn--outline-icon">
                         <img src="/images/windows.svg"/>
                       </span>

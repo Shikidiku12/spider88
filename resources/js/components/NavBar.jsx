@@ -1,8 +1,6 @@
-import "../../sass/components/navbar.scss";
-import "../../sass/components/navbar.scss";
 
+import "../../sass/components/navbar.scss";
 import React, { useEffect, useState } from "react";
-
 import Cookies from "js-cookie";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher.jsx";
 import axios from "axios";
@@ -149,12 +147,7 @@ export const NavBar = ({
               <div className="d-flex nav__actions">
                 {!isLogin && (
                   <div className="nav__login" id="login">
-                    <button
-                      className="nav__login--btn"
-                      onClick={() => setIsShowModal(true)}
-                    >
-                      Login
-                    </button>
+                    <button className="nav__login--btn" onClick={() => setIsShowModal(true)}>{t('login')}</button>
                   </div>
                 )}
 
