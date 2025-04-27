@@ -27,16 +27,10 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./dockerfiles/node.dockerfile
+      dockerfile: ./dockerfiles/node.production.dockerfile
     volumes:
       - ./:/var/www/html
       - /var/www/html/node_modules
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    ports:
-      - "5174:5174"
-    networks:
-      - dos-network
 
 volumes:
   dos-db:
