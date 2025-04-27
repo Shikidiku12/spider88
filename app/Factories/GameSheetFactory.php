@@ -7,8 +7,10 @@ use App\Entities\CasinoGameSheet;
 use App\Entities\LiveGameSheet;
 use App\Entities\QuickspinGameSheet;
 
-class GameSheetFactory {
-    public function getGame($gameCategory): GameSheet {
+class GameSheetFactory 
+{
+    public function getGame($gameCategory): GameSheet 
+    {
         if ($gameCategory === 'Casino') {
             return new CasinoGameSheet();
         }
