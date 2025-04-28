@@ -41,12 +41,6 @@ export const GamesList = ({
   };
 
   const prependSpider88 = (username) => {
-    // Check if the variable contains "SPIDER88_"
-    if (!username.includes("SPIDER88_")) {
-      // If not, prepend "SPIDER88_"
-      username = "SPIDER88_" + username;
-    }
-
     return username;
   };
 
