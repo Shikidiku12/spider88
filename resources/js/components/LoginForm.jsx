@@ -45,7 +45,7 @@ export const LoginForm = ({
 
       window.iapiSetClientType("casino");
       window.iapiSetClientPlatform("web");
-      window.iapiLogin("SPIDER88_" + user.username, user.password, 1, language);
+      window.iapiLogin(user.username, user.password, 1, language);
     } catch (error) {
       console.error("Error:", error);
     } finally {
