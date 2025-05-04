@@ -101,7 +101,6 @@ export const GamesContainer = ({
           return game;
         }));
         setGames(response.data);
-        // setFilteredGames(response.data);
       } catch (err) {
         console.log('err', err);
       } finally {

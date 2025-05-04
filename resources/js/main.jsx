@@ -1,7 +1,5 @@
 import "./i18n";
-
 import React, { useEffect, useRef, useState } from "react";
-
 import { Carousel } from "./components/Carousel";
 import { CarouselMobile } from "./components/CarouselMobile";
 import Cookies from "js-cookie";
@@ -102,6 +100,27 @@ const App = () => {
     window.iapiSetCallout("GetLoggedInPlayer", calloutGetLoggedInPlayer);
     window.iapiSetCallout("Logout", calloutLogout);
     window.iapiGetLoggedInPlayer(1);
+    
+    const socket = new WebSocket(import.meta.env.VITE_WS_URL);
+
+    socket.onopen = function (event) {
+      console.log('You are Connected to WebSocket Server');
+    };
+
+    socket.onmessage = function (event) {
+      console.log('event', event.data);
+      if (event.data === user.username) {
+        handleLogout();
+      }
+    };
+
+    socket.onclose = function (event) {
+      console.log('Disconnected from WebSocket server');
+    };
+
+    return () => {
+      socket.close();
+    };
   }, []);
 
   useEffect(() => {

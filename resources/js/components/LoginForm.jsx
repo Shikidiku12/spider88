@@ -33,16 +33,6 @@ export const LoginForm = ({
     setCurrentLanguage(convertLanguageCode(i18n.language.split('-')[0]));
 
     try {
-      const { data } = await axios.post("/get-access-token", {
-        channel_name: PusherEventsEnum.NEW_SESSION,
-        username: user.username,
-        password: user.password,
-        user_agent: navigator.userAgent,
-      });
-      const { access_token } = data;
-
-      Cookies.set("access_token", access_token);
-
       window.iapiSetClientType("casino");
       window.iapiSetClientPlatform("web");
       window.iapiLogin(user.username, user.password, 1, language);
