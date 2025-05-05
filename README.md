@@ -7,7 +7,7 @@
 ### Requirements
 
 - [Docker](https://www.docker.com/)
-- [Horizon Github](https://github.com/devasiapro/horizon)
+- [DOS Github](https://github.com/eclap/dos)
 - [Game List Document](https://drive.google.com/drive/u/0/folders/1cQY84wlm6V0pSZgSmzv3fGij18h9NURr)
 
 ### Steps
@@ -17,42 +17,36 @@ The steps are relative to the project folder "horizon/ptdemo" unless stated othe
 Make sure to download the latest Excel files for the game list and place in appropriate file
 location based in the fetch-games command (database/raw_files).
 
-1. Install dependencies Composer through Docker
+0. Ensure that .env file values are correct.
+
+1. Run Docker build
 ```
-docker run -it --rm -v `pwd`:/app composer install
+docker compose up -d --build
 ```
 
-2. Run Docker using Sail
+2. Generate key
 ```
-./vendor/bin/sail up
-./vendor/bin/sail artisan key:generate
-```
-
-3. Create file ".env" based from ".env.example"
-
-4. Run migration files
-```
-./vendor/bin/sail artisan migrate
+docker compose exec -it php php artisan key:generate
 ```
 
-5. Run seeder files
+3. Run migration files
 ```
-php artisan app:fetch-games all
-```
-
-6. Setup frontend
-```
-./vendor/bin/sail npm install
-./vendor/bin/sail npm run dev
+docker compose exec -it php php artisan migrate
 ```
 
-7. Check browser in http://localhost
+4. Run seeder files
+```
+docker compose exec -it php php artisan db:seed
+docker compose exec -it php php artisan app:fetch-games all
+```
+
+5. Check browser in http://localhost:8001
 
 NOTES:
 
-- Use Docker's exec command if you need to run stuff like composer installs.
+- Log frontend
 ```
-docker exec -it torrodemo-laravel.test-1 bash
+docker compose logs -f node
 ```
 
 ## Production Setup
