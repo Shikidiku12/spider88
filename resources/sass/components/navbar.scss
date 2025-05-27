@@ -200,18 +200,18 @@
   }
 
   &__logo {
-    background-image: url("/public/images/spdr88-icon.svg");
+    background-image: url("/public/images/logo_2_mobile.png");
     background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
+    height: 60px;
+    width: 60px;
     background-position: center;
     background-size: contain;
     cursor: pointer;
 
     @media (min-width: 768px) {
-      background-image: url("/public/images/spdr88-logo.svg");
-      width: 130px;
-      height: 42px;
+      background-image: url("/public/images/logo_2.png");
+      width: 190px;
+      height: 100px;
     }
 
     &-text-container {
@@ -230,7 +230,7 @@
     }
 
     &--text {
-      background: url("/public/images/spdr88-text.svg");
+      background: url("/public/images/logo_2_mobile_text.png");
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;

@@ -263,19 +263,6 @@ export const NavBar = ({
                 <div className="d-lg-none w-100">
                   <LanguageSwitcher />
                 </div>
-                {/*<form onSubmit={(ev) => submitSearch(ev)}>*/}
-                {/*  <div className="nav__sidebar__filter">*/}
-                {/*    <div className="nav__sidebar__filter__search-wrapper">*/}
-                {/*      <input*/}
-                {/*        value={search}*/}
-                {/*        onChange={handleInputChange}*/}
-                {/*        type="text" placeholder="Search Games"/>*/}
-                {/*      <span className="nav__sidebar__filter__search-wrapper--icon">*/}
-                {/*        <img src="/images/icons/search.png"/>*/}
-                {/*      </span>*/}
-                {/*    </div>*/}
-                {/*  </div>*/}
-                {/*</form>*/}
               </div>
             )}
           </div>

@@ -13,6 +13,7 @@ export const LoginForm = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState("EN");
+  const [isLoginAlready, setIsLoginAlready] = useState(false);
   const language = "EN";
 
   const { t, i18n } = useTranslation();
@@ -29,10 +30,27 @@ export const LoginForm = ({
 
   const onSubmit = async (ev) => {
     ev.preventDefault();
-    setIsLoading(true);
-    setCurrentLanguage(convertLanguageCode(i18n.language.split('-')[0]));
+    setIsLoginAlready(false);
 
+    try { 
+      setIsLoading(true);
+      const response = await axios.get(`/api/player/${user.username}`);
+      console.log('response', response);
+      const isOnline = response.data.is_online;
+      if (isOnline) {
+        setIsLoginAlready(true);
+        return;
+      }
+    } catch (error) {
+      console.log('error', error);
+      return;
+    } finally {
+      setIsLoading(false);
+    }
+
+    setCurrentLanguage(convertLanguageCode(i18n.language.split('-')[0]));
     try {
+      setIsLoading(true);
       window.iapiSetClientType("casino");
       window.iapiSetClientPlatform("web");
       window.iapiLogin(user.username, user.password, 1, language);
@@ -60,6 +78,12 @@ export const LoginForm = ({
           {errors.general && (
             <div className="alert alert-danger">{errors.general}</div>
           )}
+          {isLoginAlready && (
+          <div className="alert alert-danger">
+            Player is login already in other devices.
+          </div>
+          )}
+    
           <div className="mb-2">
             <div className="position-relative">
               <div className="login__card__form__input__icon login__card__form__input__icon--prepend">

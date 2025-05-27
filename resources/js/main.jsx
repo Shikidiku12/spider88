@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Carousel } from "./components/Carousel";
 import { CarouselMobile } from "./components/CarouselMobile";
 import Cookies from "js-cookie";
-import { DuplicateSessionModal } from "./components/DuplicateSessionModal.jsx";
 import { Footer } from "./components/Footer";
 import { GamesContainer } from "./components/GamesContainer";
 import { Highlights } from "./components/Highlights.jsx";
@@ -36,7 +35,6 @@ const App = () => {
   });
   const [currentMenu, setCurrentMenu] = useState("top");
   const [localSearch, setLocalSearch] = useState("");
-  const [showDuplicateSession, setShowDuplicateSession] = useState(false);
 
   const { t } = useTranslation();
   const pusherRef = useRef("");
@@ -91,7 +89,6 @@ const App = () => {
     Cookies.remove("access_token");
     window.iapiLogout(1, 1);
     setIsShowLoginNotificationModal(false);
-    setShowDuplicateSession(true);
     setIsLogin(false);
   };
 
@@ -205,11 +202,6 @@ const App = () => {
           isShow={isShowModal}
           setIsShow={setIsShowModal}
           errors={loginErrors}
-        />
-        <DuplicateSessionModal
-          isShow={showDuplicateSession}
-          setIsShow={setShowDuplicateSession}
-          setLoginShow={setIsShowModal}
         />
         <LoginNotificationModal
           setToastMessage={setToastMessage}

@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'lm_api_url' => env('LM_API_URL'),
 ];

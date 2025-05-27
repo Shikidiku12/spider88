@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KioskController;
 use App\Http\Controllers\GameListController;
+use App\Http\Controllers\PlayerInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('game', GameListController::class);
 
-Route::get('/get-balance/{player_name?}', [KioskController::class, 'getPlayerBalance']);
+Route::get('/get-balance/{player_name?}', [
+    KioskController::class, 'getPlayerBalance'
+]);
+
+Route::get('/player/{username}', PlayerInfoController::class);
+

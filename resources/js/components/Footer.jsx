@@ -14,7 +14,7 @@ export const Footer = () => {
         <div className="footer__accent-left"></div>
         <div className="footer__accent-right"></div>
         <div className="footer__logo">
-          <img src="/images/footer-logo.png"/>
+          <img width="174px" height="52px" src="/images/logo_2.png"/>
         </div>
         <div className="footer__info info">
           <div className="info__link link">
