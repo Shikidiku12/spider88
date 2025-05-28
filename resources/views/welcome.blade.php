@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Spider88</title>
+    <title>88LAICAI</title>
     <script src="https://login.flyingdragon88.com/jswrapper/flyingdragon88/integration.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Montserrat:wght@200;300;400;500;700;800&family=Rubik:wght@200;300;400;500;700;800&family=Poppins:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="/images/" href="/images/favicon.ico">
