@@ -3,54 +3,54 @@
     "top-games": "热门游戏",
     "all-games": "所有游戏",
     "slot-games": "老虎机游戏",
-    "live-casino": "真人娱乐场",
-    "progressive-games": "渐进式游戏"
+    "live-casino": "真人赌场",
+    "progressive-games": "累进奖池游戏"
   },
-  "top": "顶部",
+  "top": "热门",
   "all": "全部",
-  "slot": "投币口",
-  "live": "居住",
-  "progressive": "进步",
+  "slot": "老虎机",
+  "live": "直播",
+  "progressive": "累进",
   "games": "游戏",
   "login": "登录",
-  "playtech-progressive-jackpot": "Playtech 累积奖金",
+  "playtech-progressive-jackpot": "今日最高奖金可达",
   "search-games": "搜索游戏",
-  "load-more": "装载更多",
+  "load-more": "加载更多",
   "play": "玩",
-  "play-now": "现在播放",
+  "play-now": "立即游戏",
   "highlight": {
-    "highlights": "强调",
-    "articleTitle1": "现场游戏",
-    "articleDescription1": "选出冠军！",
-    "articleTitle2": "渐进式游戏",
-    "articleDescription2": "探索我们的优质游戏",
+    "highlights": "精选游戏",
+    "articleTitle1": "真人游戏",
+    "articleDescription1": "选择你的冠军！",
+    "articleTitle2": "累进游戏",
+    "articleDescription2": "探索我们的高端游戏",
     "articleTitle3": "老虎机俱乐部",
-    "articleDescription3": "旋转致富之路"
+    "articleDescription3": "旋转赢财富"
   },
   "download": {
-    "download-the-app": "下载应用程序",
-    "title": "赢得大奖！",
-    "description": "不要错过赢得改变生活的金钱的机会！",
-    "download-app": "下载应用程序",
-    "for-android": "对于安卓",
-    "for-windows": "对于 Windows"
+    "download-the-app": "下载",
+    "title": "下载我们的应用",
+    "description": "您的财富只需一键 - 立即玩，赢取大奖",
+    "download-app": "下载应用",
+    "for-android": "安卓",
+    "for-windows": "Windows"
   },
   "about-us": "关于我们",
   "terms-services": "服务条款",
   "contact-us": "联系我们",
   "all-rights-reserved": "版权所有",
-  "no-games-found": "没有找到游戏",
+  "no-games-found": "未找到游戏",
   "login-form": {
     "username": "用户名",
     "password": "密码",
     "login": "登录",
-    "remember-me": "记住账号"
+    "remember-me": "记住我"
   },
   "login-success-message": "您已成功登录！",
-  "logout-success-message": "您已成功退出！",
+  "logout-success-message": "您已成功登出！",
   "unauthorized": {
-    "title": "你没有登录",
-    "description": "要使用此功能，您需要先登录",
+    "title": "您尚未登录",
+    "description": "访问此功能需要先登录",
     "login": "登录"
   }
 }

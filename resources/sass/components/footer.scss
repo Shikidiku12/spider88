@@ -1,5 +1,8 @@
 .footer {
-  background: #11161F;
+//   background: #11161F;
+//   background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(http://127.0.0.1:8000/images/game-bg.jpeg);
+//   background: #1A1A1A;
+  background: #141415;
   position: absolute;
   width: 100%;
   overflow: hidden;
@@ -10,7 +13,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #11161F;
+    // background: #1A1A1A;
+    background: #141415;
     gap: 32px;
     padding: 42px 0;
     margin: 0 auto;
@@ -22,20 +26,22 @@
 
   &__accent {
     &-left {
-      background-image: url("/public/images/bg-footer-left.png") ;
+    //   background-image: url("/public/images/bg-footer-left.png") ;
+      background-image: url("/public/images/laicai/footer/accent-left.png") ;
       background-position: center right;
       background-size: auto;
       background-repeat: no-repeat;
       position: absolute;
       width: 222px;
       height: 222px;
-      left: -149px;
+      left: -99px; // Previously -149
       top: -43px;
-      opacity: 0.7;
+      opacity: 0.1;
     }
 
     &-right {
-      background-image: url("/public/images/bg-footer-right.png") ;
+    //   background-image: url("/public/images/bg-footer-right.png") ;
+      background-image: url("/public/images/laicai/footer/accent-right-4.png") ;
       background-position: bottom right;
       background-size: auto;
       background-repeat: no-repeat;
@@ -43,8 +49,8 @@
       width: 222px;
       height: 222px;
       right: 0;
-      top: -83px;
-      opacity: 0.8;
+      top: -78px; // previously -83
+      opacity: 0.1;
     }
   }
 
@@ -52,6 +58,16 @@
     img {
       object-fit: contain;
     }
+  }
+
+  &__logoimage {
+    width: 174px;
+    height: 52px;
+    background-color: #55565C;
+    -webkit-mask: url('/images/laicai/logo/logo_word.png') no-repeat center;
+    mask: url('/images/laicai/logo/logo_word.png') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
   }
 
   &__info {

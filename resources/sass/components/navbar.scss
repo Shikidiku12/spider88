@@ -15,7 +15,15 @@
   }
 
   &__wrapper {
-    background-color: #151C27;
+    // background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(http://127.0.0.1:8000/images/game-bg.jpeg);
+    // // background-color: #151C27;
+    // background-attachment: fixed;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+
+    // background-color: #0D0D0F;
+    // background-color: #161619;
+    background-color: #141415; // from ptdemo
     width: 100%;
   }
 
@@ -39,7 +47,15 @@
   }
 
   &__container {
-    background-color: #151C27;
+    // background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(http://127.0.0.1:8000/images/game-bg.jpeg);
+    // // background-color: #151C27;
+    // background-attachment: fixed;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+
+    // background-color: #0D0D0F;
+    // background-color: #161619;
+    background-color: #141415; // from ptdemo
     padding: 15px 15px;
     justify-content: space-between;
     height: 75px;
@@ -53,7 +69,10 @@
 
   &__contents {
     width: 100%;
-    background-color: #232d3f;
+    // background-color: #1A1A1A;
+    background-color: #202024;
+
+    // background-color: #232d3f;
     overflow: hidden;
     height: 81px;
     position: relative;
@@ -200,16 +219,16 @@
   }
 
   &__logo {
-    background-image: url("/public/images/logo_3_mobile.png");
+    background-image: url("/public/images/laicai/logo/logo_icon.png");
     background-repeat: no-repeat;
-    height: 60px;
-    width: 60px;
+    height: 50px; // Previously 60px
+    width: 50px; // Previously 60px
     background-position: center;
     background-size: contain;
     cursor: pointer;
 
     @media (min-width: 768px) {
-      background-image: url("/public/images/logo_3.png");
+      background-image: url("/public/images/laicai/logo/logo_complete.png");
       width: 190px;
       height: 100px;
     }
@@ -248,7 +267,8 @@
   }
 
   &__balance {
-    background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    // background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
+    background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -258,7 +278,8 @@
     word-wrap: break-word;
     padding: 10px 32px;
     border-radius: 46px;
-    border: 1.3px solid #ED1975;
+    // border: 1.3px solid #ED1975;
+    border: 1.3px solid #B49430;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -268,11 +289,13 @@
     color: black;
 
     &--btn {
-      color: #ffffff;
+    //   color: #ffffff;
+      color: black;
       font-size: 16px;
       font-weight: 700;
       word-wrap: break-word;
-      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
+      background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
       border-radius: 46px;
       padding: 10px 32px;
       border: none;
@@ -289,7 +312,8 @@
       width: 44px;
       height: 44px;
       border-radius: 26px;
-      border: 1px solid #ED1975;
+    //   border: 1px solid #ED1975;
+      border: 1px solid #B49430;
       background: none;
       display: flex;
       justify-content: center;
@@ -314,7 +338,8 @@
 
     @media (max-width: 768px) {
       width: 65%;
-      background-color: #232D3F;
+    //   background-color: #232D3F;
+      background-color: #202024;
       padding: 22px;
       justify-content: space-between;
       display: flex;
@@ -355,8 +380,8 @@
         input {
           color: #ffffff;
           border-radius: 10px;
-          border: 1px solid #2A4146;
-          background: #303A4D;
+          border: 1px solid #45464C;
+          background: #292A30;
           min-width: 256px;
           height: 42px;
           padding: 20px;
@@ -385,7 +410,8 @@
         &--icon {
           position: absolute;
           place-content: center;
-          width: 2.5rem;
+          height: 1.25rem;
+          width: 3rem;
           display: grid;
           inset-inline-end: 0;
           top: 0;
@@ -464,7 +490,8 @@
 
         @media (max-width: 768px) {
           padding: 6px;
-          background: #303A4D;
+        //   background: #303A4D;
+          background: #292A30;
           border-radius: 12px;
           flex-direction: column;
           justify-content: flex-start;
@@ -490,18 +517,19 @@
       }
 
       &--active {
-        border-radius: 9px;
-        border: 6px solid #1C232E;
-        background: rgba(25, 30, 39, 0.70);
-        padding: 0 7px;
+        // border-radius: 9px;
+        // border: 6px solid #45464C;
+        // background: rgba(25, 30, 39, 0.70);
+        // padding: 0 7px;
 
         img {
           border-radius: 48px;
-          border: 2px solid var(--primary, #ED1975);
+          border: 2px solid var(--primary, #B49430);
         }
 
         span {
-          background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+        //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
+          background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;

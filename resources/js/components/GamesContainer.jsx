@@ -136,7 +136,7 @@ export const GamesContainer = ({
                   onChange={handleInputChange}
                   type="text" placeholder={t('search-games')}/>
                 <span className="provider-section__filter__search-wrapper--icon">
-                      <img src="/images/icons/search.png"/>
+                      <img src="/images/laicai/icons/search.png"/>
                     </span>
               </div>
             </div>

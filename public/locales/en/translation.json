@@ -13,13 +13,13 @@
   "progressive": "Progressive",
   "games": "Games",
   "login": "Login",
-  "playtech-progressive-jackpot": "Playtech Progressive Jackpot",
+  "playtech-progressive-jackpot": "Today You Can Win Up To",
   "search-games": "Search Games",
   "load-more": "Load More",
   "play": "Play",
   "play-now": "Play Now",
   "highlight": {
-    "highlights": "Highlights",
+    "highlights": "Featured Games",
     "articleTitle1": "Live Games",
     "articleDescription1": "Choose the champion!",
     "articleTitle2": "Progressive Games",
@@ -28,12 +28,12 @@
     "articleDescription3": "Spin your way to riches"
   },
   "download": {
-    "download-the-app": "Download The App",
-    "title": "Win big jackpot!",
-    "description": "Don't miss out on your chance to win life-changing money!",
+    "download-the-app": "Downloadables",
+    "title": "DOWNLOAD OUR APP",
+    "description": "YOUR FORTUNE IS JUTS ONE TAP AWAY - PLAY NOW AND WIN BIG",
     "download-app": "Download app",
-    "for-android": "For Android",
-    "for-windows": "For Windows"
+    "for-android": "MOBILE",
+    "for-windows": "WINDOWS"
   },
   "about-us": "About Us",
   "terms-services": "Terms of Services",

@@ -176,8 +176,8 @@ const App = () => {
         </div>
         <JackpotWidget />
         <div className="position-relative overflow-hidden">
-          <div className="bg-gradient-left"></div>
-          <div className="bg-gradient-right"></div>
+          {/* <div className="bg-gradient-left"></div>
+          <div className="bg-gradient-right"></div> */}
           <div className="main-content">
             <div className="main-content__wrapper">
               <GamesContainer

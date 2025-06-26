@@ -58,7 +58,7 @@
     }
 
     &-accent {
-      background-image: url('/public/images/download-accent.png');
+      background-image: url('/public/images/laicai/download/download_accent_2.png');
       background-size: contain;
       background-repeat: no-repeat;
       display: block;
@@ -69,7 +69,7 @@
       width: 427px;
 
       @media (max-width: 768px) {
-        background-image: url('/public/images/M-download-accent.png');
+        background-image: url('/public/images/laicai/download/download_accent_2.png');
         height: 250px;
         right: 4%;
         top: 32px;
@@ -103,7 +103,19 @@
     }
 
     &-title {
-      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+      background: linear-gradient(
+				-60deg,
+				#B49430 20%,
+				#FFD700 40%,
+				#FFFBEA 50%,
+				#B49430 60%
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			color: transparent;
+
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -155,7 +167,8 @@
       font-weight: 700;
       line-height: normal;
       padding: 9px 32px;
-      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+			background: #FFD700;
+      // background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
       border-radius: 46px;
       justify-content: center;
       border: none;
@@ -167,13 +180,20 @@
       z-index: 1;
       position: relative;
 
-      &-wrapper {
-        display: flex;
-        flex-direction: column;
-      }
+      // &-wrapper {
+      //   display: flex;
+      //   flex-direction: column;
+      // }
+
+			&-wrapper {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
 
       &-text {
-        color: #DEFFF5;
+        // color: #DEFFF5;
+				color: black;
         font-family: Poppins;
         font-size: 18px;
         font-style: normal;
@@ -199,33 +219,47 @@
         }
       }
 
-      &--solid {
-        background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
-        border: none;
+      // &--solid {
+			// 	background: #FFD700;
 
-        &-icon {
-          width: 60px;
-          height: 33px;
-          position: absolute;
-          right: 20px;
-          bottom: 3px;
-          opacity: 0.2;
-        }
-      }
+      //   &-icon {
+      //     width: 60px;
+      //     height: 33px;
+      //     position: absolute;
+      //     right: 20px;
+      //     bottom: 3px;
+      //     opacity: 0.2;
+      //   }
+      // }
 
-      &--outline {
-        background: rgba(179, 60, 119, 0.10);
-        backdrop-filter: blur(6px);
-        border: 2px solid #ED1975;
+      // &--outline {
+			// 	background: #FFD700;
 
-        &-icon {
-          width: 48px;
-          height: 48px;
-          position: absolute;
-          right: -7px;
-          bottom: 0;
-        }
-      }
+      //   &-icon {
+      //     width: 48px;
+      //     height: 48px;
+      //     position: absolute;
+      //     right: -7px;
+      //     bottom: 0;
+      //   }
+      // }
+
+			&--solid-icon,
+			&--outline-icon {
+				width: 24px;
+				height: 24px;
+				margin-left: 8px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+
+				img {
+					width: 100%;
+					height: auto;
+					filter: brightness(0) saturate(100%);
+					color: #000000;
+				}
+			}
 
       @media (max-width: 768px) {
         font-size: 14px;
@@ -242,12 +276,14 @@
       display: flex;
       align-items: center;
 
-      background-image: url('/public/images/M-DowloadBg.png');
+    //   background-image: url('/public/images/M-DowloadBg.png');
+      background-image: url('/images/laicai/download/download_mob_2.jpg');
       background-size: 100% 100%;
       background-repeat: no-repeat;
 
       @media (min-width: 768px) {
-        background-image: url('/public/images/D-DownloadBG.png');
+        // background-image: url('/public/images/D-DownloadBG.png');
+        background-image: url('/images/laicai/download/download_web_2.jpg');
         height: 251px;
         padding: 42px;
       }
@@ -288,7 +324,8 @@
     }
 
     &--text {
-      color: #DFCE9C;
+      // color: #DFCE9C;
+			color: #DEFFF5;
       font-size: 18px;
       font-family: 'Inter';
       font-style: normal;

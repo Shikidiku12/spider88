@@ -1,56 +1,56 @@
 {
   "menu": {
     "top-games": "Permainan Teratas",
-    "all-games": "Semua permainan",
+    "all-games": "Semua Permainan",
     "slot-games": "Permainan Slot",
-    "live-casino": "Kasino Langsung",
+    "live-casino": "Live Kasino",
     "progressive-games": "Permainan Progresif"
   },
-  "top": "Atas",
+  "top": "Teratas",
   "all": "Semua",
   "slot": "Slot",
   "live": "Langsung",
   "progressive": "Progresif",
   "games": "Permainan",
-  "login": "Log masuk",
-  "playtech-progressive-jackpot": "Jackpot Progresif Playtech",
-  "search-games": "Permainan Carian",
-  "load-more": "Tambah lagi",
+  "login": "Log Masuk",
+  "playtech-progressive-jackpot": "Hari Ini Anda Boleh Menang Sehingga",
+  "search-games": "Cari Permainan",
+  "load-more": "Muat Lagi",
   "play": "Main",
-  "play-now": "Main sekarang",
+  "play-now": "Main Sekarang",
   "highlight": {
-    "highlights": "Sorotan",
+    "highlights": "Permainan Pilihan",
     "articleTitle1": "Permainan Langsung",
-    "articleDescription1": "Pilih juara!",
+    "articleDescription1": "Pilih juara anda!",
     "articleTitle2": "Permainan Progresif",
     "articleDescription2": "Temui permainan premium kami",
-    "articleTitle3": "Kelab Slot",
-    "articleDescription3": "Putar jalan anda kepada kekayaan"
+    "articleTitle3": "Slot Club",
+    "articleDescription3": "Putar untuk kekayaan"
   },
   "download": {
-    "download-the-app": "Muat turun Apl",
-    "title": "Menang jackpot besar!",
-    "description": "Jangan lepaskan peluang anda untuk memenangi wang yang mengubah hidup!",
-    "download-app": "Muat turun aplikasi",
-    "for-android": "Untuk Android",
-    "for-windows": "Untuk Windows"
+    "download-the-app": "Muat Turun",
+    "title": "MUAT TURUN APLIKASI KAMI",
+    "description": "KEBAHAGIAAN ANDA HANYA SEBUAH TEKAN – MAIN DAN MENANG BESAR SEKARANG",
+    "download-app": "Muat Turun Apl",
+    "for-android": "MOBILE",
+    "for-windows": "WINDOWS"
   },
-  "about-us": "Tentang kita",
-  "terms-services": "Syarat Perkhidmatan",
+  "about-us": "Tentang Kami",
+  "terms-services": "Terma Perkhidmatan",
   "contact-us": "Hubungi Kami",
-  "all-rights-reserved": "Hak cipta terpelihara",
+  "all-rights-reserved": "Hak Cipta Terpelihara",
   "no-games-found": "Tiada permainan ditemui",
   "login-form": {
-    "username": "Nama pengguna",
-    "password": "Kata laluan",
-    "login": "Log masuk",
+    "username": "Nama Pengguna",
+    "password": "Kata Laluan",
+    "login": "Log Masuk",
     "remember-me": "Ingat Saya"
   },
-  "login-success-message": "Anda telah berjaya log masuk!",
-  "logout-success-message": "Anda telah berjaya log keluar!",
+  "login-success-message": "Anda berjaya log masuk!",
+  "logout-success-message": "Anda berjaya log keluar!",
   "unauthorized": {
-    "title": "Anda tidak log masuk",
-    "description": "Untuk mengakses ciri ini anda perlu log masuk dahulu",
-    "login": "Log masuk"
+    "title": "Anda belum log masuk",
+    "description": "Untuk mengakses ciri ini, anda perlu log masuk dahulu",
+    "login": "Log Masuk"
   }
 }

@@ -20,7 +20,7 @@ export const LoginModal = ({
       show={isShow}
       centered
     >
-      <Modal.Body>
+      <Modal.Body className="login-modal">
         <div className="row">
           <div className="col">
             <LoginForm

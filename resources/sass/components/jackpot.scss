@@ -34,7 +34,7 @@
       position: relative;
       padding: 10px 20px;
       background: linear-gradient(258deg, #232D31 0%, #050E12 100%);
-      border-radius: 3px;
+      border-radius: 1px;
       overflow: hidden;
       border: 1px #232D3F solid;
       justify-content: center;
@@ -93,8 +93,10 @@
     gap: 10px;
     flex-shrink: 0;
     border-radius: 20px;
-    border: 2px solid #232E3F;
-    background: linear-gradient(260deg, rgba(33, 42, 59, 0.80) -52.66%, rgba(21, 28, 39, 0.80) 102.71%);
+    // border: 2px solid #232E3F;
+    // background: linear-gradient(260deg, rgba(33, 42, 59, 0.80) -52.66%, rgba(21, 28, 39, 0.80) 102.71%);
+    border: 2px solid #2C2C30;
+    background: linear-gradient(260deg, rgba(32, 32, 36, 0.8) -52.66%, rgba(24, 24, 28, 0.8) 102.71%);;
     backdrop-filter: blur(15px);
     position: relative;
     overflow: hidden;
@@ -165,7 +167,8 @@
       font-weight: 800;
       line-height: normal;
       letter-spacing: 0.96px;
-      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
+      background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -176,7 +179,8 @@
       }
 
       &--amount {
-        background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+        // background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
+        background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -205,7 +209,8 @@
     }
     &--accent {
       &-left {
-        background-image: url("/public/images/bg-jackpot-pattern-left.png") ;
+        // background-image: url("/public/images/bg-jackpot-pattern-left.png") ;
+        background-image: url("/public/images/laicai/jackpot/accent-left.png") ;
         background-position: bottom left;
         background-size: auto;
         background-repeat: no-repeat;
@@ -213,12 +218,13 @@
         width: 203px;
         height: 203px;
         left: -6px;
-        top: -92px;
-        opacity: 0.8;
+        top: -52px; // previously -92
+        opacity: 0.3; // previously 0.8
       }
 
       &-right {
-        background-image: url("/public/images/bg-jackpot-pattern-right.png") ;
+        // background-image: url("/public/images/bg-jackpot-pattern-right.png") ;
+        background-image: url("/public/images/laicai/jackpot/accent-right-2.png") ;
         background-position: top right;
         background-size: auto;
         background-repeat: no-repeat;
@@ -227,7 +233,7 @@
         height: 202px;
         right: 0;
         bottom: -54px;
-        opacity: 0.8;
+        opacity: 0.3;
       }
     }
 
