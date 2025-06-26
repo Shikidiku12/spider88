@@ -183,7 +183,7 @@ export const NavBar = ({
                     >
                       <img
                         className="nav__sidebar-icon"
-                        src="/images/laicai/menu-icons/top.png"
+                        src="/images/spider/Icons/top.png"
                         alt=""
                       />
                       <span className="nav__sidebar-label">
@@ -200,7 +200,7 @@ export const NavBar = ({
                     >
                       <img
                         className="nav__sidebar-icon"
-                        src="/images/laicai/menu-icons/all.png"
+                        src="/images/spider/Icons/all.png"
                         alt=""
                       />
                       <span className="nav__sidebar-label">
@@ -217,7 +217,7 @@ export const NavBar = ({
                     >
                       <img
                         className="nav__sidebar-icon"
-                        src="/images/laicai/menu-icons/slot.png"
+                        src="/images/spider/Icons/slot.png"
                         alt=""
                       />
                       <span className="nav__sidebar-label">
@@ -234,7 +234,7 @@ export const NavBar = ({
                     >
                       <img
                         className="nav__sidebar-icon"
-                        src="/images/laicai/menu-icons/live.png"
+                        src="/images/spider/Icons/live.png"
                         alt=""
                       />
                       <span className="nav__sidebar-label">
@@ -251,7 +251,7 @@ export const NavBar = ({
                     >
                       <img
                         className="nav__sidebar-icon"
-                        src="/images/laicai/menu-icons/progressive.png"
+                        src="/images/spider/Icons/progressive.png"
                         alt=""
                       />
                       <span className="nav__sidebar-label">

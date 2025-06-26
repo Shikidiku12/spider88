@@ -15,15 +15,7 @@
   }
 
   &__wrapper {
-    // background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(http://127.0.0.1:8000/images/game-bg.jpeg);
-    // // background-color: #151C27;
-    // background-attachment: fixed;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-
-    // background-color: #0D0D0F;
-    // background-color: #161619;
-    background-color: #141415; // from ptdemo
+    background-color: #990899; // navbar top color
     width: 100%;
   }
 
@@ -47,15 +39,7 @@
   }
 
   &__container {
-    // background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(http://127.0.0.1:8000/images/game-bg.jpeg);
-    // // background-color: #151C27;
-    // background-attachment: fixed;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-
-    // background-color: #0D0D0F;
-    // background-color: #161619;
-    background-color: #141415; // from ptdemo
+    background-color: #990899; // navbar top color
     padding: 15px 15px;
     justify-content: space-between;
     height: 75px;
@@ -69,10 +53,8 @@
 
   &__contents {
     width: 100%;
-    // background-color: #1A1A1A;
-    background-color: #202024;
+    background-color: #785687; // navbar bottom
 
-    // background-color: #232d3f;
     overflow: hidden;
     height: 81px;
     position: relative;
@@ -219,7 +201,7 @@
   }
 
   &__logo {
-    background-image: url("/public/images/laicai/logo/logo_icon.png");
+    background-image: url("/public/images/spider/Logo/Vertical/Yellow2.png");
     background-repeat: no-repeat;
     height: 50px; // Previously 60px
     width: 50px; // Previously 60px
@@ -228,7 +210,7 @@
     cursor: pointer;
 
     @media (min-width: 768px) {
-      background-image: url("/public/images/laicai/logo/logo_complete.png");
+      background-image: url("/public/images/spider/Logo/Horizontal/Yellow3.png");
       width: 190px;
       height: 100px;
     }

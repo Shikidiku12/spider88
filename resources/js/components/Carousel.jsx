@@ -8,15 +8,19 @@ export const Carousel = () => {
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/images/laicai/banner/banner_web.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/spider/Banner/b1.jpg" className="d-block w-100" alt="..." />
           <div className="image-overlay"></div>
         </div>
         <div className="carousel-item">
-          <img src="/images/laicai/banner/banner_web.jpg" className="d-block w-100" alt="..."/>
+          <img src="/images/spider/Banner/b2.jpg" className="d-block w-100" alt="..."/>
           <div className="image-overlay"></div>
         </div>
         <div className="carousel-item">
-          <img src="/images/laicai/banner/banner_web.jpg" className="d-block w-100" alt="..."/>
+          <img src="/images/spider/Banner/b3.jpg" className="d-block w-100" alt="..."/>
+          <div className="image-overlay"></div>
+        </div>
+        <div className="carousel-item">
+          <img src="/images/spider/Banner/b4.jpg" className="d-block w-100" alt="..."/>
           <div className="image-overlay"></div>
         </div>
       </div>

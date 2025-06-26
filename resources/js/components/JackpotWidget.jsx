@@ -13,8 +13,6 @@ export const JackpotWidget = () => {
             <div className="featured__progressive-jackpot">
               <div className="featured__progressive-jackpot--accent-left"></div>
               <div className="featured__progressive-jackpot--accent-right"></div>
-              {/* <div className="featured__progressive-jackpot--accent-text">Grand Winnings</div> */}
-
               <span className="featured__progressive-jackpot--text">{t('playtech-progressive-jackpot')}</span>
               <div className="featured__progressive-jackpot-money">
                 <span className="featured__progressive-jackpot-money--currency">RM</span>

@@ -111,7 +111,6 @@ export const LoginForm = ({
           <div className="mb-2">
             <div className="position-relative">
               <div className="login__card__form__input__icon login__card__form__input__icon--prepend">
-                {/* <img src="/images/laicai/icons/lock.svg" /> */}
                 <LockIcon size={20} color="#45464C" />
               </div>
               <div
@@ -151,17 +150,6 @@ export const LoginForm = ({
               {t('login-form.login')}
             </button>
           )}
-
-          {/* <div className="login__card__form__footer">
-            <label>
-              <input
-                type="checkbox"
-                className="login__card__form__footer__checkbox"
-                checked
-              />
-              {t('login-form.remember-me')}
-            </label>
-          </div> */}
         </form>
       </div>
     </div>
