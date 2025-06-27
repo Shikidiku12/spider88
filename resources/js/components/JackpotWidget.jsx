@@ -7,6 +7,8 @@ export const JackpotWidget = () => {
 
   return (
     <div className="main-content">
+      {/* <div className="main-content__accent-top-right"></div> */}
+      <div className="main-content__accent-top-left"></div>
       <div className="main-content__wrapper">
         <div className="featured">
           <div className="featured__container">

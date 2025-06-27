@@ -15,7 +15,7 @@
   }
 
   &__wrapper {
-    background-color: #990899; // navbar top color
+    background-color: #56296D;
     width: 100%;
   }
 
@@ -39,7 +39,7 @@
   }
 
   &__container {
-    background-color: #990899; // navbar top color
+    background-color: #56296D;
     padding: 15px 15px;
     justify-content: space-between;
     height: 75px;
@@ -201,7 +201,7 @@
   }
 
   &__logo {
-    background-image: url("/public/images/spider/Logo/Vertical/Yellow2.png");
+    background-image: url("/public/images/spider/logo/yellow_icon.png");
     background-repeat: no-repeat;
     height: 50px; // Previously 60px
     width: 50px; // Previously 60px
@@ -210,7 +210,7 @@
     cursor: pointer;
 
     @media (min-width: 768px) {
-      background-image: url("/public/images/spider/Logo/Horizontal/Yellow3.png");
+      background-image: url("/public/images/spider/logo/yellow_complete_horizontal.png");
       width: 190px;
       height: 100px;
     }
@@ -249,8 +249,7 @@
   }
 
   &__balance {
-    // background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
-    background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
+    background: linear-gradient(90deg, #C0922A 0%, #B49430 40%, #FFFBEA 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -260,7 +259,6 @@
     word-wrap: break-word;
     padding: 10px 32px;
     border-radius: 46px;
-    // border: 1.3px solid #ED1975;
     border: 1.3px solid #B49430;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -268,17 +266,15 @@
   }
 
   &__login {
-    color: black;
+    color: #DEFFF5;
 
     &--btn {
-    //   color: #ffffff;
-      color: black;
+    color: #DEFFF5;
       font-size: 16px;
       font-weight: 700;
       word-wrap: break-word;
-    //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
-      background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
-      border-radius: 46px;
+			background: #C0922A;
+			border-radius: 15px; // previously 46
       padding: 10px 32px;
       border: none;
     }
@@ -294,7 +290,6 @@
       width: 44px;
       height: 44px;
       border-radius: 26px;
-    //   border: 1px solid #ED1975;
       border: 1px solid #B49430;
       background: none;
       display: flex;
@@ -320,8 +315,7 @@
 
     @media (max-width: 768px) {
       width: 65%;
-    //   background-color: #232D3F;
-      background-color: #202024;
+      background-color: #3B2B47;
       padding: 22px;
       justify-content: space-between;
       display: flex;
@@ -427,8 +421,8 @@
     }
 
     &-icon {
-      width: 42px;
-      height: 42px;
+      width: 35px; // previously 42
+      height: 35px; // previously 42
     }
 
     &-label {
@@ -472,8 +466,7 @@
 
         @media (max-width: 768px) {
           padding: 6px;
-        //   background: #303A4D;
-          background: #292A30;
+          background: #4A2F5B;
           border-radius: 12px;
           flex-direction: column;
           justify-content: flex-start;
@@ -499,19 +492,22 @@
       }
 
       &--active {
-        // border-radius: 9px;
-        // border: 6px solid #45464C;
-        // background: rgba(25, 30, 39, 0.70);
-        // padding: 0 7px;
+        border-radius: 9px;
+        // border: 6px solid #572E6A;
+				// border: 6px solid linear-gradient(90deg, #C0922A 0%, #B49430 40%, #FFFBEA 100%);
+        background: #572E6A; // prviously #572E6A
+        padding: 7px 7px;
 
-        img {
-          border-radius: 48px;
-          border: 2px solid var(--primary, #B49430);
-        }
+        // img {
+        //   border-radius: 48px;
+        //   // border: 2px solid var(--primary, #B49430);
+				// 	background: #572E6A;
+				// 	padding: 3px;
+        // }
 
         span {
-        //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
-          background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
+        //   background: linear-gradient(92deg, #C0922A 6.08%, #0A9999 97.94%);
+        background: linear-gradient(90deg, #C0922A 0%, #B49430 40%, #FFFBEA 100%);
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;

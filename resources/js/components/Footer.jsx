@@ -10,9 +10,9 @@ export const Footer = () => {
 
   return (
     <div className="footer main-content">
+      <div className="footer__accent-left"></div>
+      <div className="footer__accent-right"></div>
       <div className="footer__container">
-        <div className="footer__accent-left"></div>
-        <div className="footer__accent-right"></div>
         <div class="footer__logoimage"></div>
         <div className="footer__info info">
           <div className="info__link link">
@@ -21,7 +21,7 @@ export const Footer = () => {
             <a href="javascript:;" className="link-item">{t('contact-us')}</a>
           </div>
           <div className="info__copyright">
-            &copy; {new Date().getFullYear()} {t('all-rights-reserved')} www.88laicai.com 
+            &copy; {new Date().getFullYear()} {t('all-rights-reserved')} www.spider88.com 
           </div>
         </div>
       </div>

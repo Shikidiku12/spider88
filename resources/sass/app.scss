@@ -13,11 +13,11 @@
 // @import 'input';
 
 div {
-  --all-games-icon: url('/public/images/laicai/menu-icons/all.png');
-  --live-casino-icon: url('/public/images/laicai/menu-icons/live.png');
-  --slots-icon: url('/public/images/laicai/menu-icons/slot.png');
-  --video-poker-icon: url('/public/images/laicai/menu-icons/progressive.png');
-  --top-icon: url('/public/images/laicai/menu-icons/top.png');
+  --all-games-icon: url('/public/images/spider/Icons/all.png');
+  --live-casino-icon: url('/public/images/spider/Icons/live.png');
+  --slots-icon: url('/public/images/spider/Icons/slot.png');
+  --video-poker-icon: url('/public/images/spider/Icons/progressive.png');
+  --top-icon: url('/public/images/spider/Icons/top.png');
 
 //   --bs-modal-border-color: rgba(255, 255, 255, 0.10);
 //   --bs-modal-bg: #151C27;
@@ -167,7 +167,8 @@ body {
 
 // For setting the max-width of the page
 .main {
-  background-color: #572E6A; // Main body background color
+//   background-color: #572E6A; // Main body background color
+	background-color: #3F2150;
 
   /* For Desktop */
   @media (min-width: 992px) {
@@ -234,7 +235,7 @@ body {
 	// background: linear-gradient(0deg, rgb(0, 0, 0) 42.43%, rgba(50, 50, 50, 0.8) 100%);
 	background: linear-gradient(
 		0deg,
-		rgb(0, 0, 0) 42.43%,
+		#3F2150 42.43%,
 		rgba(0, 0, 0, 0) 100%
 	);
   height: 54px; // previously 104
@@ -263,7 +264,7 @@ body {
   left: -185px;
   top: 198px;
   border-radius: 370px;
-  background: linear-gradient(152deg, #78155D 17.44%, rgba(99, 44, 84, 0.00) 86.17%);
+  background: linear-gradient(152deg, #C0922A 17.44%, rgba(99, 44, 84, 0.00) 86.17%);
   filter: blur(120px);
 }
 
@@ -275,6 +276,43 @@ body {
   right: -175px;
   bottom:  220px;
   border-radius: 370px;
-  background: linear-gradient(152deg, #157848 17.44%, rgba(77, 195, 211, 0.00) 86.17%);
+  background: linear-gradient(152deg, #0A9999 17.44%, rgba(77, 195, 211, 0.00) 86.17%);
   filter: blur(120px);
 }
+
+// .body-accent--ul {
+//   background-image: url('/images/spider/accents/yellow_ul.png');
+//   background-repeat: no-repeat;
+//   background-position: top left;
+//   background-size: contain;
+//   position: absolute;
+//   width: 250px; // set as needed
+//   height: 250px;
+//   z-index: 1;
+// }
+
+// .body-accent {
+//   position: absolute;
+//   z-index: 0; // Behind content
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   pointer-events: none;
+//   opacity: 0.8;
+
+//   &--ul {
+//     top: 0;
+//     left: 0;
+//     width: 200px;
+//     height: 200px;
+//     background-image: url('/public/images/spider/accents/yellow_ul.png');
+//   }
+
+//   &--lr {
+//     bottom: 0;
+//     right: 0;
+//     width: 300px;
+//     height: 300px;
+//     background-image: url('/public/images/spider/accents/yellow_lr.png');
+//   }
+// }
+
