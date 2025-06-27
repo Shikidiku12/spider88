@@ -93,10 +93,7 @@
     gap: 10px;
     flex-shrink: 0;
     border-radius: 20px;
-    // border: 2px solid #232E3F;
-    // background: linear-gradient(260deg, rgba(33, 42, 59, 0.80) -52.66%, rgba(21, 28, 39, 0.80) 102.71%);
     border: 2px solid #6A5D7D;
-    // background: linear-gradient(260deg, rgba(32, 32, 36, 0.8) -52.66%, rgba(24, 24, 28, 0.8) 102.71%);
     background: linear-gradient(260deg,rgba(92, 59, 117, 0.8) -52.66%,rgba(72, 42, 92, 0.8) 102.71%);
     backdrop-filter: blur(15px);
     position: relative;
@@ -168,7 +165,6 @@
       font-weight: 800;
       line-height: normal;
       letter-spacing: 0.96px;
-    //   background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
       background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
       background-clip: text;
       -webkit-background-clip: text;
@@ -180,7 +176,6 @@
       }
 
       &--amount {
-        // background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%); // spider original color
         background: linear-gradient(90deg, #B49430 0%, #FFD700 40%, #FFFBEA 100%); // my own generated color
         background-clip: text;
         -webkit-background-clip: text;
@@ -210,8 +205,7 @@
     }
     &--accent {
       &-left {
-        // background-image: url("/public/images/bg-jackpot-pattern-left.png") ;
-        background-image: url("/public/images/laicai/jackpot/accent-left.png") ;
+        background-image: url("/public/images/spider/jackpot/accent-left.png") ;
         background-position: bottom left;
         background-size: auto;
         background-repeat: no-repeat;
@@ -224,8 +218,7 @@
       }
 
       &-right {
-        // background-image: url("/public/images/bg-jackpot-pattern-right.png") ;
-        background-image: url("/public/images/laicai/jackpot/accent-right-2.png") ;
+        background-image: url("/public/images/spider/jackpot/accent-right-2.png") ;
         background-position: top right;
         background-size: auto;
         background-repeat: no-repeat;
