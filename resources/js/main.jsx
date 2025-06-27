@@ -178,6 +178,8 @@ const App = () => {
         <div className="position-relative overflow-hidden">
           <div className="bg-gradient-left"></div>
           <div className="bg-gradient-right"></div>
+          {/* <div class="body-accent body-accent--ul"></div>
+          <div class="body-accent body-accent--lr"></div> */}
           <div className="main-content">
             <div className="main-content__wrapper">
               <GamesContainer

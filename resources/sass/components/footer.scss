@@ -1,5 +1,6 @@
 .footer {
-  background: #11161F;
+  // background: #401D50;
+	background: #56296D;
   position: absolute;
   width: 100%;
   overflow: hidden;
@@ -10,7 +11,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #11161F;
+    // background: #1A1A1A;
+    // background: #401D50;
+		background: #56296D;
     gap: 32px;
     padding: 42px 0;
     margin: 0 auto;
@@ -22,29 +25,34 @@
 
   &__accent {
     &-left {
-      background-image: url("/public/images/bg-footer-left.png") ;
-      background-position: center right;
-      background-size: auto;
+      background-image: url("/public/images/spider/accent/yellow_ul.png") ;
+      // background-position: center left;
+			background-position: top left;
+    //   background-size: auto;
+    	background-size: 150px; // previously auto
       background-repeat: no-repeat;
       position: absolute;
-      width: 222px;
+      width: 250px; // previously 222
       height: 222px;
-      left: -149px;
-      top: -43px;
-      opacity: 0.7;
+      left: -5px; // Previously -149, -99
+      // top: -43px;
+      opacity: 0.2;
     }
 
     &-right {
-      background-image: url("/public/images/bg-footer-right.png") ;
-      background-position: bottom right;
-      background-size: auto;
+      background-image: url("/public/images/spider/accent/yellow_ur.png") ;
+      // background-position: bottom right;
+			background-position: top right;
+      // background-size: auto;
+			background-size: 200px; // previously auto
       background-repeat: no-repeat;
       position: absolute;
-      width: 222px;
+      width: 250px; // previously 222
       height: 222px;
-      right: 0;
-      top: -83px;
-      opacity: 0.8;
+      right: -10px; // previously 0
+      // top: -78px; // previously -83
+			top: -5px;
+      opacity: 0.2;
     }
   }
 
@@ -52,6 +60,16 @@
     img {
       object-fit: contain;
     }
+  }
+
+  &__logoimage {
+    width: 174px;
+    height: 52px;
+    background-color: #55565C;
+    -webkit-mask: url('/images/spider/logo/white_complete_horizontal.png') no-repeat center;
+    mask: url('/images/spider/logo/white_complete_horizontal.png') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
   }
 
   &__info {

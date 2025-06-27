@@ -15,7 +15,7 @@
   }
 
   &__wrapper {
-    background-color: #151C27;
+    background-color: #56296D;
     width: 100%;
   }
 
@@ -39,7 +39,7 @@
   }
 
   &__container {
-    background-color: #151C27;
+    background-color: #56296D;
     padding: 15px 15px;
     justify-content: space-between;
     height: 75px;
@@ -53,7 +53,8 @@
 
   &__contents {
     width: 100%;
-    background-color: #232d3f;
+    background-color: #785687; // navbar bottom
+
     overflow: hidden;
     height: 81px;
     position: relative;
@@ -200,16 +201,16 @@
   }
 
   &__logo {
-    background-image: url("/public/images/logo_3_mobile.png");
+    background-image: url("/public/images/spider/logo/yellow_icon.png");
     background-repeat: no-repeat;
-    height: 60px;
-    width: 60px;
+    height: 50px; // Previously 60px
+    width: 50px; // Previously 60px
     background-position: center;
     background-size: contain;
     cursor: pointer;
 
     @media (min-width: 768px) {
-      background-image: url("/public/images/logo_3.png");
+      background-image: url("/public/images/spider/logo/yellow_complete_horizontal.png");
       width: 190px;
       height: 100px;
     }
@@ -248,7 +249,7 @@
   }
 
   &__balance {
-    background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+    background: linear-gradient(90deg, #C0922A 0%, #B49430 40%, #FFFBEA 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -258,22 +259,22 @@
     word-wrap: break-word;
     padding: 10px 32px;
     border-radius: 46px;
-    border: 1.3px solid #ED1975;
+    border: 1.3px solid #B49430;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
   &__login {
-    color: black;
+    color: #DEFFF5;
 
     &--btn {
-      color: #ffffff;
+    color: #DEFFF5;
       font-size: 16px;
       font-weight: 700;
       word-wrap: break-word;
-      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
-      border-radius: 46px;
+			background: #C0922A;
+			border-radius: 15px; // previously 46
       padding: 10px 32px;
       border: none;
     }
@@ -289,7 +290,7 @@
       width: 44px;
       height: 44px;
       border-radius: 26px;
-      border: 1px solid #ED1975;
+      border: 1px solid #B49430;
       background: none;
       display: flex;
       justify-content: center;
@@ -314,7 +315,7 @@
 
     @media (max-width: 768px) {
       width: 65%;
-      background-color: #232D3F;
+      background-color: #3B2B47;
       padding: 22px;
       justify-content: space-between;
       display: flex;
@@ -355,8 +356,8 @@
         input {
           color: #ffffff;
           border-radius: 10px;
-          border: 1px solid #2A4146;
-          background: #303A4D;
+          border: 1px solid #45464C;
+          background: #292A30;
           min-width: 256px;
           height: 42px;
           padding: 20px;
@@ -385,7 +386,8 @@
         &--icon {
           position: absolute;
           place-content: center;
-          width: 2.5rem;
+          height: 1.25rem;
+          width: 3rem;
           display: grid;
           inset-inline-end: 0;
           top: 0;
@@ -419,8 +421,8 @@
     }
 
     &-icon {
-      width: 42px;
-      height: 42px;
+      width: 35px; // previously 42
+      height: 35px; // previously 42
     }
 
     &-label {
@@ -464,7 +466,7 @@
 
         @media (max-width: 768px) {
           padding: 6px;
-          background: #303A4D;
+          background: #4A2F5B;
           border-radius: 12px;
           flex-direction: column;
           justify-content: flex-start;
@@ -491,17 +493,21 @@
 
       &--active {
         border-radius: 9px;
-        border: 6px solid #1C232E;
-        background: rgba(25, 30, 39, 0.70);
-        padding: 0 7px;
+        // border: 6px solid #572E6A;
+				// border: 6px solid linear-gradient(90deg, #C0922A 0%, #B49430 40%, #FFFBEA 100%);
+        background: #572E6A; // prviously #572E6A
+        padding: 7px 7px;
 
-        img {
-          border-radius: 48px;
-          border: 2px solid var(--primary, #ED1975);
-        }
+        // img {
+        //   border-radius: 48px;
+        //   // border: 2px solid var(--primary, #B49430);
+				// 	background: #572E6A;
+				// 	padding: 3px;
+        // }
 
         span {
-          background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+        //   background: linear-gradient(92deg, #C0922A 6.08%, #0A9999 97.94%);
+        background: linear-gradient(90deg, #C0922A 0%, #B49430 40%, #FFFBEA 100%);
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;

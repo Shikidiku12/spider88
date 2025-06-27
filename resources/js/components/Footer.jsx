@@ -10,12 +10,10 @@ export const Footer = () => {
 
   return (
     <div className="footer main-content">
+      <div className="footer__accent-left"></div>
+      <div className="footer__accent-right"></div>
       <div className="footer__container">
-        <div className="footer__accent-left"></div>
-        <div className="footer__accent-right"></div>
-        <div className="footer__logo">
-          <img width="174px" height="52px" src="/images/logo_3.png"/>
-        </div>
+        <div class="footer__logoimage"></div>
         <div className="footer__info info">
           <div className="info__link link">
             <a href="javascript:;" className="link-item">{t('about-us')}</a>
@@ -23,7 +21,7 @@ export const Footer = () => {
             <a href="javascript:;" className="link-item">{t('contact-us')}</a>
           </div>
           <div className="info__copyright">
-            &copy; {new Date().getFullYear()} www.spdr88.com {t('all-rights-reserved')}
+            &copy; {new Date().getFullYear()} {t('all-rights-reserved')} www.spider88.com 
           </div>
         </div>
       </div>

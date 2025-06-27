@@ -43,15 +43,14 @@ export const Highlights = ({ setCurrentMenu }) => {
     <div className="highlight d-flex" >
       <div className="highlight__header d-flex">
         <div className="highlight__title d-flex">
-          <div className="highlight__title--icon" style={{backgroundImage: "url('/images/star.png')"}}>
-          </div>
           <span className="highlight__title--text">{t('highlight.highlights')}</span>
+          
         </div>
       </div>
 
           <div className="highlight__cards" onScroll={handleHighlightScroll}>
             <div className="highlight__cards--slider" >
-              <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-1.png')"}}>
+              <div className="highlight__card" style={{backgroundImage: "url('/images/spider/highlights/live.jpg')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">{t('highlight.articleTitle1')}</span>
@@ -65,7 +64,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                 </div>
               </div>
 
-              <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-2.png')"}}>
+              <div className="highlight__card" style={{backgroundImage: "url('/images/spider/highlights/progressive.jpg')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">{t('highlight.articleTitle2')}</span>
@@ -79,7 +78,7 @@ export const Highlights = ({ setCurrentMenu }) => {
                 </div>
               </div>
 
-              <div className="highlight__card" style={{backgroundImage: "url('/images/highlight-bg-3.png')"}}>
+              <div className="highlight__card" style={{backgroundImage: "url('/images/spider/highlights/slots.jpg')"}}>
                 <div className="highlight__card-container">
                   <div className="highlight__card-text">
                     <span className="highlight__card--title">{t('highlight.articleTitle3')}</span>
@@ -104,6 +103,7 @@ export const Highlights = ({ setCurrentMenu }) => {
       <div className="highlight__header d-flex">
         <div className="highlight__title d-flex">
           <span className="highlight__title--text">{t('download.download-the-app')}</span>
+
         </div>
       </div>
 
@@ -118,21 +118,19 @@ export const Highlights = ({ setCurrentMenu }) => {
               <a href="https://pt.launcher.horizon88.com/materials/apk/Spider88_v2.1.apk"
                  className="highlight__download-btn highlight__download-btn--solid">
                 <div className="highlight__download-btn-wrapper">
-                  <span className="highlight__download-btn-subtext">{t('download.download-app')}</span>
                   <span className="highlight__download-btn-text">{t('download.for-android')}</span>
                   <span className="highlight__download-btn--solid-icon">
-                        <img src="/images/android.svg"/>
-                      </span>
+                    <img src="/images/spider/download/android.svg"/>
+                  </span>
                 </div>
               </a>
               <a href="https://pt.launcher.horizon88.com/materials/dl/spider88_dl_v2.1.exe"
                  className="highlight__download-btn highlight__download-btn--outline">
                 <div className="highlight__download-btn-wrapper">
-                  <span className="highlight__download-btn-subtext">{t('download.download-app')}</span>
                   <span className="highlight__download-btn-text">{t('download.for-windows')}</span>
                   <span className="highlight__download-btn--outline-icon">
-                        <img src="/images/windows.svg"/>
-                      </span>
+                    <img src="/images/spider/download/windows.svg"/>
+                  </span>
                 </div>
               </a>
             </div>

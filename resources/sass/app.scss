@@ -2,25 +2,27 @@
 @import 'fonts';
 
 // Variables
-@import 'variables';
+// @import 'variables';
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-@import 'marquee';
-@import 'button';
-@import 'modal';
-@import 'input';
+// @import 'marquee';
+// @import 'button';
+// @import 'modal';
+// @import 'input';
 
 div {
-  --all-games-icon: url('/public/images/menu-icons/all-games.png');
-  --live-casino-icon: url('/public/images/menu-icons/live-casino.png');
-  --slots-icon: url('/public/images/menu-icons/slot-games.png');
-  --video-poker-icon: url('/public/images/menu-icons/progressive-games.png');
-  --top-icon: url('/public/images/menu-icons/top-games.png');
+  --all-games-icon: url('/public/images/spider/Icons/all.png');
+  --live-casino-icon: url('/public/images/spider/Icons/live.png');
+  --slots-icon: url('/public/images/spider/Icons/slot.png');
+  --video-poker-icon: url('/public/images/spider/Icons/progressive.png');
+  --top-icon: url('/public/images/spider/Icons/top.png');
 
-  --bs-modal-border-color: rgba(255, 255, 255, 0.10);
-  --bs-modal-bg: #151C27;
+//   --bs-modal-border-color: rgba(255, 255, 255, 0.10);
+//   --bs-modal-bg: #151C27;
+	--bs-modal-border-color: #45464C;
+  --bs-modal-bg: #202024;
 }
 
 html,body{
@@ -28,11 +30,14 @@ html,body{
 }
 
 body {
-  font-family: "Montserrat", "Gotham";
+  // font-family: "Montserrat", "Gotham";
+	// font-family: "Barlow Semi Condensed", "Montserrat", "Gotham";
+	font-family: "Barlow Semi Condensed";
 }
 
 .navbar {
-  font-family: "Gotham";
+  // font-family: "Barlow Semi Condensed", "Gotham";
+	font-family: "Barlow Semi Condensed";
 }
 
 .hidden-overflow {
@@ -42,6 +47,7 @@ body {
 }
 
 [data-bs-theme=dark] body {
+    // background-color: #e12020;
   background-color: #141415;
 }
 
@@ -161,8 +167,8 @@ body {
 
 // For setting the max-width of the page
 .main {
-  //margin-top: 60px;
-  background-color: #151C27;
+//   background-color: #572E6A; // Main body background color
+	background-color: #3F2150;
 
   /* For Desktop */
   @media (min-width: 992px) {
@@ -225,12 +231,20 @@ body {
 }
 
 .image-overlay {
-  background: linear-gradient(0deg, rgb(21, 28, 39) 42.43%, rgba(21, 28, 39, 0) 100%);
-  height: 104px;
+  // background: linear-gradient(0deg, rgb(21, 28, 39) 42.43%, rgba(21, 28, 39, 0) 100%);
+	// background: linear-gradient(0deg, rgb(0, 0, 0) 42.43%, rgba(50, 50, 50, 0.8) 100%);
+	background: linear-gradient(
+		0deg,
+		#3F2150 42.43%,
+		rgba(0, 0, 0, 0) 100%
+	);
+  height: 54px; // previously 104
   position: absolute;
   width: 100%;
   bottom: 0;
 }
+
+
 
 .no-games-found {
   color: #4a5257;
@@ -250,7 +264,7 @@ body {
   left: -185px;
   top: 198px;
   border-radius: 370px;
-  background: linear-gradient(152deg, #78155D 17.44%, rgba(99, 44, 84, 0.00) 86.17%);
+  background: linear-gradient(152deg, #C0922A 17.44%, rgba(99, 44, 84, 0.00) 86.17%);
   filter: blur(120px);
 }
 
@@ -262,6 +276,43 @@ body {
   right: -175px;
   bottom:  220px;
   border-radius: 370px;
-  background: linear-gradient(152deg, #157848 17.44%, rgba(77, 195, 211, 0.00) 86.17%);
+  background: linear-gradient(152deg, #0A9999 17.44%, rgba(77, 195, 211, 0.00) 86.17%);
   filter: blur(120px);
 }
+
+// .body-accent--ul {
+//   background-image: url('/images/spider/accents/yellow_ul.png');
+//   background-repeat: no-repeat;
+//   background-position: top left;
+//   background-size: contain;
+//   position: absolute;
+//   width: 250px; // set as needed
+//   height: 250px;
+//   z-index: 1;
+// }
+
+// .body-accent {
+//   position: absolute;
+//   z-index: 0; // Behind content
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   pointer-events: none;
+//   opacity: 0.8;
+
+//   &--ul {
+//     top: 0;
+//     left: 0;
+//     width: 200px;
+//     height: 200px;
+//     background-image: url('/public/images/spider/accents/yellow_ul.png');
+//   }
+
+//   &--lr {
+//     bottom: 0;
+//     right: 0;
+//     width: 300px;
+//     height: 300px;
+//     background-image: url('/public/images/spider/accents/yellow_lr.png');
+//   }
+// }
+
