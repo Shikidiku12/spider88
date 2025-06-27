@@ -3,8 +3,8 @@ import { PusherEventsEnum } from "../enums/Pusher";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import PersonIcon from "../../../public/images/laicai/icons/person";
-import LockIcon from "../../../public/images/laicai/icons/lock";
+import PersonIcon from "../../../public/images/spider/Icons/person";
+import LockIcon from "../../../public/images/spider/Icons/lock";
 export const LoginForm = ({
   errors,
   user,
@@ -77,7 +77,7 @@ export const LoginForm = ({
             <span className="login__card__header-close-icon"></span>
           </button>
         </div>
-        <img src="/images/laicai/logo/logo_complete.png" className="login__card__logo" />
+        <img src="/images/spider/logo/yellow_complete_horizontal.png" className="login__card__logo" />
         <form onSubmit={(ev) => onSubmit(ev)} className="login__card__form">
           {errors.general && (
             <div className="alert alert-danger">{errors.general}</div>
@@ -117,8 +117,8 @@ export const LoginForm = ({
                 className="login__card__form__input__icon login__card__form__input__icon--append"
                 onClick={() => setIsShowPassword(!isShowPassword)}
               >
-                {isShowPassword && <img src="/images/laicai/icons/eye-slash.svg" />}
-                {!isShowPassword && <img src="/images/laicai/icons/eye-open.svg" />}
+                {isShowPassword && <img src="/images/spider/Icons/eye-slash.svg" />}
+                {!isShowPassword && <img src="/images/spider/Icons/eye-open.svg" />}
               </div>
               <input
                 value={user.password}
