@@ -11,11 +11,6 @@ use App\Models\Game;
 
 class FetchGames extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'app:fetch-games 
                             {file} 
                             {--sheet=: Name of the sheet.}
@@ -23,16 +18,8 @@ class FetchGames extends Command
                             {--is-live=: }
                             {--is-progressive=: }';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Fetch and populate games to the database from the Google Sheets.';
 
-    /**
-     * Execute the console command.
-     */
     public function handle(): void
     {
         $file = $this->argument('file');
