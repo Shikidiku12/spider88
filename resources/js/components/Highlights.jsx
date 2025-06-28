@@ -31,14 +31,13 @@ export const Highlights = ({ setCurrentMenu }) => {
   const handleInstall = async () => {
     const promptEvent = window.installPromptEvent;
     if (!promptEvent) {
-      alert('The PWA might already be installed. Please uninstall it, then clear your browser cache and data to see the download button again.');
+      alert('The app is already installed. To reinstall, uninstall the app, then clear your browser cache and site data.');
       return;
     }
 
     promptEvent.prompt();
     const { outcome } = await promptEvent.userChoice;
     console.log('User install choice:', outcome);
-
     window.installPromptEvent = null;
     setPwaReady(false);
   };
