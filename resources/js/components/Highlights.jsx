@@ -6,9 +6,7 @@ import { useTranslation } from "react-i18next";
 export const Highlights = ({ setCurrentMenu }) => {
   const [width] = useWindowSize();
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [pwaReady, setPwaReady] = useState(false);
-
   const { t } = useTranslation();
 
   function useWindowSize() {
@@ -25,22 +23,24 @@ export const Highlights = ({ setCurrentMenu }) => {
   }
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault(); // Prevent automatic prompt
-      setDeferredPrompt(e); // Save it to trigger later
+    if (window.showInstallButton) {
       setPwaReady(true);
-    };
-
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    }
   }, []);
 
   const handleInstall = async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const result = await deferredPrompt.userChoice;
-    console.log('User choice:', result.outcome);
-    setDeferredPrompt(null);
+    const promptEvent = window.installPromptEvent;
+    if (!promptEvent) {
+      alert('Install is not available in this browser.');
+      return;
+    }
+
+    promptEvent.prompt();
+    const { outcome } = await promptEvent.userChoice;
+    console.log('User install choice:', outcome);
+
+    // Clean up
+    window.installPromptEvent = null;
     setPwaReady(false);
   };
 
@@ -111,31 +111,39 @@ export const Highlights = ({ setCurrentMenu }) => {
             <span className="highlight__download-description">{t('download.description')}</span>
             <div className="highlight__download-action">
 
-              <button
-                className="highlight__download-btn highlight__download-btn--solid"
-                onClick={handleInstall}
-                disabled={!pwaReady}
-              >
-                <div className="highlight__download-btn-wrapper">
-                  <span className="highlight__download-btn-text">{t('download.for-android')}</span>
-                  <span className="highlight__download-btn--solid-icon">
-                    <img src="/images/spider/download/android.svg" alt="Install PWA on Android" />
-                  </span>
-                </div>
-              </button>
+              {pwaReady && (
+                <>
+                  <button
+                    className="highlight__download-btn highlight__download-btn--solid"
+                    onClick={handleInstall}
+                  >
+                    <div className="highlight__download-btn-wrapper">
+                      <span className="highlight__download-btn-text">{t('download.for-android')}</span>
+                      <span className="highlight__download-btn--solid-icon">
+                        <img src="/images/spider/download/android.svg" alt="Install PWA" />
+                      </span>
+                    </div>
+                  </button>
 
-              <button
-                className="highlight__download-btn highlight__download-btn--outline"
-                onClick={handleInstall}
-                disabled={!pwaReady}
-              >
-                <div className="highlight__download-btn-wrapper">
-                  <span className="highlight__download-btn-text">{t('download.for-windows')}</span>
-                  <span className="highlight__download-btn--outline-icon">
-                    <img src="/images/spider/download/windows.svg" alt="Install PWA on Windows" />
-                  </span>
-                </div>
-              </button>
+                  <button
+                    className="highlight__download-btn highlight__download-btn--outline"
+                    onClick={handleInstall}
+                  >
+                    <div className="highlight__download-btn-wrapper">
+                      <span className="highlight__download-btn-text">{t('download.for-windows')}</span>
+                      <span className="highlight__download-btn--outline-icon">
+                        <img src="/images/spider/download/windows.svg" alt="Install PWA" />
+                      </span>
+                    </div>
+                  </button>
+                </>
+              )}
+
+              {!pwaReady && (
+                <p style={{ color: '#888', marginTop: '1rem' }}>
+                  {t('download.install-not-available')}
+                </p>
+              )}
 
             </div>
           </div>
