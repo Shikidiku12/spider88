@@ -162,16 +162,6 @@ export const NavBar = ({
                     </button>
                   </div>
                 )}
-
-                  <div className="nav__logout" id="login">
-                    <button
-                      className="nav__logout--btn"
-                      onClick={() => logout()}
-                      title="Logout"
-                    >
-                      <img src="/images/logout-icon-37.png" />
-                    </button>
-                  </div>
               </div>
             </div>
           </div>
