@@ -8,13 +8,16 @@ export const CarouselMobile = () => {
     >
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/images/laicai/banner/banner_mob.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/spider/banner/mb1.jpg" className="d-block w-100" alt="..." />
+        </div>
+        <div className="carousel-item active">
+          <img src="/images/spider/banner/mb2.jpg" className="d-block w-100" alt="..." />
         </div>
         <div className="carousel-item">
-          <img src="/images/laicai/banner/banner_mob.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/spider/banner/mb3.jpg" className="d-block w-100" alt="..." />
         </div>
         <div className="carousel-item">
-          <img src="/images/laicai/banner/banner_mob.jpg" className="d-block w-100" alt="..." />
+          <img src="/images/spider/banner/mb4.jpg" className="d-block w-100" alt="..." />
         </div>
       </div>
     </div>

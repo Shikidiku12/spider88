@@ -19,7 +19,7 @@ export const JackpotWidget = () => {
               <div className="featured__progressive-jackpot-money">
                 <span className="featured__progressive-jackpot-money--currency">RM</span>
                 <span className="featured__progressive-jackpot-money--amount">
-              <AnimatedCountUp duration={800000000} endValue={1000000}/>
+              <AnimatedCountUp duration={800000000} endValue={3000000}/>
             </span>
               </div>
             </div>
