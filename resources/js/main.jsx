@@ -226,7 +226,7 @@ const App = () => {
           >
             <Toast.Body className="notification__body">
               <div className="notification__info info">
-                <img src="/images/login_success.svg" />
+                <img src="/images/login-modal.png" />
                 <span className="info__label">{toastMessage}</span>
               </div>
             </Toast.Body>

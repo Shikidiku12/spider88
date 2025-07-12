@@ -50,8 +50,8 @@
     <meta name="msapplication-TileImage" content="/pwa/icons/Square150x150Logo.scale-100.png" />
     <!-- PWA setup ends here -->
 
-    <title>88LAICAI</title>
-    <script src="https://login.flyingdragon88.com/jswrapper/flyingdragon88/integration.js"></script>
+    <title>Spider88</title>
+    <script src="https://login.fdgon88.com/jswrapper/flyingdragon88/integration.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700;800&family=Montserrat:wght@200;300;400;500;700;800&family=Rubik:wght@200;300;400;500;700;800&family=Poppins:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="/images/" href="/images/favicon.ico">
     @viteReactRefresh

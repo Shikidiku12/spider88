@@ -87,7 +87,7 @@ export const GamesList = ({
       };
 
       const url =
-        "https://login.flyingdragon88.com/LoginAndGetTempToken.php?" +
+        "https://login.fdgon88.com/LoginAndGetTempToken.php?" +
         objectToQueryString(queryParams);
 
       const formData = new FormData();
@@ -114,7 +114,7 @@ export const GamesList = ({
           "https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html",
       };
       const gameLaunchUrl =
-        "https://login.flyingdragon88.com/GameLauncher?" +
+        "https://login.fdgon88.com/GameLauncher?" +
         objectToQueryString(gameLaunchParams);
 
       setGameURL(gameLaunchUrl);
