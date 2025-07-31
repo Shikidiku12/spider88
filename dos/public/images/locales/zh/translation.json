@@ -1,0 +1,56 @@
+{
+  "menu": {
+    "top-games": "热门游戏",
+    "all-games": "所有游戏",
+    "slot-games": "老虎机游戏",
+    "live-casino": "真人赌场",
+    "progressive-games": "累进奖池游戏"
+  },
+  "top": "热门",
+  "all": "全部",
+  "slot": "老虎机",
+  "live": "直播",
+  "progressive": "累进",
+  "games": "游戏",
+  "login": "登录",
+  "playtech-progressive-jackpot": "今日最高奖金可达",
+  "search-games": "搜索游戏",
+  "load-more": "加载更多",
+  "play": "玩",
+  "play-now": "立即游戏",
+  "highlight": {
+    "highlights": "精选游戏",
+    "articleTitle1": "真人游戏",
+    "articleDescription1": "选择你的冠军！",
+    "articleTitle2": "累进游戏",
+    "articleDescription2": "探索我们的高端游戏",
+    "articleTitle3": "老虎机俱乐部",
+    "articleDescription3": "旋转赢财富"
+  },
+  "download": {
+    "download-the-app": "下载",
+    "title": "下载我们的应用",
+    "description": "您的财富只需一键 - 立即玩，赢取大奖",
+    "download-app": "下载应用",
+    "for-android": "安卓",
+    "for-windows": "Windows"
+  },
+  "about-us": "关于我们",
+  "terms-services": "服务条款",
+  "contact-us": "联系我们",
+  "all-rights-reserved": "版权所有",
+  "no-games-found": "未找到游戏",
+  "login-form": {
+    "username": "用户名",
+    "password": "密码",
+    "login": "登录",
+    "remember-me": "记住我"
+  },
+  "login-success-message": "您已成功登录！",
+  "logout-success-message": "您已成功登出！",
+  "unauthorized": {
+    "title": "您尚未登录",
+    "description": "访问此功能需要先登录",
+    "login": "登录"
+  }
+}

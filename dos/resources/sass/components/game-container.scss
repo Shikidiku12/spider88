@@ -1,0 +1,230 @@
+.breadcrumbs {
+  &__list {
+    list-style: none; // Remove default list styling
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 0.5em;
+
+    &:first-child {
+      &::before {
+        content: none;
+      }
+    }
+
+    &--current {
+      color: #ffffff;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 0.5em;
+      width: 10px;
+      height: 10px;
+      background: var(--arrow-right-icon) no-repeat;
+      color: #545454;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 42px;
+    height: 42px;
+
+    &--top {
+      background-image: var(--top-icon);
+    }
+
+    &--all {
+      background-image: var(--all-games-icon);
+    }
+
+    &--live {
+      background-image: var(--live-casino-icon);
+    }
+
+    &--slot {
+      background-image: var(--slots-icon);
+    }
+
+    &--progressive {
+      background-image: var(--video-poker-icon);
+    }
+  }
+
+  &__label {
+    color: #DEFFF5;
+    text-align: center;
+    /* H1-Desktop */
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    text-transform: capitalize;
+  }
+
+  &__link {
+    color: #545454;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.54px;
+    text-transform: capitalize;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__current {
+    border-radius: 40px;
+    border: 1px solid #E6B524;
+    padding: 6px 15px;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.54px;
+    text-transform: capitalize;
+  }
+}
+
+.provider-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @media (max-width: 767px) {
+    gap: 6px;
+    align-items: flex-start;
+    padding: 0 15px;
+  }
+
+  &__title {
+    color: #ffffffff;
+
+    &--text {
+      border-radius: 40px;
+      border: 1px solid #E6B524;
+      padding: 10px 15px;
+      /* Mobile/H1 */
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.54px;
+      text-transform: capitalize;
+    }
+
+  }
+
+  &__filter {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__search-wrapper {
+      position: relative;
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      input {
+        color: #ffffff;
+        border-radius: 10px;
+        border: 1px solid #45464C;
+        background: #3B2B47;
+        min-width: 256px;
+        height: 42px;
+        padding: 20px;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        width: 100%;
+
+        @media (max-width: 768px) {
+          min-width: auto;
+        }
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      input:focus::placeholder {
+        color: transparent;
+      }
+
+      input::placeholder {
+        color: #ffffff;
+      }
+
+      &--icon {
+        position: absolute;
+        place-content: center;
+        width: 2.5rem;
+        display: grid;
+        inset-inline-end: 0;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__load-more {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.38rem;
+
+    button {
+      border: none;
+      border-radius: 46px;
+      background: linear-gradient(92deg, #ED1975 6.08%, #2C8B7A 97.94%);
+      padding: 10px 32px;
+      color: #000000;
+
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.48px;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+  }
+}

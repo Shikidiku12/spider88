@@ -1,0 +1,46 @@
+.notificationModal {
+  font-family: 'Raleway', sans-serif;
+  color: #DEFFF5;
+
+  .modal-content {
+    background-color: #1a1a1a; // optional: for contrast
+    border: none;
+    border-radius: 12px;
+  }
+
+  .modal-body {
+    padding: 30px;
+
+    .text-center {
+      color: #DEFFF5;
+    }
+
+    h3.fw-bold {
+      color: #DEFFF5;
+    }
+
+    .btn {
+      background-color: #292A30;
+      color: #DEFFF5;
+      border-radius: 46px;
+      border: none;
+      padding: 10px 24px;
+      font-weight: 600;
+
+      &:hover {
+        background-color: #3a3b41;
+      }
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 100px; // adjust size as needed
+    }
+  }
+
+  .btn-close {
+    filter: invert(1);
+  }
+}

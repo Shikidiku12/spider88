@@ -1,0 +1,98 @@
+.footer {
+	background: #56296D;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+		background: #56296D;
+    gap: 32px;
+    padding: 42px 0;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__accent {
+    &-left {
+      background-image: url("/public/images/spider/accent/yellow_ul.png");
+			background-position: top left;
+    	background-size: 150px; // previously auto
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 250px; // previously 222
+      height: 222px;
+      left: -5px; // Previously -149, -99
+      opacity: 0.2;
+    }
+
+    &-right {
+      background-image: url("/public/images/spider/accent/yellow_ur.png");
+			background-position: top right;
+			background-size: 200px; // previously auto
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 250px; // previously 222
+      height: 222px;
+      right: -10px; // previously 0
+			top: -5px;
+      opacity: 0.2;
+    }
+  }
+
+  &__logo {
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__logoimage {
+    width: 174px;
+    height: 52px;
+    background-color: #55565C;
+    -webkit-mask: url('/images/spider/logo/white_complete_horizontal.png') no-repeat center;
+    mask: url('/images/spider/logo/white_complete_horizontal.png') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    .info {
+      &__link {
+        display: flex;
+        gap: 24px;
+        .link {
+          &-item {
+            color: #DEFFF5;
+            font-family: Poppins;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 21px */
+            text-decoration-line: underline;
+            opacity: 0.4;
+          }
+        }
+      }
+
+      &__copyright {
+        color: #DEFFF5;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        opacity: 0.4;
+      }
+    }
+  }
+}

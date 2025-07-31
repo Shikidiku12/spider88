@@ -1,0 +1,158 @@
+import "../../sass/components/game-list.scss";
+
+import React, { useState } from "react";
+
+import Cookies from "js-cookie";
+import { GameCard } from "../components/GameCard.jsx";
+import { extractValuesFromToken } from "../utils";
+import { useTranslation } from "react-i18next";
+import axios from "axios";
+
+export const GamesList = ({
+  balance,
+  setBalance,
+  filter,
+  user,
+  isLogin,
+  games,
+  setGames,
+  setIsShowLoginNotificationModal,
+  setIsShowGameModal,
+  setGameURL,
+}) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [numberOfGame, setNumberOfGame] = useState(21);
+  const [maxGame, setMaxGame] = useState(21);
+
+  const { t, i18n } = useTranslation();
+
+  const language = "English";
+  const languageCode = "EN";
+
+  const objectToQueryString = (obj) => {
+    const keys = Object.keys(obj);
+    const keyValuePairs = keys.map((key) => {
+      return encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]);
+    });
+    return keyValuePairs.join("&");
+  };
+
+  const launchDemoGame = (ev, game) => {
+    window.iapiSetClientParams("ngm_desktop", "language=" + "en" + "&real=0");
+    window.iapiLaunchClient("ngm_desktop", game.code, "offline", "_blank");
+  };
+
+  const prependSpider88 = (username) => {
+    return username;
+  };
+
+  const convertLanguageCode = (langCode) => {
+    const language = {
+      en: "EN",
+      zh: "ZH-CN",
+      ms: "MS",
+    };
+
+    return language[langCode] ?? "EN";
+  };
+
+  const launchActualGame = async (ev, game) => {
+    console.log('password', Cookies.get('password'));
+    if (!isLogin) {
+      setIsShowLoginNotificationModal(true);
+      return;
+    }
+
+    window.iapiLoginAndGetTempToken(
+      user.username, 
+      Cookies.get('password'), 
+      language, 
+      languageCode
+    );
+    const queryParams = {
+      casinoname: 'flyingdragon88',
+      realMode: 'EN',
+      serviceType: 'GamePlay',
+      systemId: 77,
+      clientType: 'casino',
+      clientPlatform: 'web',
+      clientSkin: 'flyingdragon88',
+      languageCode: 'LoginService',
+    };
+    const url = 'https://login.fdgon88.com/LoginAndGetTempToken.php?' 
+      + objectToQueryString(queryParams);
+
+    const formData = new FormData();
+    formData.append('username', user.username);
+    formData.append('password', Cookies.get('password'));
+    console.log('url', url);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData,
+      });
+      const body = await response.json();
+      console.log('body', body);
+      const sessionToken = body.sessionToken.sessionToken;
+
+      const gameLaunchParams = {
+        gameCodeName: game.is_live ? game.code + ';' + game.alias : game.code,
+        username: user.username,
+        tempToken: sessionToken,
+        casino: 'flyingdragon88',
+        clientPlatform: 'web',
+        language: 'EN',
+        playMode: 1,
+        depositUrl: 'https://google.com&lobbyUrl=https://tools.ptdev.eu/cpsg/kade/technicalerror.html' 
+      };
+      const gameLaunchUrl = 'https://login.fdgon88.com/GameLauncher?'
+        + objectToQueryString(gameLaunchParams);
+
+      setGameURL(gameLaunchUrl);
+      setIsShowGameModal(true);
+    } catch (err) {
+      console.log('err', err);
+    } finally {
+
+    } 
+  };
+
+  const loadMore = () => {
+    const newNumberOfGame = numberOfGame + maxGame;
+    setNumberOfGame(newNumberOfGame);
+  };
+
+  return (
+    <React.Fragment>
+      <div className="game-list">
+        {games.slice(0, numberOfGame).map((game, index) => {
+          return (
+            <GameCard
+              key={game.id}
+              game={game}
+              launchDemoGame={launchDemoGame}
+              launchActualGame={launchActualGame}
+            >
+            </GameCard>
+          );
+        })}
+      </div>
+      {games.length > numberOfGame && (
+        <div className="d-flex justify-content-center align-items-center">
+          <button
+            type="button"
+            className="game-list__button"
+            onClick={() => loadMore()}
+          >
+            Load More
+          </button>
+        </div>
+      )}
+
+      {games.length === 0 && (
+        <div className="no-games-found">No games found.</div>
+      )}
+    </React.Fragment>
+  );
+};
