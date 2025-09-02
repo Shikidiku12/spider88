@@ -16,6 +16,7 @@ import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import { createRoot } from "react-dom/client";
 import { extractValuesFromToken } from "../js/utils";
+import axios from "axios";
 import {useTranslation} from "react-i18next";
 
 const App = () => {
@@ -40,7 +41,19 @@ const App = () => {
   const { t } = useTranslation();
   const pusherRef = useRef("");
 
-  const calloutLogin = (response) => {
+  const calloutLogin = async (response) => {
+    try {
+      const login = await axios.post('/api/auth/login', {
+        username: user.username,
+        password: user.password,
+      });
+      Cookies.set('auth_token', login.data.token);
+    } catch (err) {
+      console.log('err', err);
+    } finally {
+
+    }
+
     if (response.errorCode && response.errorCode === 48) {
       setLoginErrors({
         username: "",
@@ -81,13 +94,23 @@ const App = () => {
     console.log("calloutLogout: response", response);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setUser({
       username: "",
       password: "",
     });
+    try {
+      await axios.post("/api/auth/logout", {}, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('password')}`,
+        },
+      });
+    } catch (err) {
+      console.log('err', err);
+    }
     setIsLogin(false);
     Cookies.remove("access_token");
+    Cookies.remove('password');
     window.iapiLogout(1, 1);
     setIsShowLoginNotificationModal(false);
     setIsLogin(false);
@@ -188,6 +211,7 @@ const App = () => {
 
         <Footer />
         <LoginModal
+          setIsLogin={setIsLogin}
           setUser={setUser}
           user={user}
           isShow={isShowModal}

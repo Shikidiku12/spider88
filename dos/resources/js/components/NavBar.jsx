@@ -36,13 +36,25 @@ export const NavBar = ({
     setLocalSearch(search);
   };
 
-  const logout = () => {
+  const logout = async () => {
     setUser({
       username: '',
       password: '',
     });
+
+    try {
+      await axios.post("/api/auth/logout", {}, {
+        headers: {
+          'Authorization': `Bearer ${Cookies.get('auth_token')}`,
+        },
+      });
+    } catch (err) {
+      console.log('err', err);
+    }
+
     setIsLogin(false);
     Cookies.remove('password');
+    Cookies.remove('auth_token');
     setToastMessage('You have successfully logged out!');
     window.iapiLogout(1, 1);
   };

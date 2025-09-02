@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next";
 import PersonIcon from "../../../public/images/laicai/icons/person";
 import LockIcon from "../../../public/images/laicai/icons/lock";
 export const LoginForm = ({
+  setIsLogin,
   errors,
   setErrors,
   user,
@@ -32,7 +33,7 @@ export const LoginForm = ({
   };
 
   const fetchUser = async (username) => {
-    const response = await axios.get(`/api/player/${username}`);
+    const response = await axios.get(`/api/auth/${username}`);
     return response;
   };
 
