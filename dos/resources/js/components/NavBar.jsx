@@ -136,7 +136,11 @@ export const NavBar = ({
               <div className=" d-none d-lg-block">
                 <LanguageSwitcher />
               </div>
-
+              {isLogin && (
+                  <div  className="text-white nav__logout" id="login">
+                    {user.username}
+                  </div>
+              )}
               {isLogin && (
                 <div className="d-flex nav__actions">
                   <button className="nav__balance">
