@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import '../../sass/components/login.scss';
 
 export const LoginModal = ({
+  setIsLogin,
   setToastMessage,
   setUser,
   user,
@@ -25,6 +26,7 @@ export const LoginModal = ({
         <div className="row">
           <div className="col">
             <LoginForm
+              setIsLogin={setIsLogin}
               setToastMessage={setToastMessage}
               user={user}
               setUser={setUser}

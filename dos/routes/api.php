@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KioskController;
 use App\Http\Controllers\GameListController;
 use App\Http\Controllers\PlayerInfoController;
+use App\Http\Controllers\AuthPlayerController;
+use App\Http\Controllers\AuthLoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ExternalLogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +26,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('game', GameListController::class);
+Route::get('/auth/{username}', AuthPlayerController::class);
+Route::post('/auth/login', AuthLoginController::class);
+Route::post('/auth/logout', LogoutController::class)
+    ->middleware('auth:sanctum');
 
 Route::get('/get-balance/{player_name?}', [
     KioskController::class, 'getPlayerBalance'
 ]);
 
 Route::get('/player/{username}', PlayerInfoController::class);
-
+Route::post('external-logout', ExternalLogoutController::class);
